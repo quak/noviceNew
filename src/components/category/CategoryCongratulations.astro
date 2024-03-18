@@ -1,0 +1,172 @@
+---
+import { getPostByCategoryBySlug } from '../../lib/api';
+import { Debug } from 'astro:components';
+import { getPostByCategoryById } from '../../lib/api';
+import Quarter from '../page/elements/quarter.astro'
+
+const {block} = Astro.props;
+
+const blckjsn = JSON.parse(block.attributesJSON);
+
+let num_of_slider_elements_congrats = blckjsn?.data?.num_of_slider_elements_congrats;
+if (num_of_slider_elements_congrats === undefined){
+	num_of_slider_elements_congrats = '8';
+}
+
+let congratulations = await getPostByCategoryById(["1442"],parseInt(num_of_slider_elements_congrats));
+if(congratulations === undefined){
+	congratulations = new Array();
+}
+
+---
+
+
+
+<section class="bg-sele-ivory px-1 md:px-4 py-24 overflow-hidden">
+	
+	
+	<div class=" mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width mb-8">
+		
+		<h2 class="text-center uppercase text-4xl text-klopinj-blue font-light text-5xl sm:text-8xl flex justify-center"> <img src="/tmpimages/svgs/cestitke.svg"/>Čestitamo</h2>
+		
+	</div>
+
+	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper overflow-hidden relative">
+		<div class="swiper-wrapper">
+
+			{congratulations.map(function (article,k) {
+				
+					return (
+						<Quarter article={article} style="congratulations2" isslider={true} bg={true}/>
+					);
+
+			})}
+						
+			<a href="#" class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">Rožek</span>
+						
+					</div>
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src="/tmpimages/tdata/potrait.svg"/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<h2 class=" uppercase text-2xl font-bold inline-block mt-2 mb-1 text-center">Hanzi Kanzian</h2>
+						<span class="text-base line-clamp-2 font-serif text-center">Ocjanov dedi - 85 let</span>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
+					</div>
+				
+				</article>
+			</a>
+
+			<a href="#" class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">Rožek</span>
+						
+					</div>
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src="/tmpimages/tdata/potrait.svg"/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<h2 class=" uppercase text-2xl font-bold inline-block mt-2 mb-1 text-center">Hanzi Kanzian</h2>
+						<span class="text-base line-clamp-2 font-serif text-center">Ocjanov dedi - 85 let</span>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
+					</div>
+				
+				</article>
+			</a>
+
+			<a href="#" class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">Rožek</span>
+						
+					</div>
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src="/tmpimages/tdata/potrait.svg"/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<h2 class=" uppercase text-2xl font-bold inline-block mt-2 mb-1 text-center">Hanzi Kanzian</h2>
+						<span class="text-base line-clamp-2 font-serif text-center">Ocjanov dedi - 85 let</span>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
+					</div>
+				
+				</article>
+			</a>
+
+			<a href="#" class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">Rožek</span>
+						
+					</div>
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src="/tmpimages/tdata/potrait.svg"/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<h2 class=" uppercase text-2xl font-bold inline-block mt-2 mb-1 text-center">Hanzi Kanzian</h2>
+						<span class="text-base line-clamp-2 font-serif text-center">Ocjanov dedi - 85 let</span>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
+					</div>
+				
+				</article>
+			</a>
+
+			<a href="#" class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">Rožek</span>
+						
+					</div>
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src="/tmpimages/tdata/potrait.svg"/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<h2 class=" uppercase text-2xl font-bold inline-block mt-2 mb-1 text-center">Hanzi Kanzian</h2>
+						<span class="text-base line-clamp-2 font-serif text-center">Ocjanov dedi - 85 let</span>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
+					</div>
+				
+				</article>
+			</a>
+					
+			
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+</section>
+
+<script>
+	import Swiper from 'swiper';
+	import { Navigation, Pagination } from 'swiper/modules';
+	
+	// import styles bundle
+	import 'swiper/css';
+	import 'swiper/css/navigation';
+	import 'swiper/css/pagination';
+  document.addEventListener('astro:page-load', () => {
+// init Swiper:
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  modules: [Navigation, Pagination],
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 16,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  breakpoints: {
+    480: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 4,
+    }
+  }
+
+});
+});
+  </script>

@@ -1,0 +1,9 @@
+---
+const {title} = Astro.props;
+const {block} = Astro.props;
+
+const parsedJSON = JSON.parse(block.attributesJSON);
+const content = parsedJSON.content;
+---
+
+<div class="flex justify-end mb-4"><p class="sm:basis-3/4 font-serif text-lg hyphens-none"><Fragment set:html={content} /></p></div>

@@ -1,0 +1,85 @@
+---
+
+
+import { nullable } from 'astro/zod';
+import { getPostByCategoryById } from '../../lib/api';
+import EventsHome from '../react/EventsHome'; 
+import Third from './elements/third.astro';
+import Twothirds from './elements/twothirds.astro';
+import { Debug } from 'astro:components';
+
+const {block} = Astro.props;
+
+const blckjsn = JSON.parse(block.attributesJSON);
+let datacatid = blckjsn?.data?.blockcategory;
+if (datacatid === undefined){
+	datacatid = '["6"]';
+}
+
+let articles = await getPostByCategoryById(datacatid,3);
+if(articles === undefined){
+	articles = new Array();
+}
+
+
+
+---
+
+<section class="bg-sele-ivory px-1 md:px-4 pt-4 md:pt-12 pb-24">
+	<div class="grid grid-cols-3 gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+		<div class="col-span-3 md:col-span-2">
+			<h2 class="col-span-2 font-light text-2xl md:text-5xl text-klopinj-blue mb-2 uppercase text-center">v zarišču</h2>
+			<div class="grid grid-cols-2 gap-4">
+				{articles.map(function (article,k) {
+					
+					let url = '/'+article?.node?.categories?.nodes[0].slug+'/'+article?.node?.slug;
+					let classes_lr="";
+
+					let place = article?.node?.place?.place;
+					let placeclass = "";
+					if(place === null || place.trim()===0){
+						placeclass = "hidden";
+					}
+
+
+					let d = new Date(article?.node?.date);
+					let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
+					/********* */
+						let avtor ="";
+
+						if(article?.node?.author?.node?.firstName!=null){
+							avtor = ""+article?.node?.author?.node?.firstName ;
+						}
+						if(article?.node?.author?.node?.lastName!=null){
+							avtor = avtor+" "+article?.node?.author?.node?.lastName ;
+						}
+
+						if(avtor == ""){
+							avtor="novice";
+						}
+					/********* */
+					
+					if(k==0){
+						return (
+							<Twothirds article={article} shouldll="false"/>
+						);
+					}
+
+					if(k>0){		
+						return (
+							<Third article={article} style="normal" isslider="false" showdescription="false" shouldll="false"/>
+						);
+					}
+		
+				})}
+				
+				
+			</div>
+		</div>
+		<div class="col-span-3 md:col-span-1 flex flex-col">
+			<h2 class="col-span-2 font-light text-2xl md:text-5xl text-klopinj-blue mb-2 uppercase  pb-2 border-b-2 border-dashed border-jepa-grey border-dashed  text-center">te dni</h2>
+			<EventsHome client:load />
+
+		</div>
+	</div>
+</section>

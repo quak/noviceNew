@@ -1,0 +1,249 @@
+---
+
+
+import { getPostByCategoryBySlug } from '../lib/api';
+import { Image } from 'astro:assets';
+import noviceLogo from "../images/novice_logo.svg";
+import imagevi from "../images/vi.png";
+
+import Search from './Search.astro';
+
+const {menu_left,menu_right,menu_first_column,menu_second_column} = Astro.props;
+
+let datacatid = '["6"]';
+let ml = menu_left.menuItems.nodes;
+let mr = menu_right.menuItems.nodes;
+
+let mmfc = menu_first_column.menuItems.nodes;
+let mmsc = menu_second_column.menuItems.nodes;
+
+let articles = await getPostByCategoryBySlug("",2);
+---
+
+<header class="relative md:px-0 z-30">
+	<Search/>
+	<div class="mb-4 md:mb-0 flex flex-col-reverse md:flex-row justify-between mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width px-1 md:px-0 pt-0 md:pt-8">
+	
+		<div class="flex flex-shrink-0 items-center justify-center md:justify-left">
+			<a href="/" class="">
+				<Image width="200" src={noviceLogo} alt="Novice logo" loading="eager"/>
+			</a>
+		</div>
+		<div class="flex flex-shrink-0 items-center justify-start md:justify-center md:justify-right">
+			
+			<span class="mx-2 ">
+				<span class="flex items-center px-4 border-2 border-papez-purple" id="searchopenbutton">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#72103c" class="bi bi-search mr-2" viewBox="0 0 16 16">
+						<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					</svg>
+					<span class="text-papez-purple uppercase  text-base md:text-xl cursor-pointer tracking-widels">
+						Išči
+					</span>
+				</span>
+			</span>
+
+			<a href="/kategorije/naroci-novice" class="ml-2">
+				<span class="bg-papez-purple text-sele-ivory uppercase py-1 px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels">Naroči novice!</span>
+			</a>
+
+			<div class="flex lg:hidden items-center ml-auto md:ml-0">
+				<!-- Mobile menu button -->
+				<div class="lg:hidden nav-container">
+					<button type="button" class=" mobile-menu-button inline-flex items-center justify-center rounded-md py-2 pl-2 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 z-30" aria-expanded="false">
+						<span class="sr-only">Open menu</span>
+
+						<input class="checkbox" type="checkbox" name="" id="" />
+						<div class="hamburger-lines">
+							<span class="line line1"></span>
+							<span class="line line2"></span>
+							<span class="line line3"></span>
+						</div>
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<nav class="flex justify-center mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width md:mt-4 w-full">
+		<div class="hidden lg:flex justify-center max-h-14 justify-between w-full">
+			<div class="hidden lg:flex items-center lg:space-x-4">
+				<!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+				
+				{ml.map(function (menuitem,k) {
+					
+					let title = menuitem.label;
+					let url = "/kategorije"+menuitem.uri;
+					
+					if(k<2){
+						return (
+							<a href={url} class="inline-flex items-center uppercase text-xl font-bold tracking-widels" >{title}</a>
+							<span>·</span>
+						);
+					}else{
+						return (
+							<a href={url} class="inline-flex items-center uppercase text-xl font-bold tracking-widels" >{title}</a>
+						);
+					}
+					
+				})}
+				
+				
+			</div>
+			<div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2 px-8">
+				<div class="flex flex-shrink-0 items-center">
+					<a href="/kategorije/osebe/">
+						<Image width="80" src={imagevi} loading="eager" alt="Osebe link"/>
+					</a>
+				</div>
+			</div>
+			<div class="hidden lg:flex items-center lg:space-x-8">
+				<!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+				{mr.map(function (menuitem,k) {
+					
+					let title = menuitem.label;
+					let url = "/kategorije"+menuitem.uri;
+					
+					if(k<2){
+						return (
+							<a href={url} class="inline-flex items-center uppercase text-xl font-bold tracking-widels" >{title}</a>
+							<span>·</span>
+						);
+					}else{
+						return (
+							<a href={url} class="inline-flex items-center uppercase text-xl font-bold tracking-widels" >{title}</a>
+						);
+					}
+					
+				})}
+				
+			</div>
+		</div>
+		<div class="hidden lg:flex items-center ml-auto md:ml-8">
+			<!-- Mobile menu button -->
+			<div class=" nav-container">
+				<button type="button" class=" mobile-menu-button inline-flex items-center justify-center rounded-md py-2 pl-2 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 z-30" aria-expanded="false">
+					<span class="sr-only">Open menu</span>
+
+					<input class="checkbox" type="checkbox" name="" id="" />
+					<div class="hamburger-lines">
+						<span class="line line1"></span>
+						<span class="line line2"></span>
+						<span class="line line3"></span>
+					</div>
+				</button>
+			</div>
+		</div>
+	</nav>
+	<!-- Mobile menu, show/hide based on menu open state. -->
+	<div class="hidden mobile-menu transition-all" role="dialog" aria-modal="true" style="">
+		<!-- Background backdrop, show/hide based on slide-over state. -->
+		
+		<div class="absolute w-full bg-white px-4 pb-8 drop-shadow-md -mt-18 z-20" >
+			<div class=" flex flex-row flex-wrap justify-center mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width w-full">
+				<a href="/" class="basis-full sm:hidden mb-8 flex justify-center">
+					<Image width="200" src={noviceLogo} alt="Novice logo" loading="eager" class="mt-1"/>
+				</a>
+				<div class="-my-6 py-6 basis-1/2 md:basis-1/4">
+					<div class=" h-full flex flex-col">
+						<span class="space-y-2 flex flex-col justify-start h-full text-left">
+											
+							{mmfc.map(function (menuitem,k) {
+								
+								let title = menuitem.label;
+								let url = "/kategorije"+menuitem.uri;
+								
+								return (
+									<a href={url} class="tracking-widels block text-2xl md:text-5xl font-light ">{title}</a>
+								);
+								
+							})}
+						</span>
+						
+						
+						
+					</div>
+				</div>
+				<div class="-my-6 py-6 basis-1/2 md:basis-1/4">
+					<div class=" h-full flex flex-col">
+						<span class="space-y-2 flex flex-col justify-start h-full text-left" id="whereami">
+											
+							{mmsc.map(function (menuitem,k) {
+								
+								let title = menuitem.label;
+								let url = "/kategorije"+menuitem.uri;
+								
+								return (
+									<a href={url} class=" tracking-widels block text-2xl md:text-3xl font-light">{title}</a>
+								);
+								
+							})}
+						</span>
+					</div>
+				</div>
+				<div class="-my-6 py-6 w-full basis-2/4 hidden md:block">
+					<div class="space-y-2 ">
+						<span class="w-full pb-2 block uppercase  text-papez-purple tracking-widels block text-2xl md:text-3xl font-light">Zadnje Novice</span>
+						<div class="grid grid-cols-2 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+							{articles.map(function (article,k) {
+								let url = '/'+article.node.categories.nodes[0].slug+'/'+article.node.slug;
+								
+								let classes_lr="";
+								
+								
+									
+									classes_lr = "col-span-1"
+									return (
+										<a href={url} class={classes_lr}>
+											<article class="">
+												<h2 class="text-lg line-clamp-2 text-ellipsis"><Fragment set:html={article.node.title}/></h2>						
+											</article>
+										</a>
+									);
+								
+					
+							})}
+								
+							
+							
+						</div>
+						
+					</div>
+					<div class="space-y-2 mt-4">
+						<span class="w-full pb-2 block  uppercase  text-papez-purple tracking-widels block text-2xl md:text-3xl font-light">Zadnje Galerije</span>
+						<div class="grid grid-cols-2 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+							{articles.map(function (article,k) {
+								let url = '/'+article.node.categories.nodes[0].slug+'/'+article.node.slug;
+								
+								let classes_lr="";
+								
+								
+									
+									classes_lr = "col-span-1"
+									return (
+										<a href={url} class="h-full">
+											<article class="bg-sneg-white h-full">
+												<div class="overflow-hidden">
+													<img class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}/>
+												</div>
+												<div class="pt-2">
+													<h2 class="text-lg line-clamp-2 text-ellipsis"><Fragment set:html={article.node.title}/></h2>
+												</div>
+											
+											</article>
+										</a>
+									);
+								
+					
+							})}
+								
+							
+							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

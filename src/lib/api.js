@@ -1,10 +1,5 @@
 import dotenv from 'dotenv';
 
-dotenv.config();
-
-const API_URL = process.env.WP_URL
-
-
 export async function getAllSlugsOfCategories(){
       
   const response = await fetch("https://sfsn.si/graphql",
@@ -357,6 +352,71 @@ export async function goSearch(searchterm) {
       body: JSON.stringify({
         query: `    {
           posts(where: {categoryIn: "${slug}"},first: ${count}) {
+            edges {
+              node {
+                date
+                id
+                slug
+                title
+                excerpt
+                categories {
+                  nodes {
+                    slug
+                    name
+                  }
+                }
+                tags {
+                  edges {
+                    node {
+                      id
+                      name
+                      slug
+                    }
+                  }
+                }
+                author {
+                  node {
+                    slug
+                    firstName
+                    lastName
+                  }
+                }
+                featuredImage {
+                  node {
+                    link
+                    mediaItemUrl
+                    srcSet(size: IMG33)
+                    sourceUrl(size: IMG33)
+                  }
+                }
+                place {
+                  place
+                }
+                oseba {
+                  name
+                  surname
+                }
+              }
+            }
+          }
+        }`,
+      }),
+    }).then(data=>data.json())
+
+    
+    const posts = response?.data?.posts?.edges;
+    return posts;
+  }
+
+  export async function getPostByCategoryBySlugWithOffset(slug,count,offset) {
+   
+    const response = await fetch("https://sfsn.si/graphql",
+    {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        query: `    {
+          posts(where: {categoryName: "${slug}"},first: ${count}) {
             edges {
               node {
                 date

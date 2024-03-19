@@ -9,7 +9,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    maxDuration: 60
+  }),
   prefetch: {
     defaultStrategy: 'viewport'
   }

@@ -10,7 +10,11 @@ export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   output: 'server',
   adapter: vercel({
-    maxDuration: 60
+    maxDuration: 60,
+    isr: {
+      // caches all pages on first request and saves for 1 day
+      expiration: 60 * 60 * 24,
+    },
   }),
   prefetch: {
     defaultStrategy: 'viewport'

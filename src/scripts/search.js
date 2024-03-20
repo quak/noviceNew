@@ -1,8 +1,12 @@
 
+var searchinprogess = false;
+
 document.addEventListener('astro:page-load', () => {
 
     const searchmenu = document.getElementById("searchmenu");
     const searchopenbutton = document.getElementById("searchopenbutton");
+
+    
 
     const searchclosebutton = document.getElementById("searchclosebutton");
     if(searchopenbutton!=null){
@@ -69,37 +73,83 @@ document.addEventListener('astro:page-load', () => {
 
 
 async function getData(searchterm) {
+
+    if(searchinprogess){
+        return false; 
+    }else{
+        searchinprogess = true;
+    }
+
     try {
 
         //let response = await fetch("https://sfsn.si/wp-json/wp/v2/search/?search="+searchterm);
         //let data = await response.json();
 
+        const dataevent = await fetchEventsForSearch(searchterm);
+        const postsevent = await fetchPostsForSearch(searchterm);
+        console.log(postsevent);
 
-        const datag = await getDataG(searchterm);
-        
-    
-        
+        //const datag = await getDataG(searchterm);
+
         document.getElementById("searchresults").innerHTML="";
         document.getElementById("searchresultswrapper").classList.remove("hidden");
         let articlehtml = "";
 
-        {datag.map(function (article,k) {
+        {dataevent.map(function (article,k) {
                     
             
             articlehtml += `
-                    <a href="`+article?.node?.uri+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in">
-                        <article class=" flex gap-4 border-b pb-4 border-iskanje-dark-pes">
-                            <div class="overflow-hidden basis-1/3">
-                                <img class="ease-out duration-4000 transition-all hover:scale-103" src=""`+article.node?.featuredImage?.node?.sourceUrl+`" srcset="`+article?.node?.featuredImage?.node?.srcSet+`"/>
+                    <a href="/prireditev/`+article?.post_name+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in swiper-slide">
+                        <article class=" gap-4 border-b pb-4 border-iskanje-dark-pes">
+                                                       
+                            <div class="flex flex-wrap gap-2">
+                                <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block">`+article.city+`-`+article.venue+`</span>
+                                <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block">`+article.evdate+`-`+article.evtime+`</span>
                             </div>
-                            <div class="basis-2/3">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="uppercase px-2 bg-papez-purple text-white text-xl tracking-widels">Glasba</span>
-                                    <span class="uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels">Šentprimož</span>
+                            
+                            <h2 class="mt-4 text-2xl font-bold line-clamp-2 text-ellipsis">`+article?.post_title+`</h2>	
+                        
+                        
+                        </article>
+                    </a>
+                    `;
+                                    
+        })}
+        document.getElementById("searchresultsevents").innerHTML="";
+        document.getElementById("searchresultsevents").innerHTML = articlehtml;
+        articlehtml = "";
+
+        let hidemeclass = "";
+        {postsevent.map(function (article,k) {
+            hidemeclass = " hidden";
+            if( typeof article.acf.place !== "undefined"){
+                
+                hidemeclass="";
+            }
+                    
+            articlehtml += `
+                    <a href="/`+article?.cat?.slug+`/`+article?.post_name+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in">
+                        <article class=" flex flex-col sm:flex-row  gap-4 border-b pb-4 border-iskanje-dark-pes">
+                            <div class="overflow-hidden sm:basis-1/3">
+                                <img class="ease-out duration-4000 transition-all hover:scale-103" src="`+article?.thumb+`"/>
+                            </div>
+                            <div class="sm:basis-2/3 flex flex-1 flex-col justify-between">
+                                <div class="flex flex-wrap gap-2 `+hidemeclass+`">
+                                    <span class="uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels ">`+article?.acf?.place+`</span>
                                 </div>
-                                <span class="text-papez-purple uppercase text-lg inline-block mb-1 tracking-widedate hidden">`+article.node?.categories?.nodes[0].slug+`</span>
-                                <h2 class="mt-4 text-4xl font-bold line-clamp-2 text-ellipsis">`+article?.node?.title+`</h2>	
-                                <div class=" text-lg mt-2 line-clamp-2 text-ellipsis font-serif">`+article?.node?.excerpt+`</div>
+                                
+                                <h2 class="mt-4 text-4xl font-bold line-clamp-2 text-ellipsis">`+article?.post_title+`</h2>	
+                                <div class=" text-lg mt-2 line-clamp-2 text-ellipsis font-serif">`+article?.excerpt+`</div>
+
+                                <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+                                    <span class="uppercase flex flex-row items-end text-klopinj-blue tracking-widels text-xs sm:text-md">
+                                        `+article?.actdate+`
+                                    </span>
+
+                                    <span class="uppercase flex flex-row items-end text-klopinj-blue tracking-widels text-xs sm:text-md">
+                                        `+article?.author+`
+                                    </span>
+                                </div>
                             </div>
                         
                         </article>
@@ -108,35 +158,7 @@ async function getData(searchterm) {
                                     
         })}
         document.getElementById("searchresults").innerHTML = articlehtml;
-
-        /**
-         * 
-         * 
-         * {data.map(function (article,k) {
-                    
-            
-            articlehtml += `
-                    <a href="`+article.url+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in">
-                        <article class=" flex gap-4 border-b pb-4 border-iskanje-dark-pes">
-                            <div class="overflow-hidden basis-1/3">
-                                <img class="ease-out duration-4000 transition-all hover:scale-103"/>
-                            </div>
-                            <div class="basis-2/3">
-                                <span class="text-papez-purple uppercase text-lg inline-block mb-1 tracking-widedate">TEST</span>
-                                <h2 class=" text-3xl  font-bold line-clamp-2 text-ellipsis">`+article.title+`</h2>	
-                                <p class=" text-base mt-2 font-serif line-clamp-2 text-ellipsis">asdasd</p>
-                            </div>
-                        
-                        </article>
-                    </a>
-                    `;
-                                    
-        })}
-        document.getElementById("searchresults").innerHTML = articlehtml;
-         */
-        
-
-        //return data;
+        searchinprogess = false;
     } catch(error) {
         throw Error(`error:${error}`);
     }
@@ -149,21 +171,13 @@ async function getDataG(searchterm){
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({
                 query: `    {
-                    contentNodes(where: {search: "${searchterm}"}) {
+                    posts(where: {search: "${searchterm}"}) {
                     edges {
                         node {
                         link
                         slug
                         ... on Post {
                             id
-                            title
-                            blocks {
-                            name
-                            attributesJSON
-                            dynamicContent
-                            originalContent
-                            isDynamic
-                            }
                             title
                             excerpt
                             content
@@ -193,7 +207,58 @@ async function getDataG(searchterm){
                 }),
             }).then(data=>data.json())
 
-            
-            const posts = response?.data?.contentNodes?.edges;
+            const posts = response?.data?.posts?.edges;
             return posts;
+}
+
+async function fetchEventsForSearch(searchterm) {
+    
+    var params = {
+        searchword: searchterm
+    };
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(params)
+    };    
+
+    var data;
+         
+    try {
+        const response = await fetch("https://sfsn.si/wp-json/nre/v1/eventssearch/",requestOptions);
+        data = await response.json();
+        
+        
+    } catch (error) {
+    } finally {
+        return data;
+    }
+   
+}
+
+async function fetchPostsForSearch(searchterm) {
+    
+    var params = {
+        searchword: searchterm
+    };
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(params)
+    };    
+
+    var data;
+         
+    try {
+        const response = await fetch("https://sfsn.si/wp-json/nre/v1/postssearch/",requestOptions);
+        data = await response.json();
+        
+        
+    } catch (error) {
+    } finally {
+        return data;
+    }
+   
 }

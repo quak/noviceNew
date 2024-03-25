@@ -1,13 +1,60 @@
 ---
 
 
+import sendGrid from '@sendgrid/mail';
 import { getPostByCategoryBySlug,getOpinionPosts } from '../../lib/api';
+import ContactForm from '../react/ContactForm';
 
-const {block} = Astro.props;
 
-const blckjsn = JSON.parse(block.attributesJSON);
+//const {block} = Astro.props;
+
+//const blckjsn = JSON.parse(block.attributesJSON);
+
+
+
+
+sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
+
+
+if (Astro.request.method === 'POST') {
+  try{
+    // Getting posted data from our contact form
+    const data = await Astro.request.formData();
+	
+    const firstname = data.get('first-name');
+    const secondname = data.get('last-name');
+	const name = firstname +" "+ secondname;
+    const email = data.get('email');
+    const usermsg = data.get('about');
+
+    const message = name +" ; "+ email +" ; "+ email +" ; "+ usermsg  ;
+
+    // TODO: Do not forget to do validation and error handling over received data from your contact form.
+
+    // Sending email
+    const msg = {
+      to: 'office@avax.at', // Kam poslješ zdaj na office poj na naročnina@novice.at
+      from: 'augustin.malle@gmail.com', // <--------------------Sem pride nekaj office@novice.at / poj ko verificiraš
+      replyTo: {email:email, name:name},
+      subject: 'Naročilo - '+name,
+      text: message,
+    }
+    await sendGrid.send(msg).then(() => {
+      console.log('Email sent')
+    }).catch((error) => {
+      console.error(error)
+    });
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 ---
+
+<ContactForm client:load />
+
 <section class="bg-sele-ivory px-1 md:px-4 py-24">
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		<form>

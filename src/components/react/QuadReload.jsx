@@ -72,7 +72,7 @@ export default function QuadReload(args) {
 
 		
 		<>
-			<section className=" px-1 md:px-4 py-4 overflow-hidden">
+			<section className=" px-1 md:px-4overflow-hidden">
 				<div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 					{items?.map(function (article,k) {
 						let url = '/'+article?.cat?.slug+'/'+article?.post_name;

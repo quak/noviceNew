@@ -14,6 +14,7 @@ export default function ContactForm(args) {
 	const submit = e => {
 		e.preventDefault()
 		sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
+		console.log(import.meta.env.SENDGRID_API_KEY);
 
 		const name = firstname +" "+ lastname;
 		const message = name +" ; "+ email +" ; "+ email +" ; "+ usermessage  ;

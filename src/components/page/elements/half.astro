@@ -99,14 +99,14 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                         <img class="ease-out duration-4000 transition-all hover:scale-101 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}/>
                     </div>
                     <div class="px-6 basis-1/3 absolute flex flex-wrap flex-col justify-between h-full bottom-0 w-full">
-                        <div class="z-20 relative flex items-center flex-wrap flex-col justify-between h-full ">
+                        <div class="z-20 relative flex items-center flex-wrap flex-col justify-between h-full p-4 ">
                             <div class="flex flex-wrap gap-2 justify-center">
                                 <span class={`uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels ${placeclass}`}>{place}</span>
                             </div>
                             
-                            <img class={`mt-2 hidden lg:block ${isgal}`}  src="/tmpimages/svgs/gal.svg">
+                            <img class={`mt-2 max-h-14 hidden self-end lg:block ${isgal}`}  src="/tmpimages/svgs/gal.svg">
                             <h2 class="text-xl sm:text-3xl text-center text-white font-bold max-w-md w-full flex-1 flex items-end justify-center line-clamp-2"><Fragment set:html={article?.node?.title}/></h2>
-                            <div class="hidden sm:flex flex-row justify-between  gap-1 sm:gap-4 mt-2">
+                            <div class="hidden sm:flex flex-row justify-between gap-1 sm:gap-4 mt-2">
                                 <span class="svggowhite uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                     <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
                                     {datestring}

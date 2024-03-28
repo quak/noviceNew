@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import useFetch from "react-fetch-hook";
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+
+import bookmarkicon from "../../images/bookmark.svg";
+import usericon from "../../images/user.svg";
 
 export default function ArticlesForTag(tag) {
 	var params = {
@@ -34,40 +39,69 @@ export default function ArticlesForTag(tag) {
 		
 	if(isLoading) return "";
 	if(error) return "err";
+	console.log(data);
 
 	return (		
 		<>
-				<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width grid grid-cols-2 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-12">
+				<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width grid grid-cols-2 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-2 sm:gap-4 md:gap-12">
 					{data.map(function (post,k) {
 						
 						let url = '/'+post?.cat?.slug+'/'+post?.post_name;
+						let place ="";
+						if(post.acf){
+							place = post.acf.place;
+						}
+						let placeclass="";
+						let excerpt="";
+						if(post.excerpt){
+							excerpt = post.excerpt;
+						}
+						let descriptionclass=" sm:block";
+						var llstyle = "lazy";
+
+						let d = new Date(post?.post_date);
+						let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
+
+						let avtor ="";
+						if(avtor == ""){
+							avtor="novice";
+						}
 						
 							return (
-								<a key={k} href={url} className="h-full flex col-span-1 relative self-start  overflow-hidden" rel="">
-									<article className="border-b border-black flex flex-col justify-between">
-										<div>
 
-											<img className="ease-out duration-4000 transition-all hover:scale-101"   src={post?.imageurl} />
-											<div className="flex flex-wrap gap-2 justify-start mt-2">
-												<span className="uppercase px-2 bg-papez-purple text-white text-xl tracking-widels">{post?.cat?.name}</span>
-												<span className="uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels">Šentprimož</span>
+								<a key={k} href={url} class="col-span-1 md:col-span-1 md:row-span-1"  rel="prefetch-intent">
+									<article class="p-2 bg-sneg-white h-full flex flex-col">
+										<div class="overflow-hidden relative ">
+											<img height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={post?.imageurl} loading={llstyle} alt={post.post_title}/>
+											<div class="absolute left-0 bottom-0 block">
+												<span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
 											</div>
-
-											<h2 className="text-2xl my-2 text-ellipsis line-clamp-3 font-bold">{post.post_title}</h2>						
-											<p  className="text-base hidden sm:block line-clamp-2 font-serif mb-4"></p>
 										</div>
-										<div className="flex flex-col sm:flex-row gap-1 justify-between mb-2">
-											<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels">
-												<img className="" src="/tmpimages/svgs/bookmark.svg"/>
-												{post.actdate}
+										<div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
+											
+											<h2 class=" text-xl sm:text-2xl line-clamp-2 text-ellipsis font-bold">{post?.post_title}</h2>	
+											<span class={`hidden ${descriptionclass}`}>
+												<p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
 											</span>
+											<div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+												<span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
+													
+													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" class=""/>
+													
+													{datestring}
+												</span>
 
-											<span className="uppercase hidden sm:flex items-center tracking-widels">
-												{post.firstname} {post.lastname}
-											</span>
+												<span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
+													
+													<img class=" max-h-4 mr-2" src="/tmpimages/svgs/user.svg" alt="Avtor icon" loading={llstyle}/>
+													{avtor}
+												</span>
+											</div>
 										</div>
+									
 									</article>
 								</a>
+
 							);
 						
 					})}

@@ -90,7 +90,7 @@ let articles = await getPostByCategoryBySlug("",2);
 				
 				
 			</div>
-			<div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2 px-8">
+			<div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2 px-8 z-30">
 				<div class="flex flex-shrink-0 items-center">
 					<a href="/kategorije/osebe/">
 						<Image width="80" src={imagevi} loading="eager" alt="Osebe link"/>
@@ -139,7 +139,7 @@ let articles = await getPostByCategoryBySlug("",2);
 	<div class="hidden mobile-menu transition-all" role="dialog" aria-modal="true" style="">
 		<!-- Background backdrop, show/hide based on slide-over state. -->
 		
-		<div class="absolute w-full bg-white px-4 pb-8 drop-shadow-md -mt-18 sm:mt-4 z-20" >
+		<div class="absolute w-full bg-white px-4 pb-8 drop-shadow-md -mt-18 sm:mt-0 sm:pt-8 sm:pb-12 z-20">
 			<div class=" flex flex-row flex-wrap justify-center mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width w-full">
 				<a href="/" class="basis-full sm:hidden mb-8 flex justify-center">
 					<Image width="200" src={noviceLogo} alt="Novice logo" loading="eager" class="mt-1"/>

@@ -3,7 +3,7 @@
 
 import sendGrid from '@sendgrid/mail';
 import { getPostByCategoryBySlug,getOpinionPosts } from '../../lib/api';
-import ContactForm from '../react/ContactForm';
+
 
 
 //const {block} = Astro.props;
@@ -12,7 +12,7 @@ import ContactForm from '../react/ContactForm';
 
 
 
-
+let showconfirmationclass = "hidden";
 sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
 
 
@@ -46,6 +46,7 @@ if (Astro.request.method === 'POST') {
     }).catch((error) => {
       console.error(error)
     });
+	showconfirmationclass="";
 
   } catch (error) {
     console.error(error);
@@ -55,17 +56,21 @@ if (Astro.request.method === 'POST') {
 
 ---
 
-<ContactForm client:load />
 
 <section class="bg-sele-ivory px-1 md:px-4 py-24">
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
-		<form>
+		<form method="POST">
 			<div class="space-y-12">
 			  
 			  <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
 				
 		  
 				<div class="grid max-w-2xl col-span-1 grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+					<div class={`col-span-6 py-4 text-center `+showconfirmationclass}> 
+						<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+							<p class="p-2 bg-papez-purple text-sele-ivory uppercase sm:px-4 text-lg sm:text-xl  tracking-widels"> Hvala za sporočilo</p>
+						</div>
+					</div>
 					<div class="col-span-6">
 						<h2 class="block leading-6 uppercase text-3xl font-bold tracking-widels">Kontakt</h2>
 					</div>

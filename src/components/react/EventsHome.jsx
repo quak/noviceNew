@@ -10,17 +10,20 @@ export default function EventsHome() {
 
 	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/last/");
 
+	const [pagenum, setPagenum] = useState(1);
 
 	const SwiperNav = () => {
 		const swiper = useSwiper();
+
+		
 		return (
 			<div className="block -mt-8 absolute z-10 b-0 w-full">
 				<div className="flex mt-auto w-full ">   
 						
 					
-					<span className="py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer" onClick={() => swiper.slideTo(0)}>1</span>
-					<span className="py-1 px-4 bg-white mx-1 cursor-pointer" onClick={() => swiper.slideTo(1)}>2</span>
-					<span className="py-1 px-4 bg-white mx-1 cursor-pointer" onClick={() => swiper.slideTo(2)}>3</span>
+					<span className={(pagenum === 0 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(0);setPagenum(0); }}>1</span>
+					<span className={(pagenum === 1 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(1);setPagenum(1); }}>2</span>
+					<span className={(pagenum === 2 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(2);setPagenum(2); }}>3</span>
 					<a href="/prireditve" className="py-1 px-6 bg-klopinj-blue text-white mx-1 ml-auto uppercase tracking-widels">Vse </a>
 					
 				</div>
@@ -63,13 +66,14 @@ export default function EventsHome() {
 				spaceBetween={0}
 				className="eventSwiper w-full"
 				slidesPerView={1}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log("swiperinit")}
+				onSlideChange={() => console.log('')}
+				onSwiper={(swiper) => console.log("")}
 				
 				modules={[Pagination]}
 				style={{ height: '100%'}}
 				>
 				{datax.map(function (page,l) {
+					
 					
 					pagearr = Object.values(page);
 					return (
@@ -77,14 +81,24 @@ export default function EventsHome() {
 						
 
 							{pagearr.map(function (day,k) {
+
+								
+
+								var borderclass = "border-b"
+								if(k-(pagearr.length-1)==0){
+									borderclass = ""
+								}
 								
 								let printdate = day.printdate;
 								let printweekday = day.printweekday;
 								let events = day.events;
+
+
 								
 								
 								return (
-									<div key={k} className="flex flex-row py-4 border-jepa-grey border-b gap-6">
+									
+									<div key={k} className={`flex flex-row py-4 border-jepa-grey gap-6 `+ borderclass}>
 
 										<div className="basis-1/5 flex">
 											<div className="w-20">

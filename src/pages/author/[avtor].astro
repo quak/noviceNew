@@ -24,7 +24,7 @@ const avtordata = await getAvtorBySlug(avtor);
             <div class="flex flex-col basis-1/2 justfiy-center  px-2 py-4 col-span-4  lg:col-span-1">
                 <div class=" relative flex justify-center">
                     <img class="mx-auto z-10 -mb-4 max-h-48" src={avtordata.data.profileimage}/>
-                    <div class="mx-auto absolute w-60 h-60 border border-black bg-white rounded-full top-8"></div>
+                    <div class="hidden lg:block mx-auto absolute w-60 h-60 border border-black bg-white rounded-full top-8"></div>
                 </div>
                 <div class="bg-white z-20 -mt-4 pt-4 flex justify-center">
                     <div class="px-6 flex flex-wrap flex-col justify-between h-full  border-t  ">

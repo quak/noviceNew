@@ -94,16 +94,32 @@ async function getData(searchterm) {
         document.getElementById("searchresults").innerHTML="";
         document.getElementById("searchresultswrapper").classList.remove("hidden");
         let articlehtml = "";
+        let loca="";
+        let hideclass="";
+
 
         {dataevent.map(function (article,k) {
-                    
+            loca = ""; 
+            if(article?.city){
+                loca = article.city;
+            }
+            if(article?.venue){
+                if(loca!=""){
+                    loca += " - "+article.city;
+                }else{
+                    loca = article.venue;
+                }
+            }  
+            if(loca==""){
+                hideclass = "hidden";
+            }
             
             articlehtml += `
                     <a href="/prireditev/`+article?.post_name+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in swiper-slide">
-                        <article class=" gap-4 border-b pb-4 border-iskanje-dark-pes">
+                        <article class=" gap-4 border-b pb-4 border-iskanje-dark-pes h-full"> 
                                                        
                             <div class="flex flex-wrap gap-2">
-                                <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block">`+article.city+`-`+article.venue+`</span>
+                                <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block `+hideclass+`">`+loca+`</span>
                                 <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block">`+article.evdate+`-`+article.evtime+`</span>
                             </div>
                             
@@ -120,18 +136,24 @@ async function getData(searchterm) {
         articlehtml = "";
 
         let hidemeclass = "";
+        let hideimg = "hidden";
         {postsevent.map(function (article,k) {
             hidemeclass = " hidden";
+            hideimg = " hidden";
             if( typeof article.acf.place !== "undefined"){
-                
                 hidemeclass="";
+            }
+
+            
+            if(article?.thumb!=false){
+                hideimg="";
             }
                     
             articlehtml += `
                     <a href="/`+article?.cat?.slug+`/`+article?.post_name+`" class=" mb-6 pb-2 inline-block animate-in fade-in zoom-in">
-                        <article class=" flex flex-col sm:flex-row  gap-4 border-b pb-4 border-iskanje-dark-pes">
+                        <article class=" flex flex-col sm:flex-row  gap-4 border-b pb-4 border-iskanje-dark-pes h-full">
                             <div class="overflow-hidden sm:basis-1/3">
-                                <img class="ease-out duration-4000 transition-all hover:scale-103" src="`+article?.thumb+`"/>
+                                <img class="ease-out duration-4000 transition-all hover:scale-103 `+hideimg+`" src="`+article?.thumb+`"/>
                             </div>
                             <div class="sm:basis-2/3 flex flex-1 flex-col justify-between">
                                 <div class="flex flex-wrap gap-2 `+hidemeclass+`">

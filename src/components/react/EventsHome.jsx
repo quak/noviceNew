@@ -10,7 +10,7 @@ export default function EventsHome() {
 
 	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/last/");
 
-	const [pagenum, setPagenum] = useState(1);
+	const [pagenum, setPagenum] = useState(0);
 
 	const SwiperNav = () => {
 		const swiper = useSwiper();

@@ -41,7 +41,7 @@ let mr = menu_right.menuItems.nodes;
                 {ml.map(function (menuitem,k) {
 								
                     let title = menuitem.label;
-                    let url = menuitem.uri;
+                    let url = 'kategorije'+menuitem.uri;
                     
                     return (
                         <a href={url} class="block text-3xl ">{title}</a>
@@ -51,7 +51,7 @@ let mr = menu_right.menuItems.nodes;
                 {mr.map(function (menuitem,k) {
                     
                     let title = menuitem.label;
-                    let url = menuitem.uri;
+                    let url = 'kategorije'+menuitem.uri;
                     
                     return (
                         <a href={url} class="block text-3xl ">{title}</a>

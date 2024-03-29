@@ -58,7 +58,7 @@ export default function EventsOverview() {
 					
 					<h1 className="text-center uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">Prireditve · Termini</h1>
 				</div>
-				<div className="flex flex-col gap-4 mt-8">
+				<div className="flex flex-col gap-4 mt-8 hidden">
 					<div className="flex justify-between items-center">
 						<div className="flex flex-row gap-4">
 							<a href=""><span className="uppercase bg-tag-grey text-xl px-4 rounded-2xl">Karikture</span></a>
@@ -66,9 +66,9 @@ export default function EventsOverview() {
 						</div>
 						<div className="flex flex-row gap-4">
 							<div className="relative ">
-									<input type="text" value={searchWord} onChange={e => setSearchWord(e.target.value)} className="focus:outline-none border-b border-black border-dotted w-full bg-transparent p-2 pr-0 text-3xl" placeholder="Išči"/>
-									<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0000000" id="magsearch" className="cursor-pointer bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg></div>
-								</div>
+								<input type="text" value={searchWord} onChange={e => setSearchWord(e.target.value)} className="focus:outline-none border-b border-black border-dotted w-full bg-transparent p-2 pr-0 text-3xl" placeholder="Išči"/>
+								<div className="pointer-events-none absolute inset-y-0 right-0 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0000000" id="magsearch" className="cursor-pointer bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg></div>
+							</div>
 						</div>
 					</div>
 					<div className="relative flex justify-center">

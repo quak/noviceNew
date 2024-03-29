@@ -120,20 +120,21 @@ if(article?.node?.oseba?.surname!=null){
             <a href={url} class="col-span-1 h-full" rel="prefetch-intent">
                 <article class="p-3 bg-sneg-white flex flex-col md:flex-row gap-4 h-full">
                 
-                    <div class=" overflow-hidden md:basis-1/2">
-                        <Picture height="164" width="292" class="ease-out duration-4000 transition-all hover:scale-103"  src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
+                    <div class=" overflow-hidden md:basis-1/2 relative block">
+                        <div class="absolute top-0 right-0 block z-30">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+                        </div>
+                        <Picture height="164" width="292" class="ease-out duration-4000 transition-all hover:scale-103 sepia"  src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
                     </div>
         
                     <div class="grid grid-col-1 md:basis-1/2">
+                        <span class="text-papez-purple text-3xl">{personname}</span>
                         <span>
-                            <span class="text-papez-purple text-xl">{article?.node?.place?.place}</span>
-                            -
-                            <span class="text-papez-purple text-xl">{article?.node?.oseba?.dateinfo}</span>
+                            <span class="text-black text-2xl">{article?.node?.oseba?.dateinfo}</span>
                         </span>
-                        <span class="text-papez-purple text-xl">{personname}</span>
                         
-                        <h2 class="text-2xl mt-4 mb-2  line-clamp-3 text-ellipsis"><Fragment set:html={article.node.title}/></h2>
-                        <p class="line-clamp-3 text-ellipsis">{excerpt}</p>
+                        
+                        <div class="text-2xl mt-4">{article.node.title}</div>
                     </div>
                 
                 </article>

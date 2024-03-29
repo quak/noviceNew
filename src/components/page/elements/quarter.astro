@@ -137,14 +137,16 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         return(
             <a href={url} class="col-span-1 row-start-2 swiper-slide " rel="prefetch-intent">
                 <article class="p-2 bg-sneg-white h-full">
-                    <div class="overflow-hidden">
+                    <div class="overflow-hidden relative block">
+                        <div class="absolute left-0 bottom-0 block">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+                        </div>
                         <Picture height="128" width="257" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
                         
                     </div>
                     <div class="py-2">
-                        <span class="text-papez-purple uppercase text-xl inline-block mt-2 mb-2">{personname}</span>
-                        <span class="uppercase text-xl inline-block mt-2 mb-2">{article?.node?.place?.place}</span>
-                        <h2 class="text-2xl mb-2 line-clamp-3 text-ellipsis h-24"><Fragment set:html={article.node.title}/></h2>
+                        <span class="text-papez-purple uppercase text-3xl inline-block mt-2 mb-2">{personname}</span>
+                        <h2 class="text-xl mb-2 line-clamp-3 text-ellipsis h-24"><Fragment set:html={article.node.title}/></h2>
                         
                     </div>
                 

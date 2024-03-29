@@ -22,7 +22,7 @@ let articles = await getPostByCategoryBySlug("",2);
 
 <header class="relative md:px-0 z-30">
 	<Search/>
-	<div class="mb-4 md:mb-0 flex flex-col-reverse md:flex-row justify-between mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width px-1 md:px-0 pt-0 md:pt-8">
+	<div class="mb-4 md:mb-0 flex flex-col-reverse md:flex-row justify-between mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width px-1 md:px-0 pt-0 md:pt-4">
 	
 		<div class="flex flex-shrink-0 items-center justify-center md:justify-left">
 			<a href="/" class="">
@@ -42,8 +42,11 @@ let articles = await getPostByCategoryBySlug("",2);
 				</span>
 			</span>
 
-			<a href="/kategorije/naroci-novice" class="ml-2">
-				<span class="bg-papez-purple text-sele-ivory uppercase py-1 px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels">Naroči novice!</span>
+			<a href="/kategorije/naroci-novice" class="">
+				<span class="bg-klopinj-blue text-sele-ivory uppercase py-1 px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels">Naroči novice!</span>
+			</a>
+			<a href="/kategorije/kontakt" class="ml-2">
+				<span class="bg-papez-purple text-sele-ivory uppercase py-1 px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels">Kontakt</span>
 			</a>
 
 			<div class="flex lg:hidden items-center ml-auto md:ml-0">
@@ -139,7 +142,7 @@ let articles = await getPostByCategoryBySlug("",2);
 	<div class="hidden mobile-menu transition-all" role="dialog" aria-modal="true" style="">
 		<!-- Background backdrop, show/hide based on slide-over state. -->
 		
-		<div class="absolute w-full bg-white px-4 pb-8 drop-shadow-md -mt-18 sm:mt-0 sm:pt-8 sm:pb-12 z-20">
+		<div class="absolute w-full bg-white px-4 pb-8 drop-shadow-md -mt-18 sm:mt-0 sm:pt-4 sm:pb-12 z-20">
 			<div class=" flex flex-row flex-wrap justify-center mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width w-full">
 				<a href="/" class="basis-full sm:hidden mb-8 flex justify-center">
 					<Image width="200" src={noviceLogo} alt="Novice logo" loading="eager" class="mt-1"/>
@@ -154,7 +157,7 @@ let articles = await getPostByCategoryBySlug("",2);
 								let url = "/kategorije"+menuitem.uri;
 								
 								return (
-									<a href={url} class="tracking-widels block text-2xl md:text-5xl font-light ">{title}</a>
+									<a href={url} class="tracking-widels block text-5xl font-light ">{title}</a>
 								);
 								
 							})}

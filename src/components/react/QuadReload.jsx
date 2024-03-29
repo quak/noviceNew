@@ -65,18 +65,17 @@ export default function QuadReload(args) {
 	}, [isLoading]);
 
 	/** */
-
+	let llstyle = "lazy"
 	  
 
 	return (
-
+		
 		
 		<>
-			<section className=" px-1 md:px-4overflow-hidden">
+			<section className="  px-1 md:px-4 py-4 overflow-hidden ">
 				<div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 					{items?.map(function (article,k) {
 						let url = '/'+article?.cat?.slug+'/'+article?.post_name;
-						console.log(article);
 						
 							return (
 								<a key={k} href={url} className="col-span-1 lg:col-span-1 lg:row-span-1" rel="prefetch-intent">

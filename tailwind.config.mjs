@@ -48,6 +48,10 @@ module.exports = {
 			maxWidth: {
 			    'nov-width': '1140px',
 			},
+			width: {
+				'lg': '1024px',
+				'2xl': '1140px',
+			},
 			scale: {
 				'101': '1.01',
 				'103': '1.03',

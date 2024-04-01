@@ -1,12 +1,11 @@
 ---
-
-
-import { nullable } from 'astro/zod';
+import { getAds } from '../../lib/ads';
 import { getPostByCategoryById } from '../../lib/api';
 import EventsHome from '../react/EventsHome'; 
 import Third from './elements/third.astro';
 import Twothirds from './elements/twothirds.astro';
 import { Debug } from 'astro:components';
+import { getImageByIds } from '../../lib/api';
 
 const {block} = Astro.props;
 
@@ -21,12 +20,56 @@ if(articles === undefined){
 	articles = new Array();
 }
 
+let ads = await getAds();
+
+
+let imgleft ="";
+let imgright ="";
+let imgl ="";
+let imgr ="";
+
+let sourceUrll = "";
+let sourceUrlr = "";
+
+if(ads){
+    
+    imgleft = await getImageByIds(ads?.adleft?.image);
+    imgright = await getImageByIds(ads?.adright?.image);
+	console.log("WTFT1");
+	console.log(imgleft);
+	console.log("WTFT2");
+	console.log(imgright);
+
+    if(imgleft.length !== 0){
+        imgl = imgleft[0].node;
+		console.log(imgl);
+        if(imgl.sourceUrl != null){
+            sourceUrll = imgl.sourceUrl;
+        }
+    }
+	if(imgright.length !== 0){
+        imgr = imgright[0].node;
+		console.log(imgr);
+        if(imgr.sourceUrl != null){
+            sourceUrlr = imgr.sourceUrl;
+        }
+    }
+    
+}
+
 
 
 ---
 
-<section class="bg-sele-ivory px-1 md:px-4 pt-4 md:pt-12 pb-24">
-	<div class="grid grid-cols-3 gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+<section class="bg-sele-ivory px-1 md:px-4 pt-4 md:pt-12 pb-24 flex gap-4">
+
+	<div class="hidden 2xl:block flex-1">
+		<a href={ads?.adleft?.url} target="_blank">
+			<img src={sourceUrll}>
+		</a>
+	</div>
+
+	<div class="grid grid-cols-3 gap-4 lg:w-lg 2xl:w-2xl mx-auto 2xl:mx-0">
 		<div class="col-span-3 md:col-span-2">
 			
 			<div class="grid grid-cols-2 gap-4">
@@ -82,4 +125,11 @@ if(articles === undefined){
 
 		</div>
 	</div>
+
+	<div class="hidden 2xl:block flex-1">
+		<a href={ads?.adright?.url} target="_blank">
+			<img src={sourceUrlr}>
+		</a>
+	</div>
+
 </section>

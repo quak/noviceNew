@@ -87,7 +87,6 @@ async function getData(searchterm) {
 
         const dataevent = await fetchEventsForSearch(searchterm);
         const postsevent = await fetchPostsForSearch(searchterm);
-        console.log(postsevent);
 
         //const datag = await getDataG(searchterm);
 

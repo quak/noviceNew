@@ -66,8 +66,8 @@ export default function EventsHome() {
 				spaceBetween={0}
 				className="eventSwiper w-full"
 				slidesPerView={1}
-				onSlideChange={() => console.log('')}
-				onSwiper={(swiper) => console.log("")}
+				//onSlideChange={() => console.log('')}
+				//onSwiper={(swiper) => console.log("")}
 				
 				modules={[Pagination]}
 				style={{ height: '100%'}}

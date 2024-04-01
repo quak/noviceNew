@@ -19,7 +19,6 @@ export default function ContactForm(args) {
 		const name = firstname +" "+ lastname;
 		const message = name +" ; "+ email +" ; "+ email +" ; "+ usermessage  ;
 
-		console.log(message);
 		const msg = {
 			to: 'office@avax.at', // Kam poslješ zdaj na office poj na naročnina@novice.at
 			from: 'augustin.malle@gmail.com', // <--------------------Sem pride nekaj office@novice.at / poj ko verificiraš

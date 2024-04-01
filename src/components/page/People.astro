@@ -107,31 +107,35 @@ if(deaths === undefined){
 		
 	</div>
 
-	<div class="relative mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper mt-8 swipercongrats">
+	<div class="mt-8">
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
-			
-				<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
-				<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
-					
-					<Image width="24" height="24" src={chevronright} alt="Send wishes" loading="lazy"/>
-					<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">čestitaj</span>
-				</a>
-		</div>
-		<div class="swiper-wrapper overflow-hidden">
-
-
-			{congratulations.map(function (article,k) {
 				
-					return (
-						<Quarter article={article} style="congratulations" isslider={true} bg={true}/>
-					);
-	
-			})}
-
-			
+			<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
+			<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
+				
+				<Image width="24" height="24" src={chevronright} alt="Send wishes" loading="lazy"/>
+				<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">čestitaj</span>
+			</a>
 		</div>
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
+		
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper swipercongrats">
+			
+			<div class="swiper-wrapper">
+
+
+				{congratulations.map(function (article,k) {
+					
+						return (
+							<Quarter article={article} style="congratulations" isslider={true} bg={true}/>
+						);
+		
+				})}
+
+				
+			</div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
 	</div>
 
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width  mt-8">
@@ -168,34 +172,29 @@ if(deaths === undefined){
 	import Swiper from 'swiper';
 	import 'swiper/css/bundle';
 	document.addEventListener('astro:page-load', () => {
-	// import Swiper bundle with all modules installed
-	
-	
-	// import styles bundle
-	
-	
-	// init Swiper:
-	const swiper = new Swiper('.swipercongrats', {
-	  // Optional parameters
-	  direction: 'horizontal',
-	  loop: true,
-	  slidesPerView: 1,
-	  spaceBetween: 16,
-	
-	  // Navigation arrows
-	  navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	  },
-	
-	  breakpoints: {
-		480: {
-		  slidesPerView: 2,
-		},
-		768: {
-		  slidesPerView: 4,
-		}
-	  }
-	
+		const swiper = new Swiper('.swipercongrats', {
+			// Optional parameters
+			direction: 'horizontal',
+			loop: true,
+			slidesPerView: 1,
+			spaceBetween: 16,
+			
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			
+			breakpoints: {
+				480: {
+				slidesPerView: 2,
+				},
+				768: {
+				slidesPerView: 4,
+				}
+			}
+			
+		});
+		
 	});
-});
+</script>

@@ -37,6 +37,7 @@ if(place === null || place.trim()===0){
 }
 
 let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
+excerpt = excerpt.replace("[&hellip;]", '...');
 ---
 
 { 

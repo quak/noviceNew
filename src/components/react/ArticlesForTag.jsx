@@ -39,7 +39,6 @@ export default function ArticlesForTag(tag) {
 		
 	if(isLoading) return "";
 	if(error) return "err";
-	console.log(data);
 
 	return (		
 		<>

@@ -15,6 +15,7 @@ import Insta from '../components/page/Insta.astro';
 import People from '../components/page/People.astro';
 import Opinions from '../components/page/Opinions.astro';
 import Contact from '../components/page/Contact.astro';
+import Oglas from '../components/page/Oglas.astro';
 
 //import '../styles/swiper.css';
 
@@ -49,6 +50,7 @@ const blocks = page.blocks;
     <use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
 		<use.case slot={'acf/opinions'}><Opinions block={block}/></use.case>
 		<use.case slot={'acf/contact'}><Contact block={block}/></use.case>
+		<use.case slot={'acf/oglas'}><Oglas block={block}/></use.case>
 
 		<use.default>
       

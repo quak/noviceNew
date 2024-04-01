@@ -38,7 +38,7 @@ if (Astro.request.method === 'POST') {
       text: message,
     }
     await sendGrid.send(msg).then(() => {
-      console.log('Email sent')
+      //console.log('Email sent')
 	  showconfirmationclass="";
     }).catch((error) => {
       console.error(error)

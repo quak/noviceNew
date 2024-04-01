@@ -35,21 +35,15 @@ if(ads){
     
     imgleft = await getImageByIds(ads?.adleft?.image);
     imgright = await getImageByIds(ads?.adright?.image);
-	console.log("WTFT1");
-	console.log(imgleft);
-	console.log("WTFT2");
-	console.log(imgright);
 
     if(imgleft.length !== 0){
         imgl = imgleft[0].node;
-		console.log(imgl);
         if(imgl.sourceUrl != null){
             sourceUrll = imgl.sourceUrl;
         }
     }
 	if(imgright.length !== 0){
         imgr = imgright[0].node;
-		console.log(imgr);
         if(imgr.sourceUrl != null){
             sourceUrlr = imgr.sourceUrl;
         }

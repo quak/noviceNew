@@ -1,5 +1,5 @@
 ---
-
+import { fade } from 'astro:transitions';
 const {article, style, isslider, showdescription, shouldll,key} = Astro.props;
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
@@ -66,7 +66,7 @@ if(article?.node?.oseba?.surname!=null){
             <a href={url} class={`col-span-1 md:col-span-1 md:row-span-1 ${sliderclass}`} rel="prefetch-intent">
                 <article class="p-2 bg-sneg-white h-full flex flex-col">
                     <div class="overflow-hidden relative ">
-                        <Picture height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title} transition:name={`articleimage${article.node.id}`} transition:animate={fade({ duration: '1s' })}/>
+                        <Picture height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title} transition:name={`articleimage${article?.node?.id}`} transition:animate={fade({ duration: '1s' })}/>
                         <div class="absolute left-0 bottom-0 block">
                             <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
                         </div>

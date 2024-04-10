@@ -116,6 +116,7 @@ export async function getArticleBySlug(slug) {
     body: JSON.stringify({
       query: `    {
         post(id: "${slug}", idType: SLUG) {
+          id
           title
           blocks {
             name

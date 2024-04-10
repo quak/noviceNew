@@ -1,5 +1,5 @@
 ---
-
+import { fade } from 'astro:transitions';
 const {article, shouldll} = Astro.props;
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
@@ -42,7 +42,7 @@ if(shouldll==="false"){
     <a href={url} rel="prefetch">
         <article class="relative">
             <div class="overflow-hidden relative ">
-                <Picture width="754" height="424" class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
+                <Picture width="754" height="424" class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title} transition:name={`articleimage${article.node.id}`} transition:animate={fade({ duration: '1s' })}/>
                 
             </div>
             <div class="absolute p-4 md:px-12 md:py-4 bottom-0">

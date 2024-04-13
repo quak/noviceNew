@@ -18,6 +18,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import * as use from '../../components/index.js';
 import Switch from '../../components/Switch.astro';
 
+
+import { getArticleBySlugAPI } from '../../lib/article';
 //import Counter from '../../components/react/Counter.jsx';
 
 
@@ -40,6 +42,8 @@ export async function getStaticPaths() {
 const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
+const post = await getArticleBySlugAPI(article);
+console.log(post);
 var blocks = null;
 if(arti){
    blocks = arti.blocks;

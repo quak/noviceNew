@@ -425,6 +425,7 @@ export async function goSearch(searchterm) {
                 slug
                 title
                 excerpt
+                
                 categories {
                   nodes {
                     slug

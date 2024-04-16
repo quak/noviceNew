@@ -106,8 +106,6 @@ export default function EventsOverview() {
 				spaceBetween={0}
 				className="eventSwiper w-full"
 				slidesPerView={1}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log("swiperinit")}
 				autoplay={{
 					delay: 5000,
 					disableOnInteraction: false,

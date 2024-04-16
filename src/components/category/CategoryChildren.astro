@@ -28,14 +28,14 @@ if(children === undefined){
 						<div class="flex flex-col justfiy-center bg-sele-ivory px-2 py-4 col-span-1">
 							
 							<div>
-								<p class="text-4xl text-center font-light">test</p>
+								<p class="text-4xl text-center font-light">-</p>
 								<h2 class="text-5xl text-center font-bold py-4">{article.post_title}</h2>
 							</div>
 							<div class="flex justify-around">
 								<a href={article?.acf?.pdf?.url} target="_blank">
 									<img class="mx-auto  max-h-48" src="/tmpimages/svgs/pdf.svg"/>
 								</a>
-								<a href={article?.acf?.pdf?.url} download={article?.acf?.pdf?.url}>
+								<a href={article?.acf?.zip_autogen?.url} download={article?.acf?.zip_autogen?.url}>
 									<img class="mx-auto  max-h-48" src="/tmpimages/svgs/dwn.svg"/>
 								</a>
 							</div>

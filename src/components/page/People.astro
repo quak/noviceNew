@@ -4,6 +4,7 @@ import chevronright from "../../images/chevronright.svg";
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
 import { getPostByCategoryById,getDeaths } from '../../lib/api';
+import { getPotw } from '../../lib/persons';
 import Quarter from './elements/quarter.astro'
 import Third from './elements/third.astro'
 
@@ -29,9 +30,11 @@ if (num_of_slider_elements_deaths === undefined){
 }
 
 
-let people_articles = await getPostByCategoryById(["1641"],1);
-if(people_articles === undefined){
-	people_articles = new Array();
+//let people_articles = await getPostByCategoryById(["1641"],1);
+let potw = await getPotw();
+
+if(potw === undefined){
+	potw = new Array();
 }
 
 let congratulations = await getPostByCategoryById(["1442"],parseInt(num_of_slider_elements_congrats));
@@ -61,15 +64,16 @@ if(deaths === undefined){
 	<div class="grid grid-cols-6 grid-flow-row md:grid-flow-col gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		
 
-		{people_articles.map(function (article,k) {
-			let url = '/'+article.node.categories.nodes[0].slug+'/'+article.node.slug;
+		{potw.map(function (article,k) {
+			
+			let url = '/osebe/'+article.post.post_name;
 			let classes_lr="";
 			let personname =" ";
-				if(article?.node?.oseba?.name!=null){
-						personname = ""+article?.node?.oseba?.name ;
+				if(article?.acf?.name!=null){
+						personname = ""+article?.acf?.name ;
 					}
-					if(article?.node?.oseba?.surname!=null){
-						personname = personname+" "+article?.node?.oseba?.surname ;
+					if(article?.acf?.surname!=null){
+						personname = personname+" "+article?.acf?.surname ;
 					}
 				return (
 
@@ -77,7 +81,7 @@ if(deaths === undefined){
 			
 						<article class="relative">
 							<div class="overflow-hidden">
-								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading="lazy" alt={article?.node?.title}/>
+								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103" src={article?.thumb}  loading="lazy" alt={article?.post?.post_title}/>
 								
 							</div>
 							<div class="relative sm:absolute p-12 bottom-0 ">
@@ -86,7 +90,7 @@ if(deaths === undefined){
 								<span class="z-20 relative">
 									<span class="bg-papez-purple text-gmajnsko-brown uppercase py-1 px-4 text-xl mb-4 inline-block">obraz tedna</span><span class="bg-sele-ivory uppercase py-1 px-4 text-xl mb-4 inline-block">{personname}</span>
 								
-									<h2 class="sm:text-sele-ivory text-2xl sm:text-5xl"><Fragment set:html={article.node.title}/></h2>
+									<h2 class="sm:text-sele-ivory text-2xl sm:text-5xl"><Fragment set:html={article.post.post_title}/></h2>
 								
 								</span>
 								<div class="hidden sm:block z-10" style="position: absolute; top:0;left:0; width:100%;height:100%;background:linear-gradient(to top, rgba(0,0,0,0.5), transparent);"></div>
@@ -96,7 +100,7 @@ if(deaths === undefined){
 					</a>
 						
 					<span class="hidden sm:block col-span-6 md:col-span-4 flex flex-col justify-center pl-12">
-						<p class=" text-gmajnsko-brown text-4xl line-clamp-5 text-ellipsis">»Zelo pomembno je, da se ukvarjamo s čebelami, brez čebel ni življenja, to je itak logično.«</p>
+						<p class=" text-gmajnsko-brown text-4xl line-clamp-5 text-ellipsis">»{article.acf.citat}«</p>
 						<p class=" text-gmajnsko-brown mt-4 text-xl">{personname}</p>
 					</span>
 				

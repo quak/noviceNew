@@ -42,7 +42,13 @@ export default function EventsHome() {
 		datax = data;
     }	
 		
-	if(isLoading) return "";
+	if(isLoading) return (
+		<>
+			<div className="flex justify-center h-full items-center">
+				<img className='w-16 h-16' src="/tmpimages/loader.gif"/>
+			</div>
+		</>
+		);
 	if(error) return "err";
 	let pagearr=new Array();
 	let pagearrr=new Array();
@@ -61,13 +67,11 @@ export default function EventsHome() {
 		
 		<>
 			<div className="block h-full">
-
+			{isLoading ? <img src="/tmpimages/loader.gif" alt="loading..." /> : null}
 			<Swiper
 				spaceBetween={0}
 				className="eventSwiper w-full"
 				slidesPerView={1}
-				//onSlideChange={() => console.log('')}
-				//onSwiper={(swiper) => console.log("")}
 				
 				modules={[Pagination]}
 				style={{ height: '100%'}}

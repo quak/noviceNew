@@ -21,7 +21,7 @@ if (Astro.request.method === 'POST') {
     // Getting posted data from our contact form
     const data = await Astro.request.formData();
 	sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );
-	console.log(import.meta.env.SENDGRID_API_KEY);
+	
 	
     const firstname = data.get('first-name');
     const secondname = data.get('last-name');
@@ -42,7 +42,7 @@ if (Astro.request.method === 'POST') {
       text: message,
     }
     await sendGrid.send(msg).then(() => {
-      //console.log('Email sent')
+      
     }).catch((error) => {
       console.error(error)
     });

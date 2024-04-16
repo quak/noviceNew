@@ -43,7 +43,7 @@ const articles3x = articles.slice(3,100);
 		
 	</div>
 
-	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper overflow-hidden relative swiper-galblock">
+	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper overflow-hidden relative ">
 		<div class="swiper-wrapper">
 
 			{articles3x.map(function (article,k) {
@@ -65,36 +65,37 @@ const articles3x = articles.slice(3,100);
 
 <script>
 	import Swiper from 'swiper';
-	import 'swiper/css/bundle';
-	document.addEventListener('astro:page-load', () => {
-	// import Swiper bundle with all modules installed
-	
+	import { Navigation, Pagination } from 'swiper/modules';
 	
 	// import styles bundle
-	
-	
-	// init Swiper:
-	const swiper = new Swiper('.swiper-galblock', {
-	  // Optional parameters
-	  direction: 'horizontal',
-	  loop: true,
-	  slidesPerView: 1,
-	  spaceBetween: 16,
-	
-	  // Navigation arrows
-	  navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	  },
-	
-	  breakpoints: {
-		480: {
-		  slidesPerView: 2,
-		},
-		768: {
-		  slidesPerView: 4,
-		}
-	  }
-	
-	});
-});
+	import 'swiper/css';
+	import 'swiper/css/navigation';
+	import 'swiper/css/pagination';
+	document.addEventListener('astro:page-load', () => {
+			// init Swiper:
+			const swiper = new Swiper('.swiper', {
+			// Optional parameters
+			modules: [Navigation, Pagination],
+			direction: 'horizontal',
+			loop: true,
+			slidesPerView: 1,
+			spaceBetween: 16,
+
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+
+			breakpoints: {
+				480: {
+				slidesPerView: 2,
+				},
+				768: {
+				slidesPerView: 4,
+				}
+			}
+
+			});
+		});
+  </script>

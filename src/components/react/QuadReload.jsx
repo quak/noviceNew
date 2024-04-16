@@ -36,7 +36,7 @@ export default function QuadReload(args) {
 				const response = await fetch("https://sfsn.si/wp-json/nre/v1/getcategoryll/",requestOptions);
 				
 				const data = await response.json();
-				console.log(data);
+				
 				setItems(prevItems => [...prevItems, ...data]);
 				setPage(prevPage => prevPage + 1);
 			} catch (error) {

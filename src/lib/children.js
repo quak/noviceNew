@@ -21,4 +21,4 @@ export async function getChildren() {
     const avtors = await response.json();
 
     return avtors;
-  }
+}

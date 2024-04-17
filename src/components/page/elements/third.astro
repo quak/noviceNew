@@ -99,11 +99,18 @@ if(article?.node?.oseba?.surname!=null){
 
         )
       } else if( style === "opinion") {
+        let avatarsrc = "";
+     
+        if(typeof article?.node?.mnenje?.avatar?.mediaItemUrl == 'undefined' ){
+            avatarsrc="/tmpimages/svgs/person.svg";
+        }else{
+            avatarsrc=article?.node?.mnenje?.avatar?.mediaItemUrl;
+        }
+
         return(
             <a href={url} class="row-start-2 md:row-start-1  basis-1/2 md:basis-1/3 flex flex-col justify-between  overflow-hidden block">
                 <div class="flex-none relative flex justify-center z-10 relative">
-                    
-                    <img class="mx-auto z-10 -mb-4 max-h-36" src="/tmpimages/svgs/person.svg"  loading={llstyle} alt={article?.node?.title} />
+                    <Picture height="181" width="144" class="mx-auto z-10 -mb-4 max-h-36 relative"  src={avatarsrc} loading={llstyle} alt={article?.node?.title} />
                     <div class="mx-auto absolute w-32 h-32 border border-black bg-white rounded-full top-8"></div>
                 </div>
                 <div class="flex-auto border-b-8 border-t-8 border-iskanje-grey z-20 relative bg-white text-center ">

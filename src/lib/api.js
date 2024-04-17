@@ -638,6 +638,12 @@ export async function goSearch(searchterm) {
                   name
                   surname
                 }
+                mnenje {
+                  avatar {
+                    link
+                    mediaItemUrl
+                  }
+                }
               }
             }
           }

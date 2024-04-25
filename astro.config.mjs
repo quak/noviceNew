@@ -12,8 +12,7 @@ export default defineConfig({
   adapter: vercel({
     maxDuration: 60,
     isr: {
-      // caches all pages on first request and saves for 1 day
-      expiration: 60 * 60 * 24,
+      bypassToken: "161556d774a8",
       exclude: [ "/", "/kategorije/[...slug]" ]
     },
   }),

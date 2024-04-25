@@ -73,7 +73,7 @@ if(article?.node?.oseba?.surname!=null){
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
                         
-                        <h2 class=" text-2xl sm:text-3xl line-clamp-3 text-ellipsis font-bold leading-novice"><Fragment set:html={article?.node?.title}/></h2>	
+                        <h2 class=" text-xl sm:text-3xl line-clamp-3 text-ellipsis font-bold leading-novice"><Fragment set:html={article?.node?.title}/></h2>	
                         <span class={`hidden ${descriptionclass}`}>
                             <p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
                         </span> 
@@ -116,7 +116,7 @@ if(article?.node?.oseba?.surname!=null){
                 <div class="flex-auto border-b-8 border-t-8 border-iskanje-grey z-20 relative bg-white text-center ">
                     <span class="px-4 block">
                         <span class="uppercase text-klopinj-blue text-center text-4xl font-light mt-4 block">{personname}</span>
-                        <h2 class="text-2xl mb-2 text-ellipsis mt-2 line-clamp-2"><Fragment set:html={article.node.title}/></h2>
+                        <h2 class="text-xl mb-2 text-ellipsis mt-2 line-clamp-2"><Fragment set:html={article.node.title}/></h2>
                         <p class="font-serif text-center py-8 text-xl italic line-clamp-3">{excerpt}</p>
                     </span>
                 </div>

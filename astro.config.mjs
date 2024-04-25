@@ -11,10 +11,10 @@ export default defineConfig({
   output: 'server',
   adapter: vercel({
     maxDuration: 60,
-    isr: {
-      bypassToken: "161556d774a8161556d774a8161556d774a8",
-      exclude: [ "/", "/kategorije/[...slug]" ]
-    },
+    //isr: {
+    //  bypassToken: "161556d774a8161556d774a8161556d774a8",
+    //  exclude: [ "/", "/kategorije/[...slug]" ]
+    //},
   }),
   prefetch: {
     defaultStrategy: 'viewport'

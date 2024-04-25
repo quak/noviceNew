@@ -327,7 +327,11 @@ export async function goSearch(searchterm) {
     const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: {'Content-Type':'application/json',
+        'Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
+        'CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59'
+      },
       body: JSON.stringify({
         query: `    {
           category(id: "${slug}", idType: SLUG) {
@@ -349,7 +353,12 @@ export async function goSearch(searchterm) {
     const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: {'Content-Type':'application/json',
+      'Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
+      'CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59'
+    
+      },
       body: JSON.stringify({
         query: `    {
           posts(where: {categoryIn: "${slug}"},first: ${count}) {

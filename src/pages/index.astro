@@ -28,7 +28,7 @@ import Switch from '../components/Switch.astro';
 
 
 const page = await getPageBySlugAlt("home");
-Astro.response.headers.set('Cache-Control', 's-maxage=10800')
+Astro.response.headers.set('Cache-Control', 's-maxage=600')
 
 const blocks = page.blocks;
 ---

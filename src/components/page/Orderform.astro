@@ -123,7 +123,9 @@ if (Astro.request.method === 'POST') {
 					</div>
 					
 					<div class="mt-6 flex items-center justify-start gap-x-6">
-						<button type="submit" class="bg-papez-purple px-6 py-2 text-xl uppercase tracking-widels text-white shadow-sm hover:papez-purple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-papez-purple ">Naroči</button>
+						<button type="submit" class="bg-papez-purple px-6 py-2 text-xl uppercase tracking-widels text-white shadow-sm hover:papez-purple focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-papez-purple "
+							>Naroči</button>
+						
 					  </div>
 				</div>
 			  </div>
@@ -138,3 +140,23 @@ if (Astro.request.method === 'POST') {
 
 
 </section>
+
+
+<script is:inline>
+	function onSubmit(token) {
+	  fetch("/recaptcha", {
+		method: "POST",
+		body: JSON.stringify({ recaptcha: token })
+	  })
+	  .then((response) => response.json())
+	  .then((gResponse) => {
+		if (gResponse.success) {
+		  // Captcha verification was a success
+		  console.log("vredu");
+		} else {
+		  // Captcha verification failed
+		  console.log("eee");
+		}
+	  })
+	}
+  </script>

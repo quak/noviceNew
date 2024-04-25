@@ -96,7 +96,7 @@ export async function getAllSlugsOfPosts(){
         
     }`
     }),
-  }).then(data=>data.json())
+  }).then(data=>data.json()) 
 
   const posts = response?.data?.posts;
   return posts;

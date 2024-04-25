@@ -12,6 +12,17 @@ module.exports = {
 			widels: '2px',
 			widerls: '4px'
 		},
+		fontSize: {
+			xs: ['0.75rem', '1.1'],
+			sm: ['0.875rem', '1.1'],
+			base: ['1rem', '1.1'],
+			lg: ['1.125rem', '1.1'],
+			xl: ['1.25rem', '1.1'],
+			x2l: ['1.5rem', '1.1'],
+			x3l: ['1.875rem', '1.1'],
+			x4l: ['2.25rem', '1.1'],
+			x5l: ['3rem', '1.1'],
+		  },
 		extend: {
 			lineHeight: {
 				'novice': '1.1',

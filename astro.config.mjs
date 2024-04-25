@@ -12,7 +12,7 @@ export default defineConfig({
   adapter: vercel({
     maxDuration: 60,
     isr: {
-      bypassToken: "161556d774a8",
+      bypassToken: "161556d774a8161556d774a8161556d774a8",
       exclude: [ "/", "/kategorije/[...slug]" ]
     },
   }),

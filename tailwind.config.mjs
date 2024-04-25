@@ -13,6 +13,9 @@ module.exports = {
 			widerls: '4px'
 		},
 		extend: {
+			lineHeight: {
+				'novice': '1.1',
+			},
 			aspectRatio: {
 				'189': '18 / 9',
 			},

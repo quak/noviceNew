@@ -65,16 +65,16 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     </div>
 
 
-                    <div class="px-0 sm:px-4 sm:pt-2 flex flex-col flex-1">
+                    <div class="px-0 sm:px-4 sm:py-2 flex flex-col flex-1">
                         <span class="text-papez-purple uppercase text-xl inline-block mt-4 mb-2 hidden">{article.node?.categories?.nodes[0].slug}</span>
 
-                        <h2 class="text-xl sm:text-3xl font-bold line-clamp-2 text-ellipsis mt-4"><Fragment set:html={article?.node?.title}/></h2>
+                        <h2 class=" text-xl sm:text-3xl line-clamp-3 text-ellipsis font-bold leading-novice"><Fragment set:html={article?.node?.title}/></h2>
 
                         <div class="flex-1 mt-2">
                             <div class=" text-sm sm:text-xl md:text-xl font-serif line-clamp-3 text-ellipsis">{excerpt}</div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
                                 {datestring}

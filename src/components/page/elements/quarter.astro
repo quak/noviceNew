@@ -80,13 +80,13 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1">
                         
-                        <h2 class=" text-2xl line-clamp-2 text-ellipsis font-bold"><Fragment set:html={article?.node?.title}/></h2>	
+                        <h2 class=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold leading-novice"><Fragment set:html={article?.node?.title}/></h2>	
 
                         <span class={`hidden ${descriptionclass}`}>
                             <p class="text-base font-serif mb-4 line-clamp-2">{excerpt}</p>
                         </span>
 
-                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
                                 {datestring}
@@ -109,7 +109,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
             <a href={url} class="col-span-1" rel="prefetch-intent">
                 <article class="p-3">
                     <span class={`text-papez-purple uppercase text-lg inline-block mt-2 mb-1 min-h-5`}>{place}</span>
-                    <h2 class="text-2xl line-clamp-2 text-ellipsis"><Fragment set:html={article?.node?.title}/></h2>						
+                    <h2 class="text-xl sm:text-2xl line-clamp-2 text-ellipsis"><Fragment set:html={article?.node?.title}/></h2>						
                 </article>
             </a>
         )
@@ -126,7 +126,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     </div>
         
                     <div class="py-2 text-center">
-                        <h2 class="text-papez-purple text-2xl inline-block mt-2 mb-4 block line-clamp-1 text-ellipsis block">{personname}</h2>
+                        <h2 class="text-papez-purple text-xl sm:text-2xl inline-block mt-2 mb-4 block line-clamp-1 text-ellipsis block">{personname}</h2>
                         <span class="font-bold italic line-clamp-3 text-ellipsis h-12 text-lg"><Fragment set:html={article.node.title}/></span>
                     </div>
                 
@@ -146,7 +146,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     </div>
                     <div class="py-2">
                         <span class="text-papez-purple uppercase text-3xl inline-block mt-2 mb-2">{personname}</span>
-                        <h2 class="text-xl mb-2 line-clamp-3 text-ellipsis h-24"><Fragment set:html={article.node.title}/></h2>
+                        <h2 class="text-xl sm:text-2xl mb-2 line-clamp-3 text-ellipsis h-24"><Fragment set:html={article.node.title}/></h2>
                         
                     </div>
                 
@@ -167,7 +167,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
 		
 					<div class="py-2 flex flex-col justify-center">
 						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
-                        <h2 class="mt-2 text-2xl  line-clamp-2 text-center"><Fragment set:html={article.node.title}/></h2>
+                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center"><Fragment set:html={article.node.title}/></h2>
 						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
 					</div>
 				

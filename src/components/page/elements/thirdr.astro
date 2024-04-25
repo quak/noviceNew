@@ -23,12 +23,12 @@ if(shouldll==="false"){
     llstyle = "eager";
 }
 
-let url = '/'+article?.node?.categories?.nodes[0].slug+'/'+article?.node?.slug;
+let url = '/'+article?.cat?.category_nicename+'/'+article?.post_name;
 let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 let avtor = article.author;
-
+console.log(article);
 
 if(avtor == ""){
     avtor="novice";
@@ -73,11 +73,11 @@ if(article?.thumb===false){
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
                         
-                        <h2 class=" text-xl sm:text-2xl line-clamp-2 text-ellipsis font-bold"><Fragment set:html={article?.post_title}/></h2>	
+                        <h2 class="text-2xl sm:text-3xl line-clamp-3 text-ellipsis font-bold leading-novice"><Fragment set:html={article?.post_title}/></h2>	
                         <span class={`hidden ${descriptionclass}`}>
                             <p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
                         </span>
-                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 
                                 <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>

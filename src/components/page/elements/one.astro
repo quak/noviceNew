@@ -94,7 +94,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
                         <span class={`uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels ${placeclass}`}>{place}</span>
                         
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-bold line-clamp-4"><Fragment set:html={article?.node?.title}/></h2>
+                    <h2 class="text-3xl md:text-5xl font-bold line-clamp-4 leading-novice"><Fragment set:html={article?.node?.title}/></h2>
                     
                     <div class="text-lg md:text-2xl font-serif my-4 sm:my-0 line-clamp-3">{excerpt}</div>
                     <div class="flex gap-1 justify-between hidden">
@@ -129,7 +129,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
                         <span>
                             <h2 class="text-papez-purple uppercase text-5xl my-8 font-bold tracking-widerls">{personname}</h2>
                             
-                            <p class="text-5xl font-serif line-clamp-3"><Fragment set:html={article?.node?.title}/></p>
+                            <p class="text-2xl sm:text-5xl font-serif line-clamp-3 leading-novice"><Fragment set:html={article?.node?.title}/></p>
                             <p class="text-lg font-serif mt-12 mb-12">{excerpt}</p>
                         </span>
                         

@@ -78,7 +78,7 @@ export default function ArticlesForTag(tag) {
 										</div>
 										<div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
 											
-											<h2 class=" text-xl sm:text-2xl line-clamp-2 text-ellipsis font-bold">{post?.post_title}</h2>	
+											<h2 class=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold">{post?.post_title}</h2>	
 											<span class={`hidden ${descriptionclass}`}>
 												<p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
 											</span>

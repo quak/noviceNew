@@ -89,7 +89,7 @@ export default function QuadReload(args) {
 										</div>
 										<div className="sm:px-3 pt-2 flex flex-col flex-1">
 											
-											<h2 className=" text-2xl line-clamp-2 text-ellipsis font-bold">{article.post_title}</h2>	
+											<h2 className=" text-2xl line-clamp-3 text-ellipsis font-bold">{article.post_title}</h2>	
 
 											<span className="">
 												<p className="text-base font-serif mb-4 line-clamp-2">{article.excerpt}</p>

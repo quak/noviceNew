@@ -59,13 +59,13 @@ excerpt = excerpt.replace("[&hellip;]", '...');
 
                     <div class="px-4 pt-2 flex flex-col flex-1">
                         
-                        <h2 class="  leading-novice text-2xl sm:text-5xl font-bold line-clamp-2 text-ellipsis mt-4 "><Fragment set:html={article?.node?.title}/></h2>
+                        <h2 class="  leading-novice text-2xl sm:text-5xl font-bold line-clamp-3 text-ellipsis mt-4 "><Fragment set:html={article?.node?.title}/></h2>
 
                         <div class="flex-1 mt-2">
                             <div class=" text-base md:text-xl font-serif line-clamp-3 text-ellipsis">{excerpt}</div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+                        <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
                                 {datestring}
@@ -97,7 +97,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
                     <h2 class="text-3xl md:text-5xl font-bold line-clamp-4"><Fragment set:html={article?.node?.title}/></h2>
                     
                     <div class="text-lg md:text-2xl font-serif my-4 sm:my-0 line-clamp-3">{excerpt}</div>
-                    <div class="flex gap-1 justify-between">
+                    <div class="flex gap-1 justify-between hidden">
                         <span class="uppercase flex flex-row items-center tracking-widels"><img  src="/tmpimages/svgs/bookmark.svg" alt="Date icon"/>{datestring}</span>
                         <span class="uppercase flex flex-row items-center tracking-widels"><img class="max-h-4 mr-1"src="/tmpimages/svgs/user.svg" alt="Avtor icon"/>{avtor}</span>
                     </div>
@@ -138,7 +138,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
                         <img src="/tmpimages/tdata/tip.png"/>
                     </div>
                 </div>
-                <div class="flex justify-between border-b pb-4 border-black">
+                <div class="flex justify-between border-b pb-4 border-black hidden">
                     <div class="flex gap-1 justify-between w-60">
                         <span class="uppercase flex flex-row items-center tracking-widels"><img  src="/tmpimages/svgs/bookmark.svg" alt="Date icon"/>24.11.2023</span>
                         <span class="uppercase flex flex-row items-center tracking-widels"><img class="max-h-4 mr-1"src="/tmpimages/svgs/user.svg" alt="Avtor icon"/>Tomaž Verdev</span>

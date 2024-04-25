@@ -122,7 +122,7 @@ async function getData(searchterm) {
                                 <span class="uppercase px-2 bg-klopinj-blue text-white text-lg tracking-widels block">`+article.evdate+`-`+article.evtime+`</span>
                             </div>
                             
-                            <h2 class="mt-4 text-2xl font-bold line-clamp-2 text-ellipsis">`+article?.post_title+`</h2>	
+                            <h2 class="mt-4 text-2xl font-bold line-clamp-3 text-ellipsis">`+article?.post_title+`</h2>	
                         
                         
                         </article>
@@ -159,7 +159,7 @@ async function getData(searchterm) {
                                     <span class="uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels ">`+article?.acf?.place+`</span>
                                 </div>
                                 
-                                <h2 class="mt-4 text-4xl font-bold line-clamp-2 text-ellipsis">`+article?.post_title+`</h2>	
+                                <h2 class="mt-4 text-4xl font-bold line-clamp-3 text-ellipsis">`+article?.post_title+`</h2>	
                                 <div class=" text-lg mt-2 line-clamp-2 text-ellipsis font-serif">`+article?.excerpt+`</div>
 
                                 <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">

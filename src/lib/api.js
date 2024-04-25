@@ -109,9 +109,9 @@ export async function getArticleBySlug(slug) {
     method: 'POST',
     headers: {
       'Content-Type':'application/json',
-      'Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
-      'CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+      'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
+      'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
     },
     body: JSON.stringify({
       query: `    {

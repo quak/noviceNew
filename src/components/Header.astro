@@ -154,7 +154,13 @@ let articles = await getPostByCategoryBySlug("",2);
 							{mmfc.map(function (menuitem,k) {
 								
 								let title = menuitem.label;
-								let url = "/kategorije"+menuitem.uri;
+								let url = "";
+								if(menuitem.uri=="/prireditve"){
+									url = menuitem.uri;
+								}else{
+									url = "/kategorije"+menuitem.uri;
+								}
+								
 								
 								return (
 									<a href={url} class="tracking-widels block text-5xl font-light ">{title}</a>

@@ -51,12 +51,12 @@ export default function EventsOverview() {
 		<>
 
 
-<section className="bg-sele-ivory px-1 md:px-4 py-12">
+<section className="bg-sele-ivory px-1 md:px-4 py-2 md:py-12">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 			<div className="flex flex-col w-full">
 				<div>
 					
-					<h1 className="text-center uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">Prireditve · Termini</h1>
+					<h1 className="text-center uppercase text-xl md:text-4xl text-klopinj-blue font-light mb-4">Prireditve · Termini</h1>
 				</div>
 				<div className="flex flex-col gap-4 mt-8 hidden">
 					<div className="flex justify-between items-center">
@@ -96,7 +96,7 @@ export default function EventsOverview() {
 
 	<section className=" px-1 md:px-4 py-12 bg-klopinj-blue">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
-			<div className="flex flex-col flex-wrap md:flex-nowrap gap-4 overflow-hidden">
+			<div className="flex flex-col flex-wrap md:flex-nowrap gap-4 overflow-hidden block">
 				<div className="basis-full">
 					<p className="text-left uppercase text-4xl text-white font-light text-6xl leading-novice">Priporočamo</p>
 				</div>

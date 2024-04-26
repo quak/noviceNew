@@ -96,7 +96,7 @@ export default function EventsOverview() {
 
 	<section className=" px-1 md:px-4 py-12 bg-klopinj-blue">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
-			<div className="flex flex-col flex-wrap md:flex-nowrap gap-4 overflow-hidden block">
+			<div className="">
 				<div className="basis-full">
 					<p className="text-left uppercase text-4xl text-white font-light text-6xl leading-novice">Priporočamo</p>
 				</div>

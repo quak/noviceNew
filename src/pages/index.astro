@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import {GLightbox} from 'glightbox';
 
-import { getAllSlugsOfPosts,getPostByCategoryBySlug,getPageBySlugAlt } from '../lib/api';
+import { getPageBySlugAlt } from '../lib/api';
 
 import Category1 from '../components/page/Category1.astro';
 import Category2 from '../components/page/Category2.astro';
@@ -18,19 +17,11 @@ import Contact from '../components/page/Contact.astro';
 import Oglas from '../components/page/Oglas.astro';
 import Lastnews from '../components/page/Lastnews.astro';
 
-//import '../styles/swiper.css';
-
-export const prerender = true;
-
 import * as use from '../components/index.js';
-import Switch from '../components/Switch.astro';
 
-Astro.response.headers.set('Cache-Control', 's-maxage=60')
-
+Astro.response.headers.set('Cache-Control', 's-maxage=60');
 
 const page = await getPageBySlugAlt("home");
-
-
 
 const blocks = page.blocks;
 ---
@@ -75,43 +66,3 @@ const blocks = page.blocks;
   });
   
 </script>
-
-
-
-<script>
-  /*
-	import Swiper from 'swiper';
-	import { Navigation, Pagination } from 'swiper/modules';
-	
-	import 'swiper/css';
-	import 'swiper/css/navigation';
-	import 'swiper/css/pagination';
-  document.addEventListener('astro:page-load', () => {
-
-    const swiper = new Swiper('.swiperxxxx', {    //SWIPERXXX
-     
-      modules: [Navigation, Pagination],
-      direction: 'horizontal',
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 16,
-
-     
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      breakpoints: {
-        480: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 4,
-        }
-      }
-
-    });
-  });
-  */
-  </script>

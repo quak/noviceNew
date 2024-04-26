@@ -56,7 +56,7 @@ export default function EventsOverview() {
 			<div className="flex flex-col w-full">
 				<div>
 					
-					<h1 className="text-center uppercase text-xl md:text-4xl text-klopinj-blue font-light mb-4">Prireditve · Termini</h1>
+					<h1 className="text-center uppercase text-2xl md:text-4xl text-klopinj-blue font-light my-4">Prireditve · Termini</h1>
 				</div>
 				<div className="flex flex-col gap-4 mt-8 hidden">
 					<div className="flex justify-between items-center">

@@ -94,13 +94,13 @@ export default function EventsOverview() {
 	</section>
 
 
-	<section className=" px-1 md:px-4 py-12">
-		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width border-b border-black pb-8">
-			<div className="flex flex-row flex-wrap md:flex-nowrap gap-4">
-				<div className="basis-full md:basis-1/6">
-					<p className="text-left uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">TOP</p>
+	<section className=" px-1 md:px-4 py-12 bg-klopinj-blue">
+		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+			<div className="flex flex-col flex-wrap md:flex-nowrap gap-4">
+				<div className="basis-full">
+					<p className="text-left uppercase text-4xl text-white font-light text-6xl leading-novice">Priporočamo</p>
 				</div>
-				<div className="basis-full md:basis-5/6 block w-4/5 relative">
+				<div className="basis-full block relative">
 				<div className="block">
 				<Swiper
 				spaceBetween={0}
@@ -131,13 +131,13 @@ export default function EventsOverview() {
 										<div className="w-20">
 											<span className="px-2 py-1 flex flex-col border border-black items-center">
 												<span className="text-xs uppercase tracking-widedate mt-1 ml-1.5 uppercase">{event.printweekday}</span>
-												<span className="text-4xl font-bold text-klopinj-blue">{event.printdate}</span>
+												<span className="text-4xl font-bold  text-black">{event.printdate}</span>
 											</span>
 										</div>
 									</div>
 									<div className="basis-4/5">
 										<span className="mb-4 block">
-											<h2 className=" text-4xl">{event.infos.post_title}</h2>
+											<h2 className=" text-4xl text-sele-ivory">{event.infos.post_title}</h2>
 										</span>
 									</div>
 								</div>
@@ -145,14 +145,14 @@ export default function EventsOverview() {
 									<div className="basis-1/5 flex">
 										<div className="w-20">
 											<span className="px-2 flex flex-col items-center">
-												<span className="text-2xl font-bold text-papez-purple">{event.starttime}</span>
+												<span className="text-2xl font-bold  text-black">{event.starttime}</span>
 											</span>
 										</div>
 									</div>
 									<div className="basis-4/5">
 										<span className="mb-4 block">
-											<p className="font-bold text-2xl uppercase text-papez-purple">{event.infos.city}</p>
-											<p className="text-xl">{event.infos.venue}</p>
+											<p className="font-bold text-2xl uppercase  text-black">{event.infos.city}</p>
+											<p className="text-xl  text-black">{event.infos.venue}</p>
 										</span>
 									</div>
 								</div>
@@ -171,61 +171,68 @@ export default function EventsOverview() {
 	</section>
 	<section className=" px-1 md:px-4 py-12">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width  border-b border-black pb-8">
+		<div className="flex flex-row gap-4 flex-wrap md:flex-nowrap mt-4">
+							<div className="basis-full">
+								<p className="text-left uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">Vse prireditve</p>
+							</div>
+						</div>
 		{days.map(function (day,ll) {
 			actevents = day.events;
 			return (
-				<>
-					<div key={ll} className="flex flex-row gap-4 flex-wrap md:flex-nowrap mt-4">
-						<div className="basis-full md:basis-1/6">
-							<p className="text-left uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">{day.printdate}</p>
-						</div>
-						<div className="basis-full md:basis-5/6 grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-12">
-							{actevents.map(function (event,lll) {
-								let url = '/prireditev/'+event.post_name;
-								return (
-									<>
-									<a key={lll}  href={url} className="col-span-1 flex flex-col gap-4 border-b border-black">
-										<div className="basis-full md:basis-1/2">
-										<img src={event.thumburl}/>
-										</div>
-										<div className="basis-full md:basis-1/2">
-											<div className="flex flex-row gap-6">
-												<div className="basis-1/5 flex">
-													<div className="w-20">
-														<span className="px-2 py-1 flex flex-col border border-black items-center">
-															<span className="text-xs uppercase tracking-widedate mt-1 ml-1.5 uppercase">{day.printweekday}</span>
-															<span className="text-4xl font-bold text-klopinj-blue">{day.printdate}</span>
+				<>	<div key={ll}>
+						
+						<div className="flex flex-row gap-4 flex-wrap md:flex-nowrap mt-4">
+							<div className="basis-full md:basis-1/6">
+								<p className="text-left uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">{day.printdate}</p>
+							</div>
+							<div className="basis-full md:basis-5/6 grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-12">
+								{actevents.map(function (event,lll) {
+									let url = '/prireditev/'+event.post_name;
+									return (
+										<>
+										<a key={lll}  href={url} className="col-span-1 flex flex-col gap-4">
+											<div className="basis-full md:basis-1/2">
+											<img src={event.thumburl}/>
+											</div>
+											<div className="basis-full md:basis-1/2">
+												<div className="flex flex-row gap-6">
+													<div className="basis-1/5 flex">
+														<div className="w-20">
+															<span className="px-2 py-1 flex flex-col border border-black items-center">
+																<span className="text-xs uppercase tracking-widedate mt-1 ml-1.5 uppercase">{day.printweekday}</span>
+																<span className="text-4xl font-bold text-klopinj-blue">{day.printdate}</span>
+															</span>
+														</div>
+													</div>
+													<div className="basis-4/5">
+														<span className="mb-4 block">
+															<h2 className=" text-4xl leading-novice">{event.post_title}</h2>
 														</span>
 													</div>
 												</div>
-												<div className="basis-4/5">
-													<span className="mb-4 block">
-														<h2 className=" text-4xl">{event.post_title}</h2>
-													</span>
-												</div>
-											</div>
-											<div className="flex flex-row gap-6">
-												<div className="basis-1/5 flex">
-													<div className="w-20">
-														<span className="px-2 flex flex-col items-center">
-															<span className="text-2xl font-bold text-papez-purple">{event.starttime}</span>
+												<div className="flex flex-row gap-6">
+													<div className="basis-1/5 flex">
+														<div className="w-20">
+															<span className="px-2 flex flex-col items-center">
+																<span className="text-2xl font-bold text-papez-purple">{event.starttime}</span>
+															</span>
+														</div>
+													</div>
+													<div className="basis-4/5">
+														<span className="mb-4 block">
+															<p className="font-bold text-2xl uppercase text-papez-purple">{event.city}</p>
+															<p className="text-xl font-light">{event.venue}</p>
 														</span>
 													</div>
 												</div>
-												<div className="basis-4/5">
-													<span className="mb-4 block">
-														<p className="font-bold text-2xl uppercase text-papez-purple">{event.city}</p>
-														<p className="text-xl font-light">{event.venue}</p>
-													</span>
-												</div>
 											</div>
-										</div>
-									</a>
+										</a>
 
-									</>
-									
-								)
-							})}
+										</>
+										
+									)
+								})}
+							</div>
 						</div>
 					</div>
 				</>

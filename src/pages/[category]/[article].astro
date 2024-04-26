@@ -25,7 +25,7 @@ import { getArticleBySlugAPI } from '../../lib/article';
 
 import {GLightbox} from 'glightbox';
 
-Astro.response.headers.set('Cache-Control', 's-maxage=60')
+Astro.response.headers.set('Cache-Control', 's-maxage=10800')
 
 /*
 export async function getStaticPaths() {

@@ -1,11 +1,11 @@
 ---
-import {getAllSlugsOfCategories, getAllSlugsOfPages,getPageBySlugAlt } from '../../lib/api';
-import {getEventsOverview } from '../../lib/events';
+import {getAllSlugsOfCategories, getAllSlugsOfPages,getPageBySlugAlt } from '../lib/api';
+import {getEventsOverview } from '../lib/events';
 
 import '../styles/global.css';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import EventsMain from '../../components/react/EventsMain'; 
-import EventsOverview from '../../components/react/EventsOverview'; 
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventsMain from '../components/react/EventsMain'; 
+import EventsOverview from '../components/react/EventsOverview'; 
 
 
 Astro.response.headers.set('Cache-Control', 's-maxage=10800')

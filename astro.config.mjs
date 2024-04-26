@@ -10,13 +10,10 @@ export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   output: 'server',
   adapter: vercel({
-    maxDuration: 60,
+    maxDuration: 80,
     //isr: {
     //  bypassToken: "161556d774a8161556d774a8161556d774a8",
     //  exclude: [ "/", "/kategorije/[...slug]" ]
     //},
-  }),
-  prefetch: {
-    defaultStrategy: 'viewport'
-  }
+  })
 });

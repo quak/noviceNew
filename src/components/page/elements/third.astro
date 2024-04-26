@@ -63,7 +63,7 @@ if(article?.node?.oseba?.surname!=null){
       if (style === "" || style === "normal") {
         return(
 
-            <a href={url} class={`col-span-1 md:col-span-1 md:row-span-1 ${sliderclass}`} rel="prefetch-intent">
+            <a href={url} class={`col-span-1 md:col-span-1 md:row-span-1  overflow-hidden ${sliderclass}`} rel="prefetch-intent">
                 <article class="p-2 bg-sneg-white h-full flex flex-col">
                     <div class="overflow-hidden relative ">
                         <Picture height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title} />
@@ -124,7 +124,7 @@ if(article?.node?.oseba?.surname!=null){
         )
       } else if( style === "condolations") {
         return(
-            <a href={url} class="col-span-1 h-full" rel="prefetch-intent">
+            <a href={url} class="col-span-1 h-full  overflow-hidden" rel="prefetch-intent">
                 <article class="p-3 bg-sneg-white flex flex-col md:flex-row gap-4 h-full">
                 
                     <div class=" overflow-hidden md:basis-1/2 relative block">

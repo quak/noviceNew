@@ -45,7 +45,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
       if (style === "" || style === "fullteaser") {
         return(
 
-            <a href={url} class="col-span-2 sm:col-span-4 md:col-span-2 md:row-span-2  md:h-full" rel="prefetch-intent">
+            <a href={url} class="col-span-2 sm:col-span-4 md:col-span-2 md:row-span-2  md:h-full  overflow-hidden" rel="prefetch-intent">
                 <article class="p-2 bg-sneg-white h-full relative flex flex-col">
 
                     <div class="overflow-hidden relative">
@@ -84,7 +84,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
         )
       } else if( style === "wide") {
         return(
-            <a href={url} class="flex flex-col sm:flex-row">
+            <a href={url} class="flex flex-col sm:flex-row  overflow-hidden">
                 <div class="basis-full sm:basis-2/3">
                     <img class="ease-out duration-4000 transition-all hover:scale-101"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
                 </div>
@@ -119,7 +119,7 @@ excerpt = excerpt.replace("[&hellip;]", '...');
         return(
 
 
-            <a href={url}>
+            <a href={url} class=" overflow-hidden">
                 <div class="flex">
                     
                     <div class="basis-full md:basis-3/5 flex flex-wrap flex-col justify-between">

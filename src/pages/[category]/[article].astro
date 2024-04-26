@@ -49,7 +49,7 @@ if(arti){
    blocks = arti.blocks;
 }
 
-
+console.log(arti);
 
 let isGallery = false;
 if(category=="gallery"){
@@ -72,6 +72,11 @@ if(nicename==undefined){
 }
 
 const avtor = firstname+" "+lastname;
+
+let leading = arti?.excerpt;
+if(arti?.leadingForAllPosts?.leading!==null){
+  leading = arti?.leadingForAllPosts?.leading;
+}
             
 //const featuredImage = (arti.featuredImage.node.mediaItemUrl).replace("https://sfsn.si","" );
 ---
@@ -89,7 +94,7 @@ const avtor = firstname+" "+lastname;
         <Breadcrumb category={category}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={arti?.excerpt} date="23. Avg 2023" author={avtor} avtorslug={nicename} mediaItem={arti?.featuredImage}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} mediaItem={arti?.featuredImage}/>)
         }
         {
          

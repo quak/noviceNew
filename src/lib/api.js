@@ -125,6 +125,9 @@ export async function getArticleBySlug(slug) {
             originalContent
             isDynamic
           }
+          leadingForAllPosts {
+            leading
+          }
           excerpt
           content
           featuredImage {

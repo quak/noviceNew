@@ -137,7 +137,7 @@ export default function EventsOverview() {
 									</div>
 									<div className="basis-4/5">
 										<span className="mb-4 block">
-											<h2 className=" text-4xl text-sele-ivory">{event.infos.post_title}</h2>
+											<h2 className=" text-4xl text-sele-ivory leading-novice">{event.infos.post_title}</h2>
 										</span>
 									</div>
 								</div>

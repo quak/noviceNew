@@ -24,7 +24,7 @@ export default function EventsHome() {
 					<span className={(pagenum === 0 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(0);setPagenum(0); }}>1</span>
 					<span className={(pagenum === 1 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(1);setPagenum(1); }}>2</span>
 					<span className={(pagenum === 2 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(2);setPagenum(2); }}>3</span>
-					<a href="/prireditve" className="py-1 px-6 bg-klopinj-blue text-white mx-1 ml-auto uppercase tracking-widels">Vse </a>
+					<a href="/kategorije/prireditve" className="py-1 px-6 bg-klopinj-blue text-white mx-1 ml-auto uppercase tracking-widels">Vse </a>
 					
 				</div>
 			</div>

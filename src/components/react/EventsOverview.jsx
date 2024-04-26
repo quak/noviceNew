@@ -104,7 +104,7 @@ export default function EventsOverview() {
 				<div className="block">
 				<Swiper
 				spaceBetween={0}
-				className="eventSwiper w-full"
+				className="eventSwiper w-full overflow-hidden"
 				slidesPerView={1}
 				autoplay={{
 					delay: 5000,

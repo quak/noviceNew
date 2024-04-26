@@ -25,10 +25,12 @@ export const prerender = true;
 import * as use from '../components/index.js';
 import Switch from '../components/Switch.astro';
 
+Astro.response.headers.set('Cache-Control', 's-maxage=60')
 
 
 const page = await getPageBySlugAlt("home");
-Astro.response.headers.set('Cache-Control', 's-maxage=60')
+
+
 
 const blocks = page.blocks;
 ---

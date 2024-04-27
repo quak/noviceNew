@@ -5,11 +5,14 @@ const {id,title,excerpt,date,author,mediaItem,avtorslug} = Astro.props;
 const currentPath = "https://novice.at"+Astro.url.pathname;
 ---
 
-<h1 class="text-3xl sm:text-6xl font-bold mt-4"><Fragment set:html={title}/></h1>
+<h1 class="text-3xl sm:text-6xl font-bold mt-4 leading-novice"><Fragment set:html={title}/></h1>
 <div class="grid grid-cols-4 gap-12 my-12">
   <div class="col-span-4 md:col-span-1 flex flex-col justify-around order-8 sm:order-1">
     <span class="block p-1 border-b border-black text-lg text-papez-purple text-center tracking-widedate uppercase"><Fragment set:html={date}/></span>
-    <a href={`/author/${avtorslug}`} class="block p-8 sm:p-4 text-xl text-center uppercase "><Fragment set:html={author}/></a>
+    
+    <a href={`/author/${avtorslug}`} class=" uppercase px-2 bg-klopinj-blue mb-0 text-center text-white tracking-widels text-sm">Celovec</a>
+    <a href={`/author/${avtorslug}`} class="block p-8 sm:p-2 sm:pb-4 text-xl text-center uppercase "><Fragment set:html={author}/></a>
+    
     <span class="block text-center mx-auto w-full">
       <span class="block border-b border-black"></span>
       

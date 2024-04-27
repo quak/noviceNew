@@ -89,13 +89,13 @@ export default function QuadReload(args) {
 										</div>
 										<div className="sm:px-3 pt-2 flex flex-col flex-1">
 											
-											<h2 className=" text-2xl line-clamp-3 text-ellipsis font-bold">{article.post_title}</h2>	
+											<h2 className=" text-2xl line-clamp-3 text-ellipsis font-bold leading-novice">{article.post_title}</h2>	
 
 											<span className="">
-												<p className="text-base font-serif mb-4 line-clamp-2">{article.excerpt}</p>
+												<p className="text-base font-serif mb-4 line-clamp-3">{article.excerpt}</p>
 											</span>
 
-											<div className="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+											<div className="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
 												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
 													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" class=""/>
 													{article.actdate}

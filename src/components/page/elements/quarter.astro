@@ -70,7 +70,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
       if (style === "" || style === "big") {
         return(
 
-            <a href={url} class={`col-span-1 lg:col-span-1 lg:row-span-1  overflow-hidden ${sliderclass}`} rel="prefetch-intent">
+            <a href={url} class={`col-span-1 lg:col-span-1 lg:row-span-1  overflow-hidden ${sliderclass}`} >
                 <article class={`h-full flex flex-col ${bgclass}`}>
                     <div class="overflow-hidden relative">
                         <Picture height="128" width="257" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
@@ -80,7 +80,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1">
                         
-                        <h2 class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold"><Fragment set:html={article?.node?.title}/></h2>	
+                        <h2 class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis "><Fragment set:html={article?.node?.title}/></h2>	
 
                         <span class={`hidden ${descriptionclass}`}>
                             <p class="text-base font-serif mb-4 line-clamp-2">{excerpt}</p>
@@ -106,7 +106,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         )
       } else if( style === "small") {
         return(
-            <a href={url} class="col-span-1  overflow-hidden" rel="prefetch-intent">
+            <a href={url} class="col-span-1  overflow-hidden" >
                 <article class="p-3">
                     <span class={`text-papez-purple uppercase text-lg inline-block mt-2 mb-1 min-h-5`}>{place}</span>
                     <h2 class="leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis"><Fragment set:html={article?.node?.title}/></h2>						
@@ -115,7 +115,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         )
       } else if( style === "opinion") {
         return(
-            <a href={url} class="col-span-1 row-start-2 swiper-slide" rel="prefetch-intent">
+            <a href={url} class="col-span-1 row-start-2 swiper-slide" >
                 <article class="p-3 bg-sneg-white h-full rounded-md">
                     
                     <div class="flex flex-wrap justify-center -mt-20">
@@ -127,7 +127,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         
                     <div class="py-2 text-center">
                         <h2 class="text-papez-purple text-xl sm:text-2xl inline-block mt-2 mb-4 block line-clamp-1 text-ellipsis block leading-novice ">{personname}</h2>
-                        <span class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold"><Fragment set:html={article.node.title}/></span>
+                        <span class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis"><Fragment set:html={article.node.title}/></span>
                     </div>
                 
                 </article>
@@ -135,7 +135,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         )
       } else if( style === "congratulations") {
         return(
-            <a href={url} class=" swiper-slide  overflow-hidden" rel="prefetch-intent">
+            <a href={url} class=" swiper-slide  overflow-hidden" >
                 <article class="p-2 bg-sneg-white h-full">
                     <div class="overflow-hidden relative block">
                         <div class="absolute left-0 bottom-0 block">
@@ -157,7 +157,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
       } else if( style === "congratulations2") {
         return(
 
-			<a href={url} class="col-span-1 row-start-2 swiper-slide  overflow-hidden" rel="prefetch-intent">
+			<a href={url} class="col-span-1 row-start-2 swiper-slide  overflow-hidden" >
 				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
 					<div class="flex flex-wrap gap-2 justify-center mb-4">
 						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">{article?.node?.place?.place}</span>

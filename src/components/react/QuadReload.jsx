@@ -78,7 +78,7 @@ export default function QuadReload(args) {
 						let url = '/'+article?.cat?.slug+'/'+article?.post_name;
 						
 							return (
-								<a key={k} href={url} className="col-span-1 lg:col-span-1 lg:row-span-1" rel="prefetch-intent">
+								<a key={k} href={url} className="col-span-1 lg:col-span-1 lg:row-span-1" >
 									<article className="h-full flex flex-col">
 										<div className="overflow-hidden relative">
 											

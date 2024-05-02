@@ -59,7 +59,7 @@ export default function ArticlesForAuthor(avtorslug) {
 						}
 						
 							return (
-								<a key={k} href={url} class="col-span-1 md:col-span-1 md:row-span-1"  rel="prefetch-intent">
+								<a key={k} href={url} class="col-span-1 md:col-span-1 md:row-span-1"  >
 									<article class="p-2 bg-sneg-white h-full flex flex-col">
 										<div class="overflow-hidden relative ">
 											<img height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={post?.imageurl} loading={llstyle} alt={post.post_title}/>

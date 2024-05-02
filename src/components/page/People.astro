@@ -77,7 +77,7 @@ if(deaths === undefined){
 					}
 				return (
 
-					<a href={url} class="col-span-6 md:col-span-4" rel="prefetch-intent">
+					<a href={url} class="col-span-6 md:col-span-4" >
 			
 						<article class="relative">
 							<div class="overflow-hidden">
@@ -115,14 +115,15 @@ if(deaths === undefined){
 	<div class="mt-8 bg-sele-ivory overflow-hidden"></div>
 	
 	
-		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-center">
 					
 			<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
-			<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
-				
-				<Image width="24" height="24" src={chevronright} alt="Send wishes" loading="lazy"/>
-				<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">čestitaj</span>
-			</a>
+			<a href="/kategorije/kontakt/" class="flex gap-2"> 
+				<img class="max-h-12" src="/tmpimages/svgs/sendwish.svg"> 
+				<p class="max-w-28 font-serif text-xs">
+					Bi radi komu čestitali? K formularju.
+				</p> 
+			</a> 
 		</div>
 	
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper overflow-hidden relative">
@@ -135,8 +136,6 @@ if(deaths === undefined){
 						);
 	
 				})}
-							
-				
 				
 			</div>
 			<div class="swiper-button-prev"></div>
@@ -147,29 +146,32 @@ if(deaths === undefined){
 	
 
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width  mt-8">
-		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between  items-center">
 			<h2 class="col-span-2 font-light text-5xl text-klopinj-blue mb-2 uppercase  text-center">odšli so ...</h2>
-			<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
-				<Image width="24" height="24" src={chevronright} alt="Send condolations" loading="lazy"/>
-				
-				<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">oznani</span>
-			</a>
+			
+			<a href="/kategorije/kontakt/" class="flex gap-2"> 
+				<img class="max-h-12" src="/tmpimages/svgs/sendwish.svg"> 
+				<p class="max-w-28 font-serif text-xs">
+					Objavite osmrtnico. K formularju.
+				</p> 
+			</a> 
 		</div>
-		<div class="grid gird-cols-1 sm:grid-cols-3 gap-4 ">
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swipercongrats overflow-hidden relative">
+			<div class="swiper-wrapper">
+		
 			{deaths.map(function (article,k) {
 			
 					return (
 
-						<Third article={article} style="condolations"/>
-					
+						<Third article={article} style="condolations" isslider={true} />
 					);
 				
 	
 			})}
 			
-
-			
-			
+			</div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
 		</div>
 	</div>
 </section>
@@ -198,7 +200,7 @@ if(deaths === undefined){
 				slidesPerView: 2,
 				},
 				768: {
-				slidesPerView: 4,
+				slidesPerView: 3,
 				}
 			}
 			

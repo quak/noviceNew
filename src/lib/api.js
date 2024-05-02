@@ -141,11 +141,20 @@ export async function getArticleBySlug(slug) {
               sourceUrl(size: IMG33)
             }
           }
+          place {
+            place
+          }
           author {
             node {
               slug
               firstName
               lastName
+            }
+          }
+          categories {
+            nodes {
+              slug
+              name
             }
           }
         

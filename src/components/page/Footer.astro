@@ -3,6 +3,10 @@
 import { Image } from 'astro:assets';
 import noviceLogoWhite from "../../images/novice_logo_white.svg";
 
+import { getAvtorsff } from '../../lib/avtor';
+const avtors = await getAvtorsff();
+
+
 const {menu_left,menu_right} = Astro.props;
 
 let ml = menu_left.menuItems.nodes;
@@ -76,16 +80,49 @@ let mr = menu_right.menuItems.nodes;
             <div class="basis-1/2 md:basis-1/4">
                 <h2 class="text-white text-2xl uppercase mb-4">Uredništvo</h2>
                 
-                <p class="font-bold italic text-lg">Sebastijan Trampusch</p>
-                <p class="">(glavni urednik - Chefredakteur)</p>
-                <p class="font-bold italic text-lg">Damijan Smrečnik</p>
-                <p class="font-bold italic text-lg">Janko Kulmesch</p>
-                <p class="font-bold italic text-lg">Nadja Volavšek Kurasch</p>
-                <p class="font-bold italic text-lg">Simon Rustia</p>
-                <p class="font-bold italic text-lg">Klasja Kovačič</p>
-                <p class="font-bold italic text-lg">Benjamin Kupper</p>
-                <p class="font-bold italic text-lg">Tomaž Verdev</p>
-                <p class="font-bold italic text-lg">Milena Lobnegger</p>
+                {avtors.gv.map(function (avtor,k) {
+								
+                    let title = avtor.data.display_name;
+                    ///  author/gustim
+                    let url = "author/"+avtor.data.user_nicename;
+                    
+                    return (
+                        
+                        <a href={url} class="font-bold italic text-lg">
+                            <div>{title}</div>
+                            <span class="font-normal text-md">(glavni urednik)</span>
+                        </a>
+                    );
+                    
+                })}
+
+                {avtors.zgv.map(function (avtor,k) {
+                                                
+                    let title = avtor.data.display_name;
+                    let url = "author/"+avtor.data.user_nicename;
+                    
+                    return (
+                        <a href={url} class="font-bold italic text-lg">
+                            <div>{title}</div>
+                            <span class="font-normal text-md">(zastopnik glavnega urednika)</span>
+                        </a>
+                    );
+                    
+                })}
+
+                {avtors.ur.map(function (avtor,k) {
+                                       
+                    let title = avtor.data.display_name;
+                    let url = "author/"+avtor.data.user_nicename;
+                    
+                    return (
+                        <a href={url} class="font-bold italic text-lg">
+                            <div>{title}</div>
+                        </a>
+                    );
+                    
+                })}
+                
             </div>
             <div class="basis-1/2 md:basis-1/4">
                 <span class="text-papez-purple text-2xl uppercase mb-4">&nbsp;</span>

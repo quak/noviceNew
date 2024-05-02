@@ -45,10 +45,11 @@ if(shouldll==="false"){
                 <Picture width="754" height="424" class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
                 
             </div>
+            <span class={`bg-klopinj-blue  uppercase  absolute top-0  block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm  ${placeclass}`}>{place}</span>
             <div class="absolute p-4 md:px-12 md:py-4 bottom-0">
 
                 <span class="z-20 relative">
-                    <span class={`bg-papez-purple text-base md:text-xl text-sele-ivory uppercase px-4 inline-block my-3 uppercase ${placeclass}`}>{place}</span>
+                    
                     <h2 class="text-sele-ivory text-2xl md:text-5xl line-clamp-3 text-ellipsis leading-novice font-bold z-10"><Fragment set:html={article?.node?.title}/></h2>
                 </span>
 

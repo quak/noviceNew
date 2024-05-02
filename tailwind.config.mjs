@@ -29,7 +29,7 @@ module.exports = {
 		  },
 		extend: {
 			lineHeight: {
-				'novice': '1.1',
+				'novice': '1',
 			},
 			aspectRatio: {
 				'189': '18 / 9',

@@ -127,7 +127,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
         
                     <div class="py-2 text-center">
                         <h2 class="text-papez-purple text-xl sm:text-2xl inline-block mt-2 mb-4 block line-clamp-1 text-ellipsis block leading-novice ">{personname}</h2>
-                        <span class="font-bold italic line-clamp-3 text-ellipsis h-12 text-lg"><Fragment set:html={article.node.title}/></span>
+                        <span class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold"><Fragment set:html={article.node.title}/></span>
                     </div>
                 
                 </article>
@@ -167,7 +167,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
 		
 					<div class="py-2 flex flex-col justify-center">
 						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
-                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-3 text-center leading-novice "><Fragment set:html={article.node.title}/></h2>
+                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center leading-novice "><Fragment set:html={article.node.title}/></h2>
 						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg"/>			
 					</div>
 				

@@ -182,7 +182,7 @@ export default function EventsOverview() {
 				<>	<div key={ll}>
 						
 						<div className="flex flex-row gap-4 flex-wrap md:flex-nowrap mt-4">
-							<div className="basis-full md:basis-1/6">
+							<div className="basis-full hidden md:block md:basis-1/6">
 								<p className="text-left uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4">{day.printdate}</p>
 							</div>
 							<div className="basis-full md:basis-5/6 grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-12">

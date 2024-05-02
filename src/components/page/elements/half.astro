@@ -34,6 +34,7 @@ if(shouldll==="false"){
 /********** */
     let cats = article?.node?.categories?.nodes;
     let isgal="lg:hidden";		
+  
     cats.forEach(cat => {
         if(cat.slug=="galerije"){
             isgal= "";
@@ -60,7 +61,7 @@ let excerpt = (article?.node?.excerpt).replace(/<[^>]*>?/gm, '');
                     <div class="overflow-hidden relative">
                         <Picture height="275" width="550" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}   loading={llstyle} alt={article?.node?.title}/>
                         <div class="absolute left-0 bottom-0 block">
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm  ${placeclass}`}>{place}</span>
                         </div>
                     </div>
 

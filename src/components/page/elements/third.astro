@@ -115,9 +115,9 @@ if(article?.node?.oseba?.surname!=null){
                 </div>
                 <div class="flex-auto border-b-8 border-t-8 border-iskanje-grey z-20 relative bg-white text-center ">
                     <span class="px-4 block">
-                        <span class="uppercase text-klopinj-blue text-center text-4xl font-light mt-4 block">{personname}</span>
-                        <h2 class="text-xl sm:text-2xl mb-2 text-ellipsis mt-2 line-clamp-3 leading-novice"><Fragment set:html={article.node.title}/></h2>
-                        <p class="font-serif text-center mt-8 mb-8 text-xl italic line-clamp-3">{excerpt}</p>
+                        <span class="uppercase text-klopinj-blue text-center text-4xl font-light mt-4 block leading-novice">{personname}</span>
+                        <h2 class="text-xl sm:text-2xl mb-2 text-ellipsis mt-2 line-clamp-4 sm:line-clamp-3 leading-novice"><Fragment set:html={article.node.title}/></h2>
+                        <p class="hidden sm:block font-serif text-center mt-8 mb-8 text-xl italic line-clamp-3">{excerpt}</p>
                     </span>
                 </div>
             </a>

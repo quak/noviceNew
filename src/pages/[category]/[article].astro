@@ -43,7 +43,7 @@ const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
 //const post = await getArticleBySlugAPI(article);
-
+console.log(arti);
 var blocks = null;
 if(arti){
    blocks = arti.blocks;
@@ -56,19 +56,29 @@ if(category=="gallery"){
   isGallery = true;
 }
 
+/********** */
+let cats = arti.categories.nodes;
+
+cats.forEach(cat => {
+    if(cat.slug=="galerije"){
+      isGallery = true;
+    }
+});
+/********** */
+
 let firstname = arti?.author?.node?.firstName;
 let lastname = arti?.author?.node?.lastName;
 let nicename = arti?.author?.node?.slug;
-
+console.log(arti?.author?.node);
 if(firstname==undefined){
-  firstname = "Damijan";
+  firstname = "";
 }
 if(lastname==undefined){
-  lastname = "Smrečnik";
+  lastname = "Novice";
 }
 
 if(nicename==undefined){
-  nicename = "damijan-smrecnik";
+  nicename = "Novice";
 }
 
 const avtor = firstname+" "+lastname;
@@ -94,7 +104,7 @@ if(arti?.leadingForAllPosts?.leading!==null){
         <Breadcrumb category={category}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} mediaItem={arti?.featuredImage}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={arti?.place?.place} mediaItem={arti?.featuredImage}/>)
         }
         {
          

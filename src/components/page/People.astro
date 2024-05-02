@@ -115,14 +115,15 @@ if(deaths === undefined){
 	<div class="mt-8 bg-sele-ivory overflow-hidden"></div>
 	
 	
-	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
-		<h2 class="col-span-2 font-light text-5xl text-klopinj-blue mb-2 uppercase  text-center">odšli so ...</h2>
-		<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
-			<Image width="24" height="24" src={chevronright} alt="Send condolations" loading="lazy"/>
-			
-			<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">oznani</span>
-		</a>
-	</div>
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
+					
+			<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
+			<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
+				
+				<Image width="24" height="24" src={chevronright} alt="Send wishes" loading="lazy"/>
+				<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">čestitaj</span>
+			</a>
+		</div>
 	
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper overflow-hidden relative">
 			<div class="swiper-wrapper">
@@ -143,36 +144,7 @@ if(deaths === undefined){
 		</div>
 	</div>
 
-	<div class="mt-8">
-		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">
-				
-			<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
-			<a href="/kategorije/kontakt/" class="flex flex-row gap-2 mb-2 items-center hover:animate-bounce">
-				
-				<Image width="24" height="24" src={chevronright} alt="Send wishes" loading="lazy"/>
-				<span class="font-light text-xl md:text-3xl text-klopinj-blue uppercase ">čestitaj</span>
-			</a>
-		</div>
-		
-		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper swipercongrats">
-			
-			<div class="swiper-wrapper">
-
-
-				{congratulations.map(function (article,k) {
-					
-						return (
-							<Quarter article={article} style="congratulations" isslider={true} bg={true}/>
-						);
-		
-				})}
-
-				
-			</div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-		</div>
-	</div>
+	
 
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width  mt-8">
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-end">

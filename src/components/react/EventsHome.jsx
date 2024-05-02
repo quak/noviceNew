@@ -106,7 +106,7 @@ export default function EventsHome() {
 
 										<div className="basis-1/5 flex">
 											<div className="w-20">
-												<span className="px-2 py-1 flex flex-col border border-black items-center">
+												<span className="px-2 py-1 flex flex-col border border-black items-center bg-white">
 													<span className="text-xs uppercase tracking-widedate mt-1 ml-1.5 uppercase">{printweekday}</span>
 													<span className="text-4xl font-bold text-klopinj-blue">{printdate}</span>
 												</span>
@@ -123,7 +123,7 @@ export default function EventsHome() {
 												
 												return (
 													
-													<a key={kk} href={url} className="mb-4 block">
+													<a key={kk} href={url} className="mb-4 block bg-white p-2">
 														<p className="text-papez-purple tracking-widedate uppercase font-bold text-lg">{city}</p>
 														<p className="font-serif">{title}</p>
 													</a>

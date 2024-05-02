@@ -69,11 +69,11 @@ export default function ArticlesForAuthor(avtorslug) {
 										</div>
 										<div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
 											
-											<h2 class=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold">{post?.post_title}</h2>	
+											<h2 class=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold leading-novice">{post?.post_title}</h2>	
 											<span class={`hidden ${descriptionclass}`}>
 												<p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
 											</span>
-											<div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2">
+											<div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
 												<span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
 													
 													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" class=""/>

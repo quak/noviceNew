@@ -168,7 +168,7 @@ if(deaths === undefined){
 				</p> 
 			</a> 
 		</div>
-		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swipercongrats overflow-hidden relative">
+		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swipercongrats  overflow-hidden relative">
 			<div class="swiper-wrapper">
 		
 			{deaths.map(function (article,k) {
@@ -188,10 +188,13 @@ if(deaths === undefined){
 
 <script>
 	import Swiper from 'swiper';
+	
+	import { Navigation, Pagination } from 'swiper/modules';
 	import 'swiper/css/bundle';
 	document.addEventListener('astro:page-load', () => {
 		const swiper = new Swiper('.swipercongrats', {
 			// Optional parameters
+			modules: [Navigation, Pagination],
 			direction: 'horizontal',
 			loop: true,
 			slidesPerView: 1,

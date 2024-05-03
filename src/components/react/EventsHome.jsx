@@ -17,14 +17,14 @@ export default function EventsHome() {
 
 		
 		return (
-			<div className="block -mt-8 absolute z-10 b-0 w-full">
+			<div className="block -mt-8 absolute z-10 b-0 w-full ">
 				<div className="flex mt-auto w-full ">   
 						
 					
 					<span className={(pagenum === 0 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(0);setPagenum(0); }}>1</span>
 					<span className={(pagenum === 1 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(1);setPagenum(1); }}>2</span>
 					<span className={(pagenum === 2 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(2);setPagenum(2); }}>3</span>
-					<a href="/kategorije/prireditve" className="py-1 px-6 bg-klopinj-blue text-white mx-1 ml-auto uppercase tracking-widels">Vse </a>
+					<a href="/kategorije/prireditve" className="py-1 px-6 bg-klopinj-blue text-white ml-auto uppercase tracking-widels">Vse prireditve</a>
 					
 				</div>
 			</div>
@@ -69,8 +69,8 @@ export default function EventsHome() {
 			<div className="block h-full">
 			{isLoading ? <img src="/tmpimages/loader.gif" alt="loading..." /> : null}
 			<Swiper
-				spaceBetween={0}
-				className="eventSwiper w-full"
+				spaceBetween={10}
+				className="eventSwiper w-full gap-2"
 				slidesPerView={1}
 				
 				modules={[Pagination]}
@@ -81,7 +81,7 @@ export default function EventsHome() {
 					
 					pagearr = Object.values(page);
 					return (
-						<SwiperSlide key={l} className="mr-px">
+						<SwiperSlide key={l} className="">
 						
 
 							{pagearr.map(function (day,k) {
@@ -124,7 +124,7 @@ export default function EventsHome() {
 												return (
 													
 													<a key={kk} href={url} className="mb-4 block bg-white p-2">
-														<p className="text-papez-purple tracking-widedate uppercase font-bold text-lg">{city}</p>
+														<p className="inline-block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ">{city}</p>
 														<p className="font-serif">{title}</p>
 													</a>
 													
@@ -140,7 +140,7 @@ export default function EventsHome() {
 				
 			})}
 
-			<SwiperNav></SwiperNav>
+			<SwiperNav className="mt-2"></SwiperNav>
 				</Swiper>
 				
 				</div>

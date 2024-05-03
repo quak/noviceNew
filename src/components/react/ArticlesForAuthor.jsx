@@ -59,31 +59,31 @@ export default function ArticlesForAuthor(avtorslug) {
 						}
 						
 							return (
-								<a key={k} href={url} class="col-span-1 md:col-span-1 md:row-span-1"  >
-									<article class="p-2 bg-sneg-white h-full flex flex-col">
-										<div class="overflow-hidden relative ">
-											<img height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={post?.imageurl} loading={llstyle} alt={post.post_title}/>
-											<div class="absolute left-0 bottom-0 block">
-												<span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+								<a key={k} href={url} className="col-span-1 md:col-span-1 md:row-span-1"  >
+									<article className="p-2 bg-sneg-white h-full flex flex-col">
+										<div className="overflow-hidden relative ">
+											<img height="198" width="353" className="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={post?.imageurl} loading={llstyle} alt={post.post_title}/>
+											<div className="absolute left-0 bottom-0 block">
+												<span className={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
 											</div>
 										</div>
-										<div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
+										<div className="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
 											
-											<h2 class=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold leading-novice">{post?.post_title}</h2>	
-											<span class={`hidden ${descriptionclass}`}>
-												<p class="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
+											<h2 className=" text-xl sm:text-2xl line-clamp-3 text-ellipsis font-bold leading-novice">{post?.post_title}</h2>	
+											<span className={`hidden ${descriptionclass}`}>
+												<p className="text-base font-serif mb-4 line-clamp-3">{excerpt}</p>
 											</span>
-											<div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
-												<span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
+											<div className="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
+												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
 													
-													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" class=""/>
+													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" className=""/>
 													
 													{datestring}
 												</span>
 
-												<span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
+												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
 													
-													<img class=" max-h-4 mr-2" src="/tmpimages/svgs/user.svg" alt="Avtor icon" loading={llstyle}/>
+													<img className=" max-h-4 mr-2" src="/tmpimages/svgs/user.svg" alt="Avtor icon" loading={llstyle}/>
 													{avtor}
 												</span>
 											</div>

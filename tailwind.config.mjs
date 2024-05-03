@@ -33,6 +33,7 @@ module.exports = {
 			},
 			lineHeight: {
 				'novice': '1',
+				'nbutton': '1.3',
 			},
 			aspectRatio: {
 				'189': '18 / 9',

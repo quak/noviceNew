@@ -28,7 +28,7 @@ const avtors = await getAvtors();
 								<div class="bg-white z-20 -mt-4 pt-4">
 									<div class="px-6 flex flex-wrap flex-col justify-between h-full  border-t  ">
 										<a class="flex gap-1 justify-center align-center text-klopinj-blue text-xl" href={url}>
-											<h2 class="text-3xl text-center font-bold py-4">{avtor.data.display_name}</h2>
+											<h2 class="text-3xl text-center font-bold py-4 leading-novice">{avtor.data.display_name}</h2>
 										</a>
 										<p class="uppercase text-center text-xl tracking-widedate font-serif pb-4">{avtor.data.jobtitle}</p>
                         				<a class="flex gap-1 justify-center align-center text-klopinj-blue text-xl" href={`mailto:${avtor.data.user_email}`}><img src="/tmpimages/svgs/email.svg"/>{avtor.data.user_email}</a>

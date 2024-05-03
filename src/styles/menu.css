@@ -1,5 +1,14 @@
-/*MOBILE BUTTON*/
+/*OTHER*/
+.hover-svgbutton:hover svg{
+    fill: #fff;
+}
 
+
+/*Other END*/
+
+
+/*MOBILE BUTTON*/
+ 
 
 .mobile-menu-button{
     position: relative;

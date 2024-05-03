@@ -120,9 +120,9 @@ excerpt = excerpt.replace("[&hellip;]", '...');
 
 
             <a href={url} class=" overflow-hidden">
-                <div class="flex">
+                <div class="flex gap-4">
                     
-                    <div class="basis-full md:basis-3/5 flex flex-wrap flex-col justify-between">
+                    <div class="basis-full md:basis-2/5 flex flex-wrap flex-col justify-between">
                         <div class="flex flex-wrap gap-2">
                             <span class="uppercase px-2 bg-klopinj-blue text-white text-xl tracking-widels">{place}</span>
                         </div>
@@ -134,21 +134,11 @@ excerpt = excerpt.replace("[&hellip;]", '...');
                         </span>
                         
                     </div>
-                    <div class="hidden md:basis-2/5">
-                        <img src="/tmpimages/tdata/tip.png"/>
+                    <div class="md:basis-3/5">
+                        <Picture width="1124" height="632" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video" src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} alt={article?.node?.title}  loading={llstyle}/>
                     </div>
                 </div>
-                <div class="flex justify-between border-b pb-4 border-black hidden">
-                    <div class="flex gap-1 justify-between w-60">
-                        <span class="uppercase flex flex-row items-center tracking-widels"><img  src="/tmpimages/svgs/bookmark.svg" alt="Date icon"/>24.11.2023</span>
-                        <span class="uppercase flex flex-row items-center tracking-widels"><img class="max-h-4 mr-1"src="/tmpimages/svgs/user.svg" alt="Avtor icon"/>Tomaž Verdev</span>
-                    </div>
-                    <div class="hidden md:flex">
-                        <span class="uppercase flex flex-row items-center text-2xl text-klopinj-blue tracking-widels">
-                            <img class="max-h-8 mr-2" src="/tmpimages/svgs/chevronright.svg"/>več
-                        </span>
-                    </div>
-                </div>
+                
             </a>
         )
       } 

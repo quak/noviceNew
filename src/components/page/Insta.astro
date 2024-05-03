@@ -16,3 +16,24 @@ const {block} = Astro.props;
 	<Fragment set:html={block.dynamicContent} />
 </section>
 
+<script>
+	// Find all buttons with the `alert` class on the page.
+	const buttons = document.querySelectorAll('.novice-insta-morebutton');
+  
+	// Handle clicks on each button.
+	buttons.forEach((button) => {
+	  button.addEventListener('click', (event) => {
+		var targetElement = event.target || event.srcElement;
+		var par =  targetElement.parentNode.parentNode;
+		var toogleElements = par.querySelectorAll('.novice-insta-visible');
+		console.log(par);
+		console.log(toogleElements);
+		toogleElements.forEach((toogleelements) => {
+			toogleelements.classList.toggle("hidden");
+		});
+		console.log(par);
+
+
+	  });
+	});
+  </script>

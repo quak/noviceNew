@@ -40,10 +40,10 @@ if(event.weblinkparsed.host === ""){
 			<div class="flex flex-col w-full">
 				<div>
 					<p class="tracking-widedate text-xl font-bold text-center uppercase">{event.day}</p>
-					<h1 class="text-center uppercase text-4xl text-klopinj-blue font-light text-6xl mb-4"><span class="font-bold">{event.date_day_month}</span>{event.date_year}</h1>
+					<div class="text-center uppercase text-4xl text-klopinj-blue font-light text-6xl mb-2  leading-novice"><span class="font-bold">{event.date_day_month}</span>{event.date_year}</div>
 				</div>
 				<div class="text-center">
-					<p class="  text-6xl mb-8">{event.post_title}</p>
+					<h1 class="  text-6xl mb-4 leading-novice">{event.post_title}</h1>
 					<div class="flex flex-wrap flex-row justify-center gap-4 mt-4">
 						<p class="flex items-center gap-2 px-8"><img src="/tmpimages/svgs/clock.svg"><span class="text-papez-purple font-bold text-3xl">{event.date_time}</span></p>
 						<p class="flex items-center gap-2 px-8"><img src="/tmpimages/svgs/location.svg"><span class="text-papez-purple uppercase font-bold text-3xl">{event.city}</span></p>

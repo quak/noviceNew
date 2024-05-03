@@ -118,10 +118,17 @@ if(deaths === undefined){
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between items-center">
 					
 			<h2 class="font-light text-5xl text-klopinj-blue mb-2 uppercase ">čestitamo</h2>
-			<a href="/kategorije/kontakt/" class="flex gap-2"> 
-				<img class="max-h-12" src="/tmpimages/svgs/sendwish.svg"> 
-				<p class="max-w-28 font-serif text-xs">
-					Bi radi komu čestitali? K formularju.
+			<a href="/kategorije/kontakt/" class="flex gap-2  hover-svgbutton"> 
+				
+
+				<svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 16 16" fill="currentColor" class="max-h-12 fill-klopinj-blue " >
+					<path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+					<path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+				  </svg>
+
+				
+				<p class="max-w-20 font-serif text-xs">
+					Pošljite Vašo čestitko.
 				</p> 
 			</a> 
 		</div>
@@ -149,10 +156,15 @@ if(deaths === undefined){
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width flex flex-row justify-between  items-center">
 			<h2 class="col-span-2 font-light text-5xl text-klopinj-blue mb-2 uppercase  text-center">odšli so ...</h2>
 			
-			<a href="/kategorije/kontakt/" class="flex gap-2"> 
-				<img class="max-h-12" src="/tmpimages/svgs/sendwish.svg"> 
-				<p class="max-w-28 font-serif text-xs">
-					Objavite osmrtnico. K formularju.
+			<a href="/kategorije/kontakt/" class="flex gap-2 hover-svgbutton"> 
+				
+				<svg xmlns="http://www.w3.org/2000/svg" width="63" height="63" viewBox="0 0 16 16" fill="currentColor" class="max-h-12 fill-klopinj-blue " >
+					<path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+					<path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+				  </svg>
+
+				<p class="max-w-20 font-serif text-xs">
+					Pošljite osmrtnico.
 				</p> 
 			</a> 
 		</div>
@@ -160,13 +172,9 @@ if(deaths === undefined){
 			<div class="swiper-wrapper">
 		
 			{deaths.map(function (article,k) {
-			
 					return (
-
 						<Third article={article} style="condolations" isslider={true} />
 					);
-				
-	
 			})}
 			
 			</div>

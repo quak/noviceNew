@@ -14,8 +14,8 @@ export async function getAds() {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
-        'CDN-Cache-Control': 'public, s-maxage=600,stale-while-revalidate=59',
+        'Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+        'CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
         'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
       }
     });

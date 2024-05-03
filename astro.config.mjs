@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   output: 'server',
   adapter: vercel({
-    maxDuration: 100,
+    maxDuration: 250,
     //isr: {
     //  bypassToken: "161556d774a8161556d774a8161556d774a8",
     //  exclude: [ "/", "/kategorije/[...slug]" ]

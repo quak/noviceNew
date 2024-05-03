@@ -6,9 +6,9 @@ import { Picture } from 'astro:assets';
 import bookmarkicon from "../../images/bookmark.svg";
 import usericon from "../../images/user.svg";
 
-export default function ArticlesForTag(tag) {
+export default function ArticlesForTag(place) {
 	var params = {
-        tag: tag
+        place: place
     };
 	
  

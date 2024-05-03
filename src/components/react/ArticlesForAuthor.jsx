@@ -34,7 +34,7 @@ export default function ArticlesForAuthor(avtorslug) {
 
 	return (		
 		<>
-				<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width grid grid-cols-2 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-2 sm:gap-4 md:gap-12">
+				<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width grid grid-cols-2 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-2 sm:gap-4 md:gap-4">
 					{data.map(function (post,k) {
 						
 						let url = '/'+post?.cat?.slug+'/'+post?.post_name;

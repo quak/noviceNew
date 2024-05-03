@@ -43,7 +43,7 @@ const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
 //const post = await getArticleBySlugAPI(article);
-console.log(arti);
+
 var blocks = null;
 if(arti){
    blocks = arti.blocks;
@@ -69,7 +69,7 @@ cats.forEach(cat => {
 let firstname = arti?.author?.node?.firstName;
 let lastname = arti?.author?.node?.lastName;
 let nicename = arti?.author?.node?.slug;
-console.log(arti?.author?.node);
+
 if(firstname==undefined){
   firstname = "";
 }

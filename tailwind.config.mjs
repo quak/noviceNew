@@ -28,6 +28,9 @@ module.exports = {
 			'9xl': ['8rem'],
 		  },
 		extend: {
+			aspectRatio: {
+				'ktabla': '3 / 2',
+			},
 			lineHeight: {
 				'novice': '1',
 			},

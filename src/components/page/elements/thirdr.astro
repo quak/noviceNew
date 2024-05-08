@@ -35,7 +35,10 @@ if(avtor == ""){
 }
 
 let place = ""
-place = article?.acf?.place;
+let placeat = ""
+
+place = article?.loc?.slovensko_ime;
+placeat = article?.loc?.nemsko_ime;
 
 let placeclass = "";
 if(place === null || place===""){
@@ -67,8 +70,9 @@ if(article?.thumb===false){
                     <div class="overflow-hidden relative ">
                         
                         <Picture height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={article?.post_title} />
-                        <div class="absolute left-0 bottom-0 block">
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+                        <div class="absolute left-0 bottom-0 block ">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ${placeclass}`}>{placeat}</span>
                         </div>
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">

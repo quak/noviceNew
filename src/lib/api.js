@@ -102,7 +102,7 @@ export async function getAllSlugsOfPosts(){
   return posts;
 }
 
-export async function getArticleBySlug(slug) {
+export async function getArticleBySlug(slug) {  
    
   const response = await fetch("https://sfsn.si/graphql",
   {

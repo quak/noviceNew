@@ -89,6 +89,12 @@ if(arti?.leadingForAllPosts?.leading!==null){
 }
             
 //const featuredImage = (arti.featuredImage.node.mediaItemUrl).replace("https://sfsn.si","" );
+let place = article?.loc;
+
+let placeclass = "";
+if(place === null || place===""){
+    placeclass = "hidden";
+}
 ---
 
 
@@ -104,11 +110,11 @@ if(arti?.leadingForAllPosts?.leading!==null){
         <Breadcrumb category={category}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={arti?.place?.place} mediaItem={arti?.featuredImage}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={arti?.featuredImage}/>)
         }
         {
          
-          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={arti?.place?.place} mediaItem={arti?.featuredImage}/>)
+          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={arti?.featuredImage}/>)
         }
         
         

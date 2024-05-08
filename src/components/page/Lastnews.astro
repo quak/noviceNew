@@ -17,6 +17,7 @@ if(articles === undefined){
 	articles2 = articles.slice(3, 6);	
 }
 
+
 ---
 
 
@@ -28,7 +29,6 @@ if(articles === undefined){
 	<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-flow-row  mt-4 gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		{articles1.map(function (article,k) {
 					
-			
 			return (
 				<ThirdR article={article} style="normal" isslider="false" showdescription="false"/>
 			);

@@ -2,6 +2,7 @@
 
 const {category,categoryname,block} = Astro.props;
 import { getPostByCategoryById } from '../../lib/api';
+import {getRelatedArticles} from '../../lib/article';
 
 /*
 const blckjsn = JSON.parse(block.attributesJSON);
@@ -11,7 +12,9 @@ if (datacatid === undefined){
 }
 */
 
-let articles = await getPostByCategoryById(["6"],8);
+//let articles2 = await getPostByCategoryById(["6"],8);
+let articles = await getRelatedArticles();
+
 if(articles === undefined){
 	articles = new Array();
 }
@@ -57,17 +60,18 @@ if(articles === undefined){
             </div>
             <div class="swiper-wrapper">
                 {articles.map(function (article) {
-                    let url = '/'+article.node.categories.nodes[0].slug+'/'+article.node.slug;
+                  console.log(article);
+                    let url = '/'+article?.cat?.name+'/'+article.post_name;
                     return (
                     <a href={url} class="swiper-slide">
                         <article class="bg-sneg-white h-full">
                         
-                            <img class="ease-out duration-4000 transition-all hover:scale-101 aspect-video" src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}/>
+                            <img class="ease-out duration-4000 transition-all hover:scale-101 aspect-video" src={article?.thumb} alt={article?.post_title}/>
                 
                             <div class="py-2 text-left">
                         
-                                <span class="text-papez-purple uppercase text-lg inline-block mt-2 mb-1">{article.node.categories.nodes[0].slug}</span>
-                                <h2 class="text-2xl line-clamp-3 text-ellipsis leading-novice"><Fragment set:html={article.node.title}/></h2>
+                                <span class="text-papez-purple uppercase text-lg inline-block mt-2 mb-1">{article?.cat?.name}</span>
+                                <h2 class="text-2xl line-clamp-3 text-ellipsis leading-novice"><Fragment set:html={article.post_title}/></h2>
                                 
                             </div>
                         

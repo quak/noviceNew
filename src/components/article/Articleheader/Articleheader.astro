@@ -36,7 +36,7 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
 </div>
 <div class="mb-6">
   <div class=" overflow-hidden">
-    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} alt={title}/>
+    <Image inferSize format="WebP" loading="eager" class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} alt={title}/>
     
   </div>
   <div class="border-b border-black flex flex-row justify-between py-2 items-center">

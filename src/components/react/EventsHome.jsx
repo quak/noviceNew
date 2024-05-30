@@ -8,7 +8,12 @@ import 'swiper/css';
 
 export default function EventsHome() {
 
-	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/lastev/");
+	const requestOptions = {
+		method: 'POST',
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify("")
+	  };
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/lastev/",requestOptions);
 
 	const [pagenum, setPagenum] = useState(0);
 

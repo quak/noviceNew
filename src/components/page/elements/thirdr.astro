@@ -71,7 +71,7 @@ if(article?.thumb===false){
                 <article class="p-2 bg-sneg-white h-full flex flex-col">
                     <div class="overflow-hidden relative ">
                         
-                        <Picture height="198" width="353" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={article?.post_title} />
+                        <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={article?.post_title} />
                         <div class="absolute left-0 bottom-0 block ">
                             <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
                             <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ${placeclass}`}>{placeat}</span>
@@ -86,14 +86,14 @@ if(article?.thumb===false){
                         <div class="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 
-                                <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
+                                <Image inferSize format="WebP" src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>
                                 
                                 {datestring}
                             </span>
 
                             <span class="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                 
-                                <Image class=" max-h-4 mr-2" src={usericon} alt="Avtor icon" loading={llstyle}/>
+                                <Image inferSize format="WebP" class=" max-h-4 mr-2" src={usericon} alt="Avtor icon" loading={llstyle}/>
                                 {avtor}
                             </span>
                         </div>

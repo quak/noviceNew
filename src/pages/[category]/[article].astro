@@ -114,7 +114,7 @@ if(place === null || place===""){
       <div class=" mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
     
 
-        <Breadcrumb category={category}/>
+        <Breadcrumb category={arti.categories.nodes[0]}/>
 
         {
           !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={arti?.featuredImage}/>)

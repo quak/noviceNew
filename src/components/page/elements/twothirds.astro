@@ -48,7 +48,7 @@ if(title.length<55){
     <a href={url} rel="prefetch" class=" overflow-hidden">
         <article class="relative">
             <div class="overflow-hidden relative ">
-                <Picture width="754" height="424" class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
+                <Picture inferSize format="WebP"  class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet} loading={llstyle} alt={article?.node?.title}/>
                 
             </div>
             <span class={`bg-klopinj-blue  uppercase  absolute top-0  block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm  ${placeclass}`}>{place}</span>

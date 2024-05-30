@@ -50,7 +50,7 @@ if(arti.leadingForAllPosts.leading!=null){
   description= arti.excerpt;
 }
 //const post = await getArticleBySlugAPI(article);
-console.log(arti);
+
 var blocks = null;
 if(arti){
    blocks = arti.blocks;
@@ -147,11 +147,17 @@ if(place === null || place===""){
 
 
 <script>
+
 import GLightbox from 'glightbox';
-const lightbox = GLightbox({
-    touchNavigation: true,
-    loop: true,
-    autoplayVideos: true
+
+document.addEventListener('astro:page-load', () => {
+
+  const lightbox = GLightbox({
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true
+  });
+
 });
 
 

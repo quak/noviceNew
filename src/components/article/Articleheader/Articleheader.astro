@@ -10,8 +10,8 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
   <div class="col-span-4 md:col-span-1 flex flex-col justify-around order-8 sm:order-1">
     <span class="block p-1 border-b border-black text-lg text-papez-purple text-center tracking-widedate uppercase"><Fragment set:html={date}/></span>
     
-    <a href={`/kraj/${place}`} class=" uppercase px-2 bg-klopinj-blue mb-0 text-center text-white tracking-widels text-sm">{place}</a>
-    <a href={`/author/${avtorslug}`} class="block p-8 sm:p-2 sm:pb-4 text-xl text-center uppercase "><Fragment set:html={author}/></a>
+    <a href={`/kraj/${place}`} class=" uppercase px-2 bg-klopinj-blue mb-0 text-center text-white tracking-widels text-sm" aria-label="Link k pregledu člankov, urejenih po kraju">{place}</a>
+    <a href={`/author/${avtorslug}`} class="block p-8 sm:p-2 sm:pb-4 text-xl text-center uppercase " aria-label="Link k pregledu člankov, urejenih po avtorju"><Fragment set:html={author}/></a>
     
     <span class="block text-center mx-auto w-full">
       <span class="block border-b border-black"></span>
@@ -36,7 +36,7 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
 </div>
 <div class="mb-6">
   <div class=" overflow-hidden">
-    <img class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} srcset={mediaItem?.node?.srcSet}/>
+    <img class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} srcset={mediaItem?.node?.srcSet} alt={title}/>
   </div>
   <div class="border-b border-black flex flex-row justify-between py-2 items-center">
     <span class="font-serif italic"> <Fragment set:html={mediaItem?.node?.altText}/> </span>

@@ -1,5 +1,5 @@
 ---
-import { fade } from 'astro:transitions';
+import { Image } from 'astro:assets';
 const {id,title,excerpt,date,author,mediaItem,avtorslug,place} = Astro.props;
 
 const currentPath = "https://novice.at"+Astro.url.pathname;
@@ -36,7 +36,8 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
 </div>
 <div class="mb-6">
   <div class=" overflow-hidden">
-    <img class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} srcset={mediaItem?.node?.srcSet} alt={title}/>
+    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={mediaItem?.node?.sourceUrl} alt={title}/>
+    
   </div>
   <div class="border-b border-black flex flex-row justify-between py-2 items-center">
     <span class="font-serif italic"> <Fragment set:html={mediaItem?.node?.altText}/> </span>

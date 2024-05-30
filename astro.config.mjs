@@ -15,5 +15,8 @@ export default defineConfig({
     //  bypassToken: "161556d774a8161556d774a8161556d774a8",
     //  exclude: [ "/", "/kategorije/[...slug]" ]
     //},
-  })
+  }),
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  }
 });

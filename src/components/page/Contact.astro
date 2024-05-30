@@ -193,11 +193,9 @@ if (Astro.request.method === 'POST') {
 	  .then((gResponse) => {
 		if (gResponse.success) {
 		  // Captcha verification was a success
-		  console.log(gResponse);
+		 
 		} else {
 		  // Captcha verification failed
-		  console.log("e");
-		  console.log(gResponse);
 		}
 	  })
 	}

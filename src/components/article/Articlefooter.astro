@@ -60,7 +60,6 @@ if(articles === undefined){
             </div>
             <div class="swiper-wrapper">
                 {articles.map(function (article) {
-                  console.log(article);
                     let url = '/'+article?.cat?.name+'/'+article.post_name;
                     return (
                     <a href={url} class="swiper-slide">

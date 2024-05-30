@@ -26,12 +26,10 @@ const {block} = Astro.props;
 		var targetElement = event.target || event.srcElement;
 		var par =  targetElement.parentNode.parentNode;
 		var toogleElements = par.querySelectorAll('.novice-insta-visible');
-		console.log(par);
-		console.log(toogleElements);
+		
 		toogleElements.forEach((toogleelements) => {
 			toogleelements.classList.toggle("hidden");
 		});
-		console.log(par);
 
 
 	  });

@@ -42,8 +42,15 @@ export async function getStaticPaths() {
 const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
-//const post = await getArticleBySlugAPI(article);
 
+let description = "";
+if(arti.leadingForAllPosts.leading!=null){
+  description= arti.leadingForAllPosts.leading;
+}else{
+  description= arti.excerpt;
+}
+//const post = await getArticleBySlugAPI(article);
+console.log(arti);
 var blocks = null;
 if(arti){
    blocks = arti.blocks;
@@ -100,7 +107,7 @@ if(place === null || place===""){
 
 
 
-<BaseLayout pageTitle="Projektorisch">
+<BaseLayout pageTitle="Projektorisch" description={description}>
   
   
   <section class="px-1 md:px-4 md:pt-12 pb-24">

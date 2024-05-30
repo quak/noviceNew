@@ -8,7 +8,7 @@ import 'swiper/css';
 
 export default function EventsHome() {
 
-	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/last/");
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/lastev/");
 
 	const [pagenum, setPagenum] = useState(0);
 
@@ -24,7 +24,7 @@ export default function EventsHome() {
 					<span className={(pagenum === 0 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(0);setPagenum(0); }}>1</span>
 					<span className={(pagenum === 1 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(1);setPagenum(1); }}>2</span>
 					<span className={(pagenum === 2 ? 'py-1 px-4 bg-papez-purple text-white mx-1 cursor-pointer ' : 'py-1 px-4 bg-white mx-1 cursor-pointer') + 'controls'} onClick={() => {swiper.slideTo(2);setPagenum(2); }}>3</span>
-					<a href="/kategorije/prireditve" className="py-1 px-6 bg-klopinj-blue text-white ml-auto uppercase tracking-widels">Vse prireditve</a>
+					<a href="/prireditve" className="py-1 px-6 bg-klopinj-blue text-white ml-auto uppercase tracking-widels">Vse prireditve</a>
 					
 				</div>
 			</div>
@@ -70,7 +70,7 @@ export default function EventsHome() {
 			{isLoading ? <img src="/tmpimages/loader.gif" alt="loading..." /> : null}
 			<Swiper
 				spaceBetween={10}
-				className="eventSwiper w-full gap-2"
+				className=" w-full gap-2"
 				slidesPerView={1}
 				
 				modules={[Pagination]}
@@ -81,7 +81,7 @@ export default function EventsHome() {
 					
 					pagearr = Object.values(page);
 					return (
-						<SwiperSlide key={l} className="">
+						<SwiperSlide key={l} className="w-full">
 						
 
 							{pagearr.map(function (day,k) {

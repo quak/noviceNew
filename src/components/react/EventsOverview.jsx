@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
     
 
 export default function EventsOverview() {
-	
+	console.log("what");
 	let [searchWord, setSearchWord] = useState('');
     var params = {
         searchWord: searchWord

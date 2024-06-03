@@ -1,24 +1,26 @@
 ---
 
 
-import Half from './elements/half.astro'
-import Quarter from './elements/quarter.astro'
+import Half from './elements/halfr.astro'
+import Quarter from './elements/quarterr.astro'
 import { getPostByCategoryById } from '../../lib/api';
+import { getPostsByCategoryId } from '../../lib/article';
 
 
 const {block} = Astro.props;
 
 const blckjsn = JSON.parse(block.attributesJSON);
+
 let datacatid = blckjsn?.data?.blockcategory;
 
 if (datacatid === undefined){
 	datacatid = '["6"]';
 }
 
-let articles = await getPostByCategoryById(datacatid,9);
+let articles = await getPostsByCategoryId(6,9);
 
-	let articles1= new Array();
-	let articles2= new Array();
+let articles1= new Array();
+let articles2= new Array();
 if(articles === undefined){
 	articles = new Array();
 }else{
@@ -37,22 +39,7 @@ if(articles === undefined){
 	</div>
 	<div class="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		{articles1.map(function (article,k) {
-			let url = '/'+article?.node?.categories?.nodes[0].slug+'/'+article?.node?.slug;
 			
-			let classes_lr="";
-
-			let avtor ="";
-			
-			if(article?.node?.author?.node?.firstName!=null){
-				avtor = ""+article?.node?.author?.node?.firstName ;
-			}
-			if(article?.node?.author?.node?.lastName!=null){
-				avtor = avtor+" "+article?.node?.author?.node?.lastName ;
-			}
-			
-			if(avtor == ""){
-				avtor="novice";
-			}
 			
 			if(k==0){
 				return (
@@ -70,7 +57,7 @@ if(articles === undefined){
 		
 		
 	</div>
-	<div class="hidden md:grid grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+	<div class="hidden md:grid grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width mt-4">
 		{articles2.map(function (article,k) {
 			
 			return (

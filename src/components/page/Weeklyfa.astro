@@ -1,7 +1,8 @@
 ---
 
-import One from './elements/one.astro'
+import One from './elements/oner.astro'
 import { getPostByCategoryById } from '../../lib/api';
+import { getPostsByCategoryId } from '../../lib/article';
 
 const {block} = Astro.props;
 
@@ -11,7 +12,8 @@ if (datacatid === undefined){
 	datacatid = '["6"]';
 }
 
-let articles = await getPostByCategoryById(datacatid,1);
+//let articles = await getPostByCategoryById(datacatid,1);
+let articles = await getPostsByCategoryId(6,1);
 
 if(articles === undefined){
 	articles = new Array();

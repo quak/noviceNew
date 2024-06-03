@@ -1,9 +1,10 @@
 ---
-import QuarterBig from './elements/quarter.astro'
+import Quarter from './elements/quarterr.astro'
 
 import { getPostByCategoryBySlug,getOpinionPosts } from '../../lib/api';
 import { getNameForPostId } from '../../lib/special';
 import useFetch from "react-fetch-hook";
+import { getPostsByCategoryId } from '../../lib/article';
 
 const {block} = Astro.props;
 
@@ -21,10 +22,11 @@ if (num_of_slider_elements === undefined){
 }
 
 
-let articlesx = await getOpinionPosts(datacatid,parseInt(num_of_slider_elements));
+//let articlesx = await getOpinionPosts(datacatid,parseInt(num_of_slider_elements));
+let articles = await getPostsByCategoryId(995,8);
 
-if(articlesx === undefined){
-	articlesx = new Array();
+if(articles === undefined){
+	articles = new Array();
 }
 
 
@@ -39,10 +41,10 @@ if(articlesx === undefined){
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width swiper swiperopinion">
 		<div class="swiper-wrapper pt-20">
 			
-			{articlesx.map(function (article,k) {
+			{articles.map(function (article,k) {
 				
 					return (
-						<QuarterBig article={article} style="opinion" isslider={true} bg={true}/>
+						<Quarter article={article} style="opinion" isslider={true} bg={true}/>
 					);
 			
 	

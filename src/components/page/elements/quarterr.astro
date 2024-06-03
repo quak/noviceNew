@@ -1,0 +1,195 @@
+---
+import { Debug } from 'astro:components';
+const {article, style, isslider, bg, showdescription,shouldll} = Astro.props;
+
+import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+
+import bookmarkicon from "../../../images/bookmark.svg";
+import usericon from "../../../images/user.svg";
+
+var sliderclass = "";
+if(isslider==true){
+    sliderclass = "swiper-slide";
+}   
+
+
+var descriptionclass = "";
+if(showdescription!=false){
+    descriptionclass = "sm:block";
+}
+
+let url = '/'+article?.cat?.category_nicename+'/'+article?.post_name;
+let d = new Date(article?.post_modified);
+let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
+
+
+
+let bgclass = "p-2 bg-sneg-white";
+if(bg==false){
+    bgclass = "";
+}
+
+let personname =" ";
+			
+if(article?.acf?.name!=null){
+
+    personname = ""+article?.acf?.name ;
+}
+if(article?.acf?.surname!=null){
+    personname = personname+" "+article?.acf?.surname ;
+}
+
+var llstyle = "lazy";
+if(shouldll==="false"){
+    llstyle = "eager";
+}
+
+
+let excerpt = ""
+if(article?.excerpt!=""){
+    excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
+}
+
+
+let place = ""
+let placeat = ""
+
+place = article?.loc?.slovensko_ime;
+placeat = article?.loc?.nemsko_ime;
+
+let placeclass = "";
+if(place === null || place===""){
+    
+    placeclass = "hidden";
+}
+
+let imgsrc="";
+if(article?.thumb===false){
+    imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
+}else{
+    imgsrc = article?.thumb;
+}
+
+---
+
+
+{ 
+    ()=> {
+      if (style === "" || style === "big") {
+        return(
+
+            <a href={url} class={`col-span-1 lg:col-span-1 lg:row-span-1  overflow-hidden ${sliderclass}`} >
+                <article class={`h-full flex flex-col ${bgclass}`}>
+                    <div class="overflow-hidden relative">
+                        <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video" src={imgsrc} loading={llstyle} alt={excerpt} />
+                        <div class="absolute left-0 bottom-0 block  ">
+                            <div class="group">
+                                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:px-3 pt-2 flex flex-col flex-1">
+                        
+                        <h2 class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis "><Fragment set:html={article?.post_title}/></h2>	
+
+                        <span class={`hidden ${descriptionclass}`}>
+                            <p class="text-base font-serif mb-4 line-clamp-2">{excerpt}</p>
+                        </span>
+
+                    </div>
+                
+                </article>
+            </a>
+
+        )
+      } else if( style === "small") {
+        return(
+            <a href={url} class="col-span-1  overflow-hidden" >
+                <article class="p-3">
+                    <div class=" block ">
+                        <div class="group relative block h-3.5 mb-1" >
+                            <span class={`block uppercase text-klopinj-blue tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase text-klopinj-blue tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-300 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
+                        </div>
+                    </div>
+                    
+                    <h2 class="leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis">
+                        <Fragment set:html={article?.post_title}/>
+                    </h2>						
+                </article>
+            </a>
+        )
+      } else if( style === "opinion") {
+        
+        if(article?.thumbqubic===false){
+            imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
+        }else{
+            imgsrc = article?.thumbqubic;
+        }
+        return(
+            <a href={url} class="col-span-1 row-start-2 swiper-slide" >
+                <article class="p-3 bg-sneg-white h-full rounded-md">
+                    
+                    <div class="flex flex-wrap justify-center -mt-20">
+                        <div class="w-40 h-40 rounded-full overflow-hidden">
+                            <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-square" src={imgsrc} loading={llstyle} alt={excerpt} />
+                            
+                            
+                        </div>
+                    </div>
+        
+                    <div class="py-2 text-center">
+                        <h2 class="text-papez-purple text-xl sm:text-2xl inline-block mt-2 mb-4 block line-clamp-1 text-ellipsis block leading-novice ">{personname}</h2>
+                        <span class=" leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis"><Fragment set:html={article.post_title}/></span>
+                    </div>
+                
+                </article>
+            </a>
+        )
+      } else if( style === "congratulations") {
+        return(
+            <a href={url} class=" swiper-slide  overflow-hidden" >
+                <article class="p-2 bg-sneg-white h-full">
+                    <div class="overflow-hidden relative block">
+                        <div class="absolute left-0 bottom-0 block">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+                        </div>
+                        <Picture height="128" width="257" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
+                        
+                    </div>
+                    <div class="py-2">
+                        <span class="text-papez-purple uppercase text-3xl inline-block mt-2 mb-2">{personname}</span>
+                        <h2 class="text-xl sm:text-2xl mb-2 line-clamp-3 text-ellipsis h-24 leading-novice "><Fragment set:html={article.node.title}/></h2>
+                        
+                    </div>
+                
+                </article>
+            </a>
+	
+        )
+      } else if( style === "congratulations2") {
+        return(
+
+			<a href={url} class="col-span-1 row-start-2 swiper-slide  overflow-hidden" >
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					<div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">{article?.node?.place?.place}</span>
+					</div>
+                    
+					<img class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
+		
+					<div class="py-2 flex flex-col justify-center">
+						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
+                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center leading-novice "><Fragment set:html={article.node.title}/></h2>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg" alt="Lupa z plusom - dekoracija" role="presentation"/>			
+					</div>
+				
+				</article>
+			</a>
+	
+        )
+      }
+    }
+  }

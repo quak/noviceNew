@@ -31,7 +31,7 @@ const blocks = page.blocks;
 <BaseLayout title="Novice"  description="Slovenski tednik za Koroško">
 	
 	{
-    blocks?.map((block,k) => <use.switch name={block.name}>
+      blocks?.map((block,k) => <use.switch name={block.name}>
 		<use.case slot={null}>Return:null</use.case>
 		<use.case slot={undefined}>Return:Undefined</use.case>
 		<use.case slot={'acf/homemain'}><Homemain block={block}/></use.case>
@@ -43,7 +43,7 @@ const blocks = page.blocks;
 		<use.case slot={'acf/weeklyfa'}><Weeklyfa block={block}/></use.case>
 		<use.case slot={'acf/gallery'}><Gallery block={block}/></use.case>
 		<use.case slot={'acf/video'}><Video block={block}/></use.case>
-    <use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
+    	<use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
 		<use.case slot={'acf/opinions'}><Opinions block={block}/></use.case>
 		<use.case slot={'acf/contact'}><Contact block={block}/></use.case>
 		<use.case slot={'acf/oglas'}><Oglas block={block}/></use.case>
@@ -51,6 +51,7 @@ const blocks = page.blocks;
 		<use.default>
       
 		</use.default>
+
 	  </use.switch>)
   }
 

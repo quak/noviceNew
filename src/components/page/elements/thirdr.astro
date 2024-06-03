@@ -1,8 +1,7 @@
 ---
-import { fade } from 'astro:transitions';
+
 const {article, style, isslider, showdescription, shouldll,key} = Astro.props;
 import { Image } from 'astro:assets';
-import { Picture } from 'astro:assets';
 
 import bookmarkicon from "../../../images/bookmark.svg";
 import usericon from "../../../images/user.svg";
@@ -28,8 +27,6 @@ let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 let avtor = article.author;
-
-
 if(avtor == ""){
     avtor="novice";
 }

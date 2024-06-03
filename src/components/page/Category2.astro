@@ -1,9 +1,10 @@
 ---
 
-import Half from './elements/half.astro'
-import Third from './elements/third.astro'
-import Quarter from './elements/quarter.astro'
+import Half from './elements/halfr.astro'
+import Third from './elements/thirdr.astro'
+import Quarter from './elements/quarterr.astro'
 import { getPostByCategoryById } from '../../lib/api';
+import { getPostsByCategoryId } from '../../lib/article';
 
 const {block} = Astro.props;
 
@@ -14,7 +15,7 @@ if (datacatid === undefined){
 	datacatid = '["6"]';
 }
 
-let articles = await getPostByCategoryById(datacatid,10);
+let articles = await getPostsByCategoryId(6,10);
 if(articles === undefined){
 	articles = new Array();
 }

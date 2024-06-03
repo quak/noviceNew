@@ -20,11 +20,9 @@ if(showdescription!=false){
 }
 
 let url = '/'+article?.cat?.category_nicename+'/'+article?.post_name;
-let d = new Date(article?.post_modified);
-let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 
-
+ 
 let bgclass = "p-2 bg-sneg-white";
 if(bg==false){
     bgclass = "";

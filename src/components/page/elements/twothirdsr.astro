@@ -1,0 +1,79 @@
+---
+
+const {article, shouldll} = Astro.props;
+import { Image } from 'astro:assets';
+
+
+var llstyle = "lazy";
+if(shouldll==="false"){
+    llstyle = "eager";
+}
+
+let url = '/'+article?.cat?.category_nicename+'/'+article?.post_name;
+
+
+
+let place = ""
+let placeat = ""
+
+place = article?.loc?.slovensko_ime;
+placeat = article?.loc?.nemsko_ime;
+
+let placeclass = "";
+if(place === null || place===""){
+    placeclass = "hidden";
+}
+
+
+let personname =" ";
+			
+if(article?.acf?.name!=null){
+
+    personname = ""+article?.acf?.name ;
+}
+if(article?.acf?.surname!=null){
+    personname = personname+" "+article?.acf?.surname ;
+}
+
+
+let excerpt = ""
+if(article?.excerpt!=""){
+    excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
+}
+
+let imgsrc="";
+if(article?.thumb===false){
+    imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
+}else{
+    imgsrc = article?.thumbfull;
+}
+
+var title = article?.post_title;
+var textsize = "text-2xl md:text-5xl"
+if(title.length<55){
+    textsize = "text-2xl md:text-6xl"
+}
+
+---
+
+<div class="col-span-2">
+    <a href={url} rel="prefetch" class=" overflow-hidden">
+        <article class="relative">
+            <div class="overflow-hidden relative ">
+                <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103"  src={imgsrc} loading={llstyle} alt={excerpt} />
+            </div>
+            <span class={`bg-klopinj-blue  uppercase  absolute top-0  block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm  ${placeclass}`}>{place}</span>
+            <div class="absolute p-4 md:px-12 md:py-4 bottom-0">
+
+                <span class="z-20 relative">
+                    
+                    <h2 class={`text-sele-ivory  line-clamp-3 text-ellipsis leading-novice font-bold z-10  ${textsize}`} ><Fragment set:html={article?.post_title}/></h2>
+                </span>
+
+               
+                
+            </div>	
+            <div class="z-10" style="position: absolute; bottom:0;left:0; width:100%;height:50%;background:linear-gradient(to top, rgba(0,0,0,0.85) 50%, transparent);"></div>
+        </article>
+    </a>
+</div>

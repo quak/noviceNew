@@ -9,7 +9,7 @@ import Category2 from '../components/page/Category2.astro';
 import Homemain from '../components/page/Homemain.astro';
 import Weeklyfa from '../components/page/Weeklyfa.astro';
 import Gallery from '../components/page/Gallery.astro';
-import Video from '../components/page/Video.astro';
+
 import Insta from '../components/page/Insta.astro';
 import People from '../components/page/People.astro';
 import Opinions from '../components/page/Opinions.astro';
@@ -42,7 +42,7 @@ const blocks = page.blocks;
 		<use.case slot={'acf/cat2'}><Category2 block={block}/></use.case>
 		<use.case slot={'acf/weeklyfa'}><Weeklyfa block={block}/></use.case>
 		<use.case slot={'acf/gallery'}><Gallery block={block}/></use.case>
-		<use.case slot={'acf/video'}><Video block={block}/></use.case>
+		
     	<use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
 		<use.case slot={'acf/opinions'}><Opinions block={block}/></use.case>
 		<use.case slot={'acf/contact'}><Contact block={block}/></use.case>

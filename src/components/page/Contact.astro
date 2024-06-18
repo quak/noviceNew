@@ -1,16 +1,9 @@
 ---
 
-
 import sendGrid from '@sendgrid/mail';
-import { getPostByCategoryBySlug,getOpinionPosts } from '../../lib/api';
-
-
 
 //const {block} = Astro.props;
-
 //const blckjsn = JSON.parse(block.attributesJSON);
-
-
 
 let showconfirmationclass = "hidden";
 sendGrid.setApiKey( import.meta.env.SENDGRID_API_KEY );

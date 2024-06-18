@@ -43,6 +43,16 @@ if(place === null || place===""){
 }
 
 
+let personname =" ";
+			
+if(article?.acf?.name!=null){
+
+    personname = ""+article?.acf?.name ;
+}
+if(article?.acf?.surname!=null){
+    personname = personname+" "+article?.acf?.surname ;
+}
+
 
 let excerpt = ""
 if(article?.excerpt!=""){
@@ -101,5 +111,34 @@ if(article?.thumb===false){
 
 
         )
-      } 
+      } else if( style === "condolations") {
+        return(
+            <a href={url} class="col-span-1 h-full  overflow-hidden swiper-slide" >
+                <article class="p-3 bg-sneg-white flex flex-row gap-4 h-full">
+                
+                    <div class=" overflow-hidden md:basis-1/2 relative block">
+                        <div class="absolute left-0 bottom-0 block ">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ${placeclass}`}>{placeat}</span>
+                        </div>
+                        
+                        <Image height="292" width="164" format="WebP" class="max-h-52 sm:max-h-fit sm:max-h ease-out duration-4000 transition-all hover:scale-103 sepia"  src={imgsrc} loading={llstyle} alt={excerpt} />
+                    </div>
+        
+                    <div class="flex flex-col md:basis-1/2 justify-between">
+
+                        <span class="block">
+                            <span class="text-black text-2xl">{article?.acf?.dateinfo}</span>
+                        </span>
+                        <span class="text-papez-purple text-3xl leading-novice block">{personname}</span>
+                        
+                        
+                        
+                        <h2 class="text-xl sm:text-2xl sm:text-2xl  mt-4 leading-novice line-clamp-5"><Fragment set:html={article?.post_title}/></h2>	
+                    </div>
+                
+                </article>
+            </a>
+        )
+      }
     }

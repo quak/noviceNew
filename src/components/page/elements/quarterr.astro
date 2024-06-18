@@ -1,12 +1,8 @@
 ---
-import { Debug } from 'astro:components';
+
 const {article, style, isslider, bg, showdescription,shouldll} = Astro.props;
 
 import { Image } from 'astro:assets';
-import { Picture } from 'astro:assets';
-
-import bookmarkicon from "../../../images/bookmark.svg";
-import usericon from "../../../images/user.svg";
 
 var sliderclass = "";
 if(isslider==true){
@@ -147,23 +143,31 @@ if(article?.thumb===false){
         )
       } else if( style === "congratulations") {
         return(
-            <a href={url} class=" swiper-slide  overflow-hidden" >
-                <article class="p-2 bg-sneg-white h-full">
-                    <div class="overflow-hidden relative block">
-                        <div class="absolute left-0 bottom-0 block">
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ${placeclass}`}>{place}</span>
+           
+            <a href={url} class="col-span-1 row-start-2 swiper-slide  overflow-hidden" >
+				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
+					
+                    <div class=" flex flex-wrap gap-2 justify-center my-2 ">
+                        <div class="group relative block h-3.5 mb-1 w-full" >
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white text-lg absolute left-0 tracking-widels text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}asdasd</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white text-lg absolute left-0 tracking-widels  text-nowrap opacity-0 duration-300 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}ddddd</span>
                         </div>
-                        <Picture height="128" width="257" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
-                        
                     </div>
-                    <div class="py-2">
-                        <span class="text-papez-purple uppercase text-3xl inline-block mt-2 mb-2">{personname}</span>
-                        <h2 class="text-xl sm:text-2xl mb-2 line-clamp-3 text-ellipsis h-24 leading-novice "><Fragment set:html={article.node.title}/></h2>
-                        
-                    </div>
-                
-                </article>
-            </a>
+
+                    <div class="flex flex-wrap gap-2 justify-center mb-4">
+						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">{article?.node?.place?.place}</span>
+					</div>
+
+                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc} loading={llstyle} alt={excerpt} />
+		
+					<div class="py-2 flex flex-col justify-center">
+						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
+                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center leading-novice "><Fragment set:html={article.post_title}/></h2>
+						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg" alt="Lupa z plusom - dekoracija" role="presentation"/>			
+					</div>
+				
+				</article>
+			</a>
 	
         )
       } else if( style === "congratulations2") {

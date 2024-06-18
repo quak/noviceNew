@@ -1,12 +1,15 @@
 ---
 import imagevi from "../../images/vi.png";
-import chevronright from "../../images/chevronright.svg";
+
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
-import { getPostByCategoryById,getDeaths } from '../../lib/api';
+
+import { getPostsByCategoryId } from '../../lib/article';
+
 import { getPotw } from '../../lib/persons';
-import Quarter from './elements/quarter.astro'
-import Third from './elements/third.astro'
+
+import Quarter from './elements/quarterr.astro'
+import Third from './elements/thirdr.astro'
 
 const {block} = Astro.props;
 
@@ -16,6 +19,7 @@ let datacatid = blckjsn?.data?.blockcategory;
 if (datacatid === undefined){
 	datacatid = '["6"]';
 }
+
 
 
 let num_of_slider_elements_congrats = blckjsn?.data?.num_of_slider_elements_congrats;
@@ -31,18 +35,20 @@ if (num_of_slider_elements_deaths === undefined){
 
 
 //let people_articles = await getPostByCategoryById(["1641"],1);
-let potw = await getPotw();
+let potw = await getPotw();//Person of the week
 
 if(potw === undefined){
 	potw = new Array();
 }
 
-let congratulations = await getPostByCategoryById(["1442"],parseInt(num_of_slider_elements_congrats));
+
+let congratulations = await getPostsByCategoryId(1442,parseInt(num_of_slider_elements_congrats));
 if(congratulations === undefined){
 	congratulations = new Array();
 }
 
-let deaths = await getDeaths('["1658"]',parseInt(num_of_slider_elements_deaths));
+
+let deaths = await getPostsByCategoryId(1658,3);//API
 if(deaths === undefined){
 	deaths = new Array();
 }
@@ -139,7 +145,7 @@ if(deaths === undefined){
 				{congratulations.map(function (article,k) {
 					
 						return (
-							<Quarter article={article} style="congratulations2" isslider={true} bg={true}/>
+							<Quarter article={article} style="congratulations" isslider={true} bg={true}/>
 						);
 	
 				})}

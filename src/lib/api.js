@@ -440,7 +440,12 @@ export async function goSearch(searchterm) {
     const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: {'Content-Type':'application/json',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400'
+      
+        },
       body: JSON.stringify({
         query: `    {
           posts(where: {categoryName: "${slug}"},first: ${count}) {

@@ -15,11 +15,11 @@ let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 
-
 let avtor = article.author;
 if(avtor == ""){
     avtor="novice";
 }
+avtor="novice";
 
 var llstyle = "lazy";
 if(shouldll==="false"){
@@ -70,7 +70,7 @@ if(!("thumbhalf" in article) || article?.thumbfull===false){
                 <article class="p-2 bg-sneg-white h-full relative flex flex-col">
 
                     <div class="overflow-hidden relative">
-                        <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={excerpt} />
+                        <Image width="546" height="307" format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={excerpt} />
                         <div class="absolute left-0 bottom-0 block">
                             <div class="group  ">
                                 <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
@@ -99,18 +99,23 @@ if(!("thumbhalf" in article) || article?.thumbfull===false){
             <a href={url} class="flex basis-full md:basis-1/2 relative self-start overflow-hidden">
                 <article class="border-b border-black">
                     <div class="overflow-hidden relative">
-                        <img class="ease-out duration-4000 transition-all hover:scale-101 aspect-video"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}/>
+                        <Image width="546" height="307" format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={excerpt} />
                     </div>
                     <div class="px-6  absolute flex flex-col justify-between h-full bottom-0 w-full">
 
-                        <div class="flex gap-2 justify-between w-full pt-2">
-                            <span class={`uppercase px-2 max-h-6 bg-klopinj-blue text-white text-md tracking-widels ${placeclass}`}>{place}</span>
+                        <div class="flex gap-2 justify-between w-full pt-2 relative">
+                            <div class="absolute left-0 bottom-0 block">
+                                <div class="group  ">
+                                    <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                                    <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
+                                </div>
+                            </div>
                             <img class={`max-h-12 hidden self-end lg:block ${isgal}`}  src="/tmpimages/svgs/gal.svg">
                         </div>
 
                         <div class="z-20 relative flex items-center flex-wrap flex-col justify-between mb-1">
 
-                            <h2 class=" leading-novice text-2xl sm:text-3xl text-center text-white font-bold max-w-md w-full flex-1 flex items-end justify-center line-clamp-3 "><Fragment set:html={article?.node?.title}/></h2>
+                            <h2 class=" leading-novice text-2xl sm:text-3xl text-center text-white font-bold max-w-md w-full flex-1 flex items-end justify-center line-clamp-3 "><Fragment set:html={article?.post_title}/></h2>
                             <div class="hidden sm:flex flex-row justify-between gap-1 sm:gap-4 mt-2">
                                 <span class="svggowhite uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
                                     <Image src={bookmarkicon} loading={llstyle} alt="Date icon" class=""/>

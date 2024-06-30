@@ -110,9 +110,37 @@ export async function getArticleBySlugAPI(slug) {
     var params = {
       slug: slug,
       count: count
-  };
+    };
                    
     const response = await fetch("https://sfsn.si/wp-json/nre/v1/getpostsbycategoryid/",
+    {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      },
+      body: JSON.stringify(params)
+    });
+
+
+    const posts = await response.json();
+
+    return posts;
+  }
+
+
+
+  export async function getPostsByCategorySlugApi(slug,count) {
+        
+    var params = {
+      slug: slug,
+      count: count
+    };
+                   
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getpostsbycategoryslugapi/",
     {
       method: 'POST',
       headers: {

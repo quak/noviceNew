@@ -1,12 +1,13 @@
 ---
 import { getPostByCategoryBySlug } from '../../lib/api';
 import { Debug } from 'astro:components';
-import Quarter from '../page/elements/quarter.astro'
+import Quarter from '../page/elements/quarterr.astro'
 
 const {block,articles,counter} = Astro.props;
 
 const blckjsn = JSON.parse(block.attributesJSON);
 const blockarticles = articles.slice(counter-4, counter);
+
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 import { getPostByCategoryBySlug } from '../../lib/api';
 import { Debug } from 'astro:components';
-import Half from '../page/elements/half.astro'
+import Half from '../page/elements/halfr.astro'
 
 const {block,articles,counter} = Astro.props;
 
@@ -18,32 +18,7 @@ const blockarticles = articles.slice(counter-2, counter);
 		
 
 		{blockarticles.map(function (article,k) {
-			let isgal="lg:hidden";
-			let url = '/'+article?.node?.categories?.nodes[0].slug+'/'+article?.node?.slug;
-			let classes_lr="";
-			let d = new Date(article?.node?.date);
-			let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
-
-			let cats = article?.node?.categories?.nodes;
 			
-			cats.forEach(cat => {
-				if(cat.slug=="galerije"){
-					isgal= "";
-				}
-			});
-			
-			let avtor ="";
-			
-			if(article?.node?.author?.node?.firstName!=null){
-				avtor = ""+article?.node?.author?.node?.firstName ;
-			}
-			if(article?.node?.author?.node?.lastName!=null){
-				avtor = avtor+" "+article?.node?.author?.node?.lastName ;
-			}
-			
-			if(avtor == ""){
-				avtor="novice";
-			}
 				return (
 					<Half article={article} style="image"/>
 				);

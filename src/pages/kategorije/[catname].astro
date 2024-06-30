@@ -25,6 +25,8 @@ import Contact from '../../components/page/Contact.astro';
 import Orderform from '../../components/page/Orderform.astro';
 import { Debug } from 'astro:components';
 
+import { getPostsByCategorySlugApi } from '../../lib/article';
+
 
 Astro.response.headers.set("Cache-Control", "public, max-age=180");
 Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=300, stale-while-revalidate=2678400');
@@ -37,11 +39,9 @@ const page = await getPageBySlugAlt(catname);
 const blocks = page?.blocks;//page.blocks;
 
 
-let articles = await getPostByCategoryBySlug(catname,20);
+//let articles = await getPostByCategoryBySlug(catname,20);
+let articles = await getPostsByCategorySlugApi(catname,20);
 
-
-//let articles = new Array();
-//await getPostByCategoryBySlug(dat acatid,20);
 let i = 30;
 let countera = 0;
 let categoryname = catname;
@@ -64,6 +64,7 @@ let categoryname = catname;
 						<Categoryheader block={block} articles={articles}/>
 					);
 				}
+
 				case 'acf/teaser': {
 					countera=countera+1;
 					return (
@@ -148,6 +149,7 @@ let categoryname = catname;
 						<Orderform block={block}/>
 					);
 				}
+					
 
 				default: {
 					return (

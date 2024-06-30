@@ -17,16 +17,26 @@ if(imgurlarr.length !== 0){
 
 let cattags = new Array();
 articles.forEach ((article, index) => {
-	let tags = article?.node?.tags?.edges;
-	tags.forEach ((tag, index) => {
-	
+
+	if("terms" in article) {
+		if("post_tag" in article.terms) {
 		
-		let ti = cattags.findIndex((item) => item.id === tag.node.id);
-		if (ti === -1) {
-			cattags.push(tag.node);
+			let tags = article?.terms?.post_tag;
+		
+			tags.forEach ((tag, index) => {
+			
+				let ti = cattags.findIndex((item) => item.term_id === tag.term_id);
+				if (ti === -1) {
+					cattags.push(tag);
+					
+				}
+				
+			});
 		}
 		
-	});
+	}
+
+	
 });
 
 const lefttags = cattags.slice(0, 4);

@@ -76,24 +76,26 @@ export default function QuadReload(args) {
 				<div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 					{items?.map(function (article,k) {
 						let url = '/'+article?.cat?.slug+'/'+article?.post_name;
-						
+						console.log(article);
 							return (
 								<a key={k} href={url} className="col-span-1 lg:col-span-1 lg:row-span-1" >
 									<article className="h-full flex flex-col">
 										<div className="overflow-hidden relative">
 											
-											<img height="128" width="257" className="ease-out duration-4000 transition-all hover:scale-103"   src={article.thumb} loading="lazy" alt={article.post_title}/>
+											<img height="128" width="257" className="ease-out duration-4000 transition-all hover:scale-103"   src={article.thumbquater} loading="lazy" alt={article.post_title}/>
 											<div className="absolute left-0 bottom-0 block">
 												<span className={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm`}>{article.acf.place}</span>
 											</div>
 										</div>
 										<div className="sm:px-3 pt-2 flex flex-col flex-1">
 											
-											<h2 className=" text-2xl line-clamp-3 text-ellipsis font-bold leading-novice">{article.post_title}</h2>	
+											<h2 className="  leading-novice text-xl sm:text-2xl line-clamp-3 text-ellipsis ">{article.post_title}</h2>	
 
 											<span className="">
-												<p className="text-base font-serif mb-4 line-clamp-3">{article.excerpt}</p>
+												<p className="text-base font-serif mb-4 line-clamp-3" dangerouslySetInnerHTML={{__html: article.excerpt}}></p>
 											</span>
+
+
 
 											<div className="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
 												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">

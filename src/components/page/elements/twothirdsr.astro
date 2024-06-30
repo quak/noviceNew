@@ -41,12 +41,16 @@ if(article?.excerpt!=""){
     excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
 }
 
+
+
 let imgsrc="";
-if(article?.thumb===false){
-    imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
+if(!("thumbtwothird" in article) || article?.thumbfull===false){
+    imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 }else{
-    imgsrc = article?.thumbfull;
+    imgsrc = article?.thumbtwothird;
 }
+
+
 
 var title = article?.post_title;
 var textsize = "text-2xl md:text-5xl"

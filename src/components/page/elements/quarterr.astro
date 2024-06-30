@@ -58,13 +58,12 @@ if(place === null || place===""){
 }
 
 let imgsrc="";
-if(article.thumb===false){
-    imgsrc = 'https://sfsn.si/wp-content/uploads/2024/06/novicedummy.jpg';
+if(!("thumbquater" in article) || article?.thumbfull===false){
+    imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_third.jpg';
+            
 }else{
-    imgsrc = article?.thumb;
+    imgsrc = article?.thumbquater;
 }
-console.log(article.thumb);
-console.log(imgsrc);
 
 ---
 

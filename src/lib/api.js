@@ -109,9 +109,9 @@ export async function getArticleBySlug(slug) {
     method: 'POST',
     headers: {
       'Content-Type':'application/json',
-      'Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+      'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
     },
     body: JSON.stringify({
       query: `    {
@@ -251,9 +251,9 @@ export async function goSearch(searchterm) {
       method: 'POST',
       headers: {
         'Content-Type':'application/json',
-        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=180',
-        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=180',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=180',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
       },
       body: JSON.stringify({
         query: `    {
@@ -371,9 +371,9 @@ export async function goSearch(searchterm) {
     {
       method: 'POST',
       headers: {'Content-Type':'application/json',
-      'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-      'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59'
+      'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400'
     
       },
       body: JSON.stringify({
@@ -688,7 +688,12 @@ export async function goSearch(searchterm) {
     const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: {
+        'Content-Type':'application/json',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      },
       body: JSON.stringify({
         query: `    {
           mediaItems(where: {in: "${ids}"}) {
@@ -696,8 +701,8 @@ export async function goSearch(searchterm) {
               node {
                 id
                 sourceUrl
-                sizes(size: LARGE)
-                srcSet(size: LARGE)
+                sizes
+                srcSet
                 title
                 description
                 caption
@@ -760,7 +765,12 @@ export async function goSearch(searchterm) {
     const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: {
+        'Content-Type':'application/json',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      },
       body: JSON.stringify({
         query: `    {
           menus {

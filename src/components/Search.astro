@@ -6,13 +6,7 @@ import { getPostByCategoryBySlug, goSearch } from '../lib/api';
 
 const {} = Astro.props;
 
-let datacatid = '["6"]';
 
-
-let sr = await getPostByCategoryBySlug(datacatid,5);
-if(sr === undefined){
-	sr = new Array();
-}
 ---
 <div class="transition-all duration-700 absolute -translate-y-full w-full z-40 drop-shadow-md " id="searchmenu" aria-label="searcharia">
 

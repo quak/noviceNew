@@ -41,9 +41,9 @@ export async function getArticleBySlugAPI(slug) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
+        'Cache-Control': 'public, s-maxage=15,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=15,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=15,stale-while-revalidate=2678400',
       }
     });
 
@@ -65,9 +65,9 @@ export async function getArticleBySlugAPI(slug) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
       },
       body: JSON.stringify(params)
     });
@@ -118,9 +118,9 @@ export async function getArticleBySlugAPI(slug) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
       },
       body: JSON.stringify(params)
     });

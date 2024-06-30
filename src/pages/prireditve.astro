@@ -8,7 +8,8 @@ import EventsMain from '../components/react/EventsMain';
 import EventsOverview from '../components/react/EventsOverview'; 
 
 
-Astro.response.headers.set('Cache-Control', 's-maxage=10800')
+Astro.response.headers.set("Cache-Control", "public, max-age=180");
+Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=300, stale-while-revalidate=2678400');
 
 let searchword="";
 

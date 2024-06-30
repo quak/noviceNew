@@ -18,6 +18,9 @@ export async function getImageForId(id) {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
       },
       body: JSON.stringify(params)
     });

@@ -23,7 +23,7 @@ if(bg==false){
     bgclass = "";
 }
 
-let personname =" ";
+let personname ="";
 			
 if(article?.acf?.name!=null){
 
@@ -58,11 +58,13 @@ if(place === null || place===""){
 }
 
 let imgsrc="";
-if(article?.thumb===false){
-    imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
+if(article.thumb===false){
+    imgsrc = 'https://sfsn.si/wp-content/uploads/2024/06/novicedummy.jpg';
 }else{
     imgsrc = article?.thumb;
 }
+console.log(article.thumb);
+console.log(imgsrc);
 
 ---
 
@@ -75,7 +77,7 @@ if(article?.thumb===false){
             <a href={url} class={`col-span-1 lg:col-span-1 lg:row-span-1  overflow-hidden ${sliderclass}`} >
                 <article class={`h-full flex flex-col ${bgclass}`}>
                     <div class="overflow-hidden relative">
-                        <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video" src={imgsrc} loading={llstyle} alt={excerpt} />
+                        <Image width="257" height="145" format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video" src={imgsrc} loading={llstyle} alt={excerpt} />
                         <div class="absolute left-0 bottom-0 block  ">
                             <div class="group">
                                 <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>

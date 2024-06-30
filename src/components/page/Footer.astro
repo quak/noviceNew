@@ -80,7 +80,7 @@ let mr = menu_right.menuItems.nodes;
             <div class="basis-1/2 md:basis-1/4">
                 <h2 class="text-white text-2xl uppercase mb-4">Uredništvo</h2>
                 
-                {avtors.gv.map(function (avtor,k) {
+                {avtors?.gv?.map(function (avtor,k) {
 								
                     let title = avtor.data.display_name;
                     ///  author/gustim
@@ -96,7 +96,7 @@ let mr = menu_right.menuItems.nodes;
                     
                 })}
 
-                {avtors.zgv.map(function (avtor,k) {
+                {avtors?.zgv?.map(function (avtor,k) {
                                                 
                     let title = avtor.data.display_name;
                     let url = "author/"+avtor.data.user_nicename;
@@ -110,7 +110,7 @@ let mr = menu_right.menuItems.nodes;
                     
                 })}
 
-                {avtors.ur.map(function (avtor,k) {
+                {avtors?.ur?.map(function (avtor,k) {
                                        
                     let title = avtor.data.display_name;
                     let url = "author/"+avtor.data.user_nicename;

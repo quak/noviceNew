@@ -24,6 +24,7 @@ Astro.response.headers.set('Cache-Control', 's-maxage=10800');
 const page = await getPageBySlugAlt("home");
 
 const blocks = page.blocks;
+
 ---
 
 
@@ -31,29 +32,28 @@ const blocks = page.blocks;
 <BaseLayout title="Novice"  description="Slovenski tednik za Koroško">
 	
 	{
-      blocks?.map((block,k) => <use.switch name={block.name}>
-		<use.case slot={null}>Return:null</use.case>
-		<use.case slot={undefined}>Return:Undefined</use.case>
-		<use.case slot={'acf/homemain'}><Homemain block={block}/></use.case>
-		<use.case slot={'acf/people'}><People block={block}/></use.case>
-		<use.case slot={'acf/cat1'}><Category1 block={block}/></use.case>
-		<use.case slot={'acf/lastnews'}><Lastnews block={block}/></use.case>
 		
-		<use.case slot={'acf/cat2'}><Category2 block={block}/></use.case>
-		<use.case slot={'acf/weeklyfa'}><Weeklyfa block={block}/></use.case>
-		<use.case slot={'acf/gallery'}><Gallery block={block}/></use.case>
+		blocks?.map((block,k) => <use.switch name={block.name}>
+		  <use.case slot={null}>Return:null</use.case>
+		  <use.case slot={undefined}>Return:Undefined</use.case>
+		  <use.case slot={'acf/homemain'}><Homemain block={block}/></use.case>
+		  <use.case slot={'acf/lastnews'}><Lastnews block={block}/></use.case>
+		  <use.case slot={'acf/cat1'}><Category1 block={block}/></use.case>
+		  <use.case slot={'acf/people'}><People block={block}/></use.case>
+	
+		  <use.case slot={'acf/weeklyfa'}><Weeklyfa block={block}/></use.case>
+		  <use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
+		  <use.case slot={'acf/contact'}><Contact block={block}/></use.case>
+		  <use.case slot={'acf/oglas'}><Oglas block={block}/></use.case>
+		  <use.case slot={'acf/gallery'}><Gallery block={block}/></use.case>
+		  <use.case slot={'acf/cat2'}><Category2 block={block}/></use.case>
+		  <use.default>
 		
-    	<use.case slot={'sbi/sbi-feed-block'}><Insta block={block}/></use.case>
-		<use.case slot={'acf/opinions'}><Opinions block={block}/></use.case>
-		<use.case slot={'acf/contact'}><Contact block={block}/></use.case>
-		<use.case slot={'acf/oglas'}><Oglas block={block}/></use.case>
-
-		<use.default>
-      
-		</use.default>
-
-	  </use.switch>)
-  }
+		  </use.default>
+  
+		</use.switch>)
+		
+	}
 
 </BaseLayout>
 

@@ -17,21 +17,25 @@ if (datacatid === undefined){
 
 
 
-let articles = await getPostsByCategoryId(1642,3);//API
+let articles = await getPostsByCategoryId(1649,3);//API
+
 if(articles === undefined){
 	articles = new Array();
 }
 
 let ads = await getAds();
 
+
 ---
 
 <section class="bg-sele-ivory px-1 md:px-4 pt-4 md:pt-12 pb-8 md:pb-24 flex gap-4">
 
 	<div class="hidden 2xl:flex flex-1  justify-end">
+		
 		<a href={ads?.adleft?.povezava?.url} target="_blank">
 			<img src={ads?.adleft?.url} aria-label="Reklama za... desno">
 		</a>
+	
 	</div>
 
 	<div class="grid grid-cols-3 gap-4 lg:w-lg 2xl:w-2xl mx-auto 2xl:mx-0">
@@ -72,8 +76,9 @@ let ads = await getAds();
 	</div>
 
 	<div class="hidden 2xl:flex flex-1  justify-start">
+		
 		<a href={ads?.adright?.povezava?.url} target="_blank" aria-label="Reklama za... desno">
-			<img src={ads?.adright?.url} alt="Reklama: za ">
+			<img src={ads?.adright?.url} aria-label="Reklama za... desno">
 		</a>
 	</div>
 

@@ -8,6 +8,7 @@ import '../styles/cookieconsent.css';
 
 import '../styles/menu.css';
 
+
 import Footer from '../components/page/Footer.astro';
 import Header from '../components/Header.astro';
 
@@ -134,15 +135,15 @@ menus.forEach(element => {
 
 
     <Header menu_left={menu_left} menu_right={menu_right} menu_first_column={menu_first_column} menu_second_column={menu_second_column}/>
-   
-        <slot />
+    
+    <slot />
     </body>
     <script src="../scripts/menu.js"></script>
     <script src="../scripts/search.js"></script>
     <script src="../scripts/cookieconsent-config.js"></script>
-    
-                          
-    
+
+                    
+
 
     <Footer menu_left={menu_left} menu_right={menu_right}/>
-</html>
+    </html>

@@ -35,7 +35,7 @@ export async function getArticleBySlugAPI(slug) {
     var params = {
     };
                                   
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getlastarticles/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getlastarticles2/",
     {
       method: 'GET',
       headers: {
@@ -53,9 +53,10 @@ export async function getArticleBySlugAPI(slug) {
     return avtors;
   }
 
-  export async function getRelatedArticles() {
+  export async function getRelatedArticles(category) {
         
     var params = {
+      category:category
     };
                    
     const response = await fetch("https://sfsn.si/wp-json/nre/v1/getrelatedarticles/",
@@ -67,7 +68,8 @@ export async function getArticleBySlugAPI(slug) {
         'Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
         'CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
         'Vercel-CDN-Cache-Control': 'public, s-maxage=60,stale-while-revalidate=59',
-      }
+      },
+      body: JSON.stringify(params)
     });
 
 

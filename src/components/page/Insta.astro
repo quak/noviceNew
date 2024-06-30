@@ -34,3 +34,41 @@ const {block} = Astro.props;
 	  });
 	});
   </script>
+
+<script>
+	import Swiper from 'swiper';
+	import 'swiper/css/bundle';
+	document.addEventListener('astro:page-load', () => {
+	// import Swiper bundle with all modules installed
+	
+	
+	// import styles bundle
+	
+	
+	// init Swiper:
+	const swiper = new Swiper('.swipervid', {
+	  // Optional parameters
+	  direction: 'horizontal',
+	  loop: true,
+	  slidesPerView: 1,
+	  spaceBetween: 16,
+	
+	  // Navigation arrows
+	  navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	  },
+	
+	  breakpoints: {
+		480: {
+		  slidesPerView: 2,
+		},
+		768: {
+		  slidesPerView: 4,
+		}
+	  }
+	
+	});
+});
+	
+	  </script>

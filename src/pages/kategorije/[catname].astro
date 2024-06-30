@@ -40,7 +40,6 @@ const blocks = page?.blocks;//page.blocks;
 let articles = await getPostByCategoryBySlug(catname,20);
 
 
-
 //let articles = new Array();
 //await getPostByCategoryBySlug(dat acatid,20);
 let i = 30;
@@ -51,13 +50,14 @@ let categoryname = catname;
 
 
 
-<BaseLayout title="Novice SubCatx">
+<BaseLayout title="Novice SubCat">
 	
 	{
 		
     blocks?.map((block,i) => 
 		{
 			switch (block.name) {
+				
 				case 'acf/header': {
 					
 					return (

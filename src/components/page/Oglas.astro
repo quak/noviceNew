@@ -13,11 +13,14 @@ let sourceUrl = "";
 let caption = "";
 let description = "";
 let copyright = "Novice";
-if(imageid){
-    
+let noskip=false;
+
+if(typeof imageid !== "undefined"){
+  
     img = await getImageByIds(imageid);
-    
-    if(img){
+
+
+    if(Array.isArray(img) && img.length!=0){
         image = img[0].node;
     
         if(image.title != null){
@@ -32,21 +35,26 @@ if(imageid){
             description = image.description;
         }
 
-
         if(image.caption != null){
             caption = image.caption;
         }
+    }else{
+        noskip=false;
     }
     
-    
+}else{
+    noskip=false;
 }
+
 ---
 
 
 <section class="bg-sele-ivory" >
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
-		<a href={sourceUrl} class="glightbox" data-title={title} data-description={caption} aria-label="Reklama za... center">
-            <img class="mx-auto" transition:name={sourceUrl} src={sourceUrl} alt={description}/>
-        </a>
+        {noskip && 
+            <a href={sourceUrl} class="glightbox" data-title={title} data-description={caption} aria-label="Reklama za... center">
+                <img class="mx-auto" transition:name={sourceUrl} src={sourceUrl} alt={description}/>
+            </a>
+        }
 	</div>
 </section>

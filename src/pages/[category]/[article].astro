@@ -43,8 +43,10 @@ const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
 
+
+
 let description = "";
-if(arti.leadingForAllPosts.leading!=null){
+if(arti?.leadingForAllPosts?.leading!=null){
   description= arti.leadingForAllPosts.leading;
 }else{
   description= arti.excerpt;
@@ -128,6 +130,7 @@ if(place === null || place===""){
         {blocks?.map((block,k) => <use.switch name={block.name}>
           <use.case slot={null}>Return:null</use.case>
           <use.case slot={undefined}>Return:Undefined</use.case>
+
           <use.case slot={'core/paragraph'}><Paragraph block={block}/></use.case>
           <use.case slot={'core/heading'}><Heading block={block}/></use.case>
           <use.case slot={'acf/image'}><Image block={block}/></use.case>
@@ -138,7 +141,7 @@ if(place === null || place===""){
           </use.default>
         </use.switch>)}
 
-        <Articlefooter category={category}/>
+       <Articlefooter category={category}/>  
       </div>
   </section>
 

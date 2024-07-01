@@ -13,7 +13,7 @@ import Footer from '../components/page/Footer.astro';
 import Header from '../components/Header.astro';
 
 
-const { description } = Astro.props;
+const { pageTitle,description,type,leading,featuredimage,url } = Astro.props;
 
 
 const menus = await getMenus();
@@ -51,8 +51,14 @@ menus.forEach(element => {
 		<meta name="generator" content={Astro.generator} />
 
         <meta name="description" content={description}/>
+
+        <meta property="og:url"                content={url} />
+        <meta property="og:type"               content={type} />
+        <meta property="og:title"              content={pageTitle} />
+        <meta property="og:description"        content={leading} />
+        <meta property="og:image"              content={featuredimage} />
         
-		<title>Novice</title>
+		<title>{pageTitle}</title>
         <ViewTransitions />
 		
 	</head>

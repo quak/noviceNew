@@ -117,12 +117,14 @@ if(arti.featuredImage==null){
 }else{
   imgsrc = arti.featuredImage;
 }
+
+const currentPath = Astro.url.pathname;
 ---
 
 
 
 
-<BaseLayout pageTitle="Projektorisch" description={description}>
+<BaseLayout pageTitle="Projektorisch" description={description} type="article" leading={leading} featuredimage={imgsrc} url={currentPath}>
   
   
   <section class="px-1 md:px-4 md:pt-12 pb-24">

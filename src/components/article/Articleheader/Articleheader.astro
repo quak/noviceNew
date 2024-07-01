@@ -1,9 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-const {id,title,excerpt,date,author,mediaItem,avtorslug,place} = Astro.props;
+const {id,title,excerpt,date,author,mediaItem,avtorslug,place,placesi,placeat} = Astro.props;
 
 const currentPath = "https://novice.at"+Astro.url.pathname;
 
+
+console.log(place);
+  console.log(placesi);
+  console.log(placeat);
 ---
 
 <h1 class="text-3xl sm:text-6xl font-bold mt-4 leading-novice"><Fragment set:html={title}/></h1>
@@ -11,7 +15,13 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
   <div class="col-span-4 md:col-span-1 flex flex-col justify-around order-8 sm:order-1">
     <span class="block p-1 border-b border-black text-lg text-papez-purple text-center tracking-widedate uppercase"><Fragment set:html={date}/></span>
     
-    <a href={`/kraj/${place}`} class=" uppercase px-2 bg-klopinj-blue mb-0 text-center text-white tracking-widels text-sm" aria-label="Link k pregledu člankov, urejenih po kraju">{place}</a>
+     
+    <a class="group relative h-4"  href={`/kraj/${place}`}>
+      <span class={`block uppercase w-full text-center px-2 bg-klopinj-blue text-white tracking-widels text-sm  absolute left-0 top-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 `}>{placesi}</span>
+      <span class={`block uppercase w-full text-center px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 top-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100 `}>{placeat}</span>
+    </a>
+
+
     <a href={`/author/${avtorslug}`} class="block p-8 sm:p-2 sm:pb-4 text-xl text-center uppercase " aria-label="Link k pregledu člankov, urejenih po avtorju"><Fragment set:html={author}/></a>
     
     <span class="block text-center mx-auto w-full">

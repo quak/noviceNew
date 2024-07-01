@@ -1,6 +1,7 @@
 ---
 import { getAllSlugsOfPosts,getArticleBySlug } from '../../lib/api';
 
+
 import Breadcrumb from '../../components/article/Breadcrumb.astro';
 import Articleheader from '../../components/article/Articleheader/Articleheader.astro';
 import Articleheadergallery from '../../components/article/Articleheader/Articleheadergallery.astro';
@@ -119,6 +120,21 @@ if(arti.featuredImage==null){
 }
 
 const currentPath = Astro.url.pathname;
+
+let articleapi= await getArticleBySlugAPI(article);
+
+console.log(articleapi.loc);
+let placeslug ="";
+let placenamesi ="";
+let placenameat ="";
+if(articleapi.loc!=false ){
+  
+  placeslug = articleapi.acf.kraj.post_name;
+  placenamesi = articleapi.loc.slovensko_ime;
+  placenameat = articleapi.loc.nemsko_ime;
+
+}
+
 ---
 
 
@@ -134,11 +150,11 @@ const currentPath = Astro.url.pathname;
         <Breadcrumb category={arti.categories.nodes[0]}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={imgsrc}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc}/>)
         }
         {
          
-          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={imgsrc}/>)
+          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc}/>)
         }
         
         

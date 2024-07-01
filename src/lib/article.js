@@ -28,6 +28,8 @@ export async function getArticleBySlugAPI(slug) {
     return article;
   }
 
+  
+
 
 
   export async function getLastArticles() {

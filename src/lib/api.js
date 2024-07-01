@@ -668,8 +668,8 @@ export async function goSearch(searchterm) {
                   node {
                     link
                     mediaItemUrl
-                    srcSet(size: IMG_QUBIC_PREVIEW)
-                    sourceUrl(size: IMG_QUBIC_PREVIEW)
+                    srcSet(size: IMG13)
+                    sourceUrl(size: IMG23)
                   }
                 }
                 place {

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getOpinionPosts } from '../../lib/api';
 import { getStrips } from '../../lib/article';
 import Third from '../page/elements/third.astro'
@@ -11,6 +12,7 @@ const blckjsn = JSON.parse(block.attributesJSON);
 
 
 let articles = await getOpinionPosts(995,2);
+
 
 if(articles === undefined){
 	articles = new Array();
@@ -46,10 +48,16 @@ let strips = await getStrips();
 					if(k>0){
 						hideclass="hidden";
 					}
+					console.log(strip);
+					if(strip.thumbthirdnc!=""){
+
+					}
 					
 					return (
-						<a href={strip.big} class={`mb-4 sm:mb-0 glightbox ${hideclass}`} data-gallery="stripi" data-title={strip.post_title} data-description={strip.post_content}>
-                            <img class=" w-full h-auto" src={strip.thumb} alt={strip.post_title}/>
+						<a href={strip.thumbfullnc} class={`mb-4 sm:mb-0 glightbox ${hideclass}`} data-gallery="stripi" data-title={strip.post_title} data-description={strip.post_content}>
+                            <img src={strip.thumbthirdnc} alt={strip.post_title}
+							
+
 							<img class="mx-auto py-4" src="/tmpimages/tdata/16.png"/>
 							<h2 class="uppercase text-papez-purple font-bold text-center text-2xl sm:text-4xl">{strip.author}</h2>
 							<p class=" text-center font-bold text-2xl sm:text-4xl leading-novice line-clamp-3">{strip.post_title}</p>

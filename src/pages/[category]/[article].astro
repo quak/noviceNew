@@ -105,6 +105,17 @@ let placeclass = "";
 if(place === null || place===""){
     placeclass = "hidden";
 }
+
+let imgsrc ={
+  node:{sourceUrl:""}
+};
+if(arti.featuredImage==null){
+  
+  imgsrc.node.sourceUrl = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_full.jpg';
+  imgsrc.node.alt = '';
+}else{
+  imgsrc = arti.featuredImage;
+}
 ---
 
 
@@ -120,11 +131,11 @@ if(place === null || place===""){
         <Breadcrumb category={arti.categories.nodes[0]}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={arti?.featuredImage}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={imgsrc}/>)
         }
         {
          
-          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={arti?.featuredImage}/>)
+          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={place} mediaItem={imgsrc}/>)
         }
         
         

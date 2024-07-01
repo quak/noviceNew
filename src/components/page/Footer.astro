@@ -45,7 +45,7 @@ let mr = menu_right.menuItems.nodes;
                 {ml.map(function (menuitem,k) {
 								
                     let title = menuitem.label;
-                    let url = 'kategorije'+menuitem.uri;
+                    let url = '/kategorije'+menuitem.uri;
                     
                     return (
                         <a href={url} class="block text-3xl ">{title}</a>
@@ -55,7 +55,7 @@ let mr = menu_right.menuItems.nodes;
                 {mr.map(function (menuitem,k) {
                     
                     let title = menuitem.label;
-                    let url = 'kategorije'+menuitem.uri;
+                    let url = '/kategorije'+menuitem.uri;
                     
                     return (
                         <a href={url} class="block text-3xl ">{title}</a>
@@ -113,7 +113,7 @@ let mr = menu_right.menuItems.nodes;
                 {avtors?.ur?.map(function (avtor,k) {
                                        
                     let title = avtor.data.display_name;
-                    let url = "author/"+avtor.data.user_nicename;
+                    let url = "/author/"+avtor.data.user_nicename;
                     
                     return (
                         <a href={url} class="font-bold italic text-lg">
@@ -136,10 +136,12 @@ let mr = menu_right.menuItems.nodes;
                         <span class="block">za Avstrijo in Slovenijo € 58,-</span>
                         <span class="block">za druge države: € 75.-</span>
                     </span>
-
-                    <span class="bg-klopinj-blue inline-block text-sele-ivory uppercase px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels mt-4">
-                        Naroči novice!
-                    </span>
+                    
+                    <a href="/kategorije/naroci-novice">
+                        <span class="bg-klopinj-blue inline-block text-sele-ivory uppercase px-1 sm:px-4 text-sm sm:text-base md:text-xl tracking-widels mt-4">
+                            Naroči novice!
+                        </span>
+                    </a>
                     
                 </div>
             </div>

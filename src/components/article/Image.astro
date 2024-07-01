@@ -1,5 +1,5 @@
 ---
-
+import { Image } from 'astro:assets';
 import { getImageByIds } from '../../lib/api';
 const {block} = Astro.props;
 
@@ -58,7 +58,9 @@ if(imageid){
     <div class={smallsizeclass}>
         
         <a href={sourceUrl} class="glightbox" data-title={title} data-description={caption}>
-            <img transition:name={sourceUrl} src={sourceUrl} alt={description}/>
+            
+            <Image width="1140" height="642" format="WebP" loading="eager" class="ease-out duration-4000 transition-all hover:scale-103 w-full h-auto" src={sourceUrl} alt={description}/>
+    
         </a>
         
         <div class="border-b border-black flex flex-row justify-between py-2 items-center">

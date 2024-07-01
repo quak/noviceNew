@@ -137,8 +137,8 @@ export async function getArticleBySlug(slug) {
               altText
               description
               title
-              srcSet
-              sourceUrl
+              srcSet(size: IMG33)
+              sourceUrl(size: IMG33)
             }
           }
           place {
@@ -716,8 +716,8 @@ export async function goSearch(searchterm) {
               node {
                 id
                 sourceUrl
-                sizes
-                srcSet
+                sizes(size: IMG23)
+                srcSet(size: IMG23)
                 title
                 description
                 caption

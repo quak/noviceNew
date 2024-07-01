@@ -144,7 +144,7 @@ async function getData(searchterm) {
             }
 
             
-            if(article?.thumb!=false){
+            if(article?.thumbquater!=false){
                 hideimg="";
             }
                     

@@ -20,7 +20,6 @@ export default function EventsHome() {
 	const SwiperNav = () => {
 		const swiper = useSwiper();
 
-		
 		return (
 			<div className="block -mt-8 absolute z-10 b-0 w-full ">
 				<div className="flex mt-auto w-full ">   

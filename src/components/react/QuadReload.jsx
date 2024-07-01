@@ -76,7 +76,7 @@ export default function QuadReload(args) {
 				<div className="grid grid-cols-2 md:grid-cols-4 md:grid-rows-1 md:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 					{items?.map(function (article,k) {
 						let url = '/'+article?.cat?.slug+'/'+article?.post_name;
-						console.log(article);
+						
 							return (
 								<a key={k} href={url} className="col-span-1 lg:col-span-1 lg:row-span-1" >
 									<article className="h-full flex flex-col">

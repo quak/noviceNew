@@ -67,6 +67,11 @@ if(!("thumbthird" in article) || article?.thumbfull===false){
             
 }else{
     imgsrc = article?.thumbthird;
+    
+    if( style === "condolations"){
+        
+        imgsrc = article?.thumbthirdhigh;
+    }
 }
 
 

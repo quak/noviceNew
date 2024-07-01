@@ -4,7 +4,6 @@ const {id,title,excerpt,date,author,mediaItem,avtorslug,place} = Astro.props;
 
 const currentPath = "https://novice.at"+Astro.url.pathname;
 
-console.log(mediaItem);
 ---
 
 <h1 class="text-3xl sm:text-6xl font-bold mt-4 leading-novice"><Fragment set:html={title}/></h1>

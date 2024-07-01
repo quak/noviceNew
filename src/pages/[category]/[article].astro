@@ -42,11 +42,14 @@ export async function getStaticPaths() {
 
 const { category,article } = Astro.params;
 
+console.log(article);
 const arti = await getArticleBySlug(article);
 
 
 
 let description = "";
+console.log("arti");
+console.log(arti);
 if(arti?.leadingForAllPosts?.leading!=null){
   description= arti.leadingForAllPosts.leading;
 }else{

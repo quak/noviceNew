@@ -73,21 +73,29 @@ if(deaths === undefined){
 		{potw.map(function (article,k) {
 			
 			let url = '/osebe/'+article.post.post_name;
-			let classes_lr="";
+			
 			let personname =" ";
 				if(article?.acf?.name!=null){
 						personname = ""+article?.acf?.name ;
-					}
-					if(article?.acf?.surname!=null){
-						personname = personname+" "+article?.acf?.surname ;
-					}
+				}
+				if(article?.acf?.surname!=null){
+					personname = personname+" "+article?.acf?.surname ;
+				}
+
+				let imgsrc="";
+				if(!("thumbtwothird" in article) || article?.thumbfull===false){
+					imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+				}else{
+					imgsrc = article?.thumbtwothird;
+				}
+
 				return (
 
 					<a href={url} class="col-span-6 md:col-span-4" >
 			
 						<article class="relative">
 							<div class="overflow-hidden">
-								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103" src={article?.thumb}  loading="lazy" alt={article?.post?.post_title}/>
+								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc}  loading="lazy" alt={article?.post?.post_title}/>
 								
 							</div>
 							<div class="relative sm:absolute p-4 bottom-0 ">
@@ -178,6 +186,7 @@ if(deaths === undefined){
 			<div class="swiper-wrapper">
 		
 			{deaths.map(function (article,k) {
+				
 					return (
 						<Third article={article} style="condolations" isslider={true} />
 					);

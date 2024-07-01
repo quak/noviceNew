@@ -55,8 +55,13 @@ if(article?.acf?.surname!=null){
 
 
 let excerpt = ""
-if(article?.excerpt!=""){
-    excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
+if(article.acf!=false && article.acf.leading!=""){
+    excerpt = article.acf.leading;
+}else{
+    if(article?.excerpt!=""){
+        excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
+        excerpt = excerpt.replace("[&hellip;]", '...');
+    }
 }
 
 
@@ -87,9 +92,9 @@ if(!("thumbthird" in article) || article?.thumbfull===false){
                     <div class="overflow-hidden relative ">
                         
                         <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video"  src={imgsrc} loading={llstyle} alt={excerpt} />
-                        <div class="absolute left-0 bottom-0 block ">
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ${placeclass}`}>{placeat}</span>
+                        <div class="absolute left-0 bottom-0 block group">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-0 group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
                         </div>
                     </div>
                     <div class="sm:px-3 pt-2 flex flex-col flex-1 justify-between">
@@ -118,6 +123,33 @@ if(!("thumbthird" in article) || article?.thumbfull===false){
             </a>
 
 
+        )
+      } else if( style === "opinion") {
+        let avatarsrc = "";
+     
+        if(typeof article?.node?.mnenje?.avatar?.mediaItemUrl == 'undefined' ){
+            avatarsrc="/tmpimages/svgs/person.svg";
+        }else{
+            avatarsrc=article?.node?.mnenje?.avatar?.mediaItemUrl;
+        }
+
+        return(
+            <a href={url} class="row-start-2 md:row-start-1  basis-1/2 md:basis-1/3 flex flex-col justify-between  overflow-hidden block">
+                <div class="flex-none relative flex justify-center z-10 relative">
+                    
+                    
+                    <Image height="181" width="144" class="mx-auto z-10 -mb-4 max-h-36 relative"  src={avatarsrc} alt={article?.post_title}/>
+
+                    <div class="mx-auto absolute w-32 h-32 border border-black bg-white rounded-full top-8"></div>
+                </div>
+                <div class="flex-auto border-b-8 border-t-8 border-iskanje-grey z-20 relative bg-white text-center ">
+                    <span class="px-4 block">
+                        <span class="uppercase text-klopinj-blue text-center text-4xl font-light mt-4 block leading-novice">{personname}</span>
+                        <h2 class="text-xl sm:text-2xl mb-2 text-ellipsis mt-2 line-clamp-4 sm:line-clamp-3 leading-novice"><Fragment set:html={article?.post_title}/></h2>
+                        <p class="hidden sm:block font-serif text-center mt-8 mb-8 text-xl italic line-clamp-3">{excerpt}</p>
+                    </span>
+                </div>
+            </a>
         )
       } else if( style === "condolations") {
         return(

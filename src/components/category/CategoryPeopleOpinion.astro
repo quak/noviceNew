@@ -1,8 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { getOpinionPosts } from '../../lib/api';
+import { getPostsByCategoryId } from '../../lib/article';
 import { getStrips } from '../../lib/article';
-import Third from '../page/elements/third.astro'
+import Third from '../page/elements/thirdr.astro'
 
 const {block} = Astro.props;
 
@@ -11,7 +12,7 @@ const blckjsn = JSON.parse(block.attributesJSON);
 
 
 
-let articles = await getOpinionPosts(995,2);
+let articles = await getPostsByCategoryId(995,2);
 
 
 if(articles === undefined){

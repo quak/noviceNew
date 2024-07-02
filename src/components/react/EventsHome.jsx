@@ -106,7 +106,7 @@ export default function EventsHome() {
 								
 								return (
 									
-									<div key={k} className={`flex flex-row py-4 border-jepa-grey gap-6 `+ borderclass}>
+									<div key={k} className={`flex flex-row py-3 border-jepa-grey gap-6 `+ borderclass}>
 
 										<div className="basis-1/5 flex">
 											<div className="w-20">
@@ -116,7 +116,7 @@ export default function EventsHome() {
 												</span>
 											</div>
 										</div>
-										<div className="basis-4/5">
+										<div className="basis-4/5 flex flex-col gap-4">
 											{events.map(function (event,kk) {
 												
 												let title = event.post_title;
@@ -127,9 +127,9 @@ export default function EventsHome() {
 												
 												return (
 													
-													<a key={kk} href={url} className="mb-4 block bg-white p-2">
+													<a key={kk} href={url} className=" block bg-white p-2">
 														<p className="inline-block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ">{city}</p>
-														<p className="font-serif">{title}</p>
+														<p className="font-serif line-clamp-2">{title}</p>
 													</a>
 													
 												)}

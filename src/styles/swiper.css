@@ -10,3 +10,11 @@
 .eventSwiper .swiper-pagination .swiper-pagination-bullet-active{
     background: white!important;
 }
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+    color: #007a91!important;;
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+    color: #007a91!important;;
+}

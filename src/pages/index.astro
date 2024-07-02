@@ -63,10 +63,13 @@ let imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_full.jpg';
 
 <script>
   import GLightbox from 'glightbox';
-  const lightbox = GLightbox({
-      touchNavigation: true,
-      loop: true,
-      autoplayVideos: true
+
+  document.addEventListener('astro:page-load', () => {
+	const lightbox = GLightbox({
+		touchNavigation: true,
+		loop: true,
+		autoplayVideos: true
+	});
   });
   
 </script>

@@ -16,59 +16,59 @@ const {block} = Astro.props;
 </section>
 
 <script>
-	// Find all buttons with the `alert` class on the page.
-	const buttons = document.querySelectorAll('.novice-insta-morebutton');
-  
-	// Handle clicks on each button.
-	buttons.forEach((button) => {
-	  button.addEventListener('click', (event) => {
-		var targetElement = event.target || event.srcElement;
-		var par =  targetElement.parentNode.parentNode;
-		var toogleElements = par.querySelectorAll('.novice-insta-visible');
+
+	document.addEventListener('astro:page-load', () => {
+    
+    	// Find all buttons with the `alert` class on the page.
+			const buttons = document.querySelectorAll('.novice-insta-morebutton');
 		
-		toogleElements.forEach((toogleelements) => {
-			toogleelements.classList.toggle("hidden");
+		// Handle clicks on each button.
+		buttons.forEach((button) => {
+			button.addEventListener('click', (event) => {
+			var targetElement = event.target || event.srcElement;
+			var par =  targetElement.parentNode.parentNode;
+			var toogleElements = par.querySelectorAll('.novice-insta-visible');
+			
+			toogleElements.forEach((toogleelements) => {
+				toogleelements.classList.toggle("hidden");
+			});
+
+
+			});
 		});
 
+  	}, { once: true });
 
-	  });
-	});
   </script>
 
 <script>
 	import Swiper from 'swiper';
 	import 'swiper/css/bundle';
 	document.addEventListener('astro:page-load', () => {
-	// import Swiper bundle with all modules installed
 	
-	
-	// import styles bundle
-	
-	
-	// init Swiper:
-	const swiper = new Swiper('.swipervid', {
-	  // Optional parameters
-	  direction: 'horizontal',
-	  loop: true,
-	  slidesPerView: 1,
-	  spaceBetween: 16,
-	
-	  // Navigation arrows
-	  navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	  },
-	
-	  breakpoints: {
-		480: {
-		  slidesPerView: 2,
+		
+		
+		const swiper = new Swiper('.swipervid', {
+		direction: 'horizontal',
+		loop: true,
+		slidesPerView: 1,
+		spaceBetween: 16,
+		
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
 		},
-		768: {
-		  slidesPerView: 4,
+		
+		breakpoints: {
+			480: {
+			slidesPerView: 2,
+			},
+			768: {
+			slidesPerView: 4,
+			}
 		}
-	  }
-	
+		
+		});
 	});
-});
 	
-	  </script>
+</script>

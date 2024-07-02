@@ -157,12 +157,12 @@ if(!("thumbthird" in article) || article?.thumbfull===false){
                 <article class="p-3 bg-sneg-white flex flex-row gap-4 h-full">
                 
                     <div class=" overflow-hidden md:basis-1/2 relative block">
-                        <div class="absolute left-0 bottom-0 block ">
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
-                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ${placeclass}`}>{placeat}</span>
+                        <div class="absolute block group relative ">
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute right-0 top-0 text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute right-0 top-0 text-nowrap ease-out duration-300 transition-all opacity-0 group-hover:opacity-100 z-10 ${placeclass}`}>{placeat}</span>
                         </div>
                         
-                        <Image height="292" width="164" format="WebP" class="max-h-52 sm:max-h-fit sm:max-h ease-out duration-4000 transition-all hover:scale-103 sepia"  src={imgsrc} loading={llstyle} alt={excerpt} />
+                        <Image height="292" width="164" format="WebP" class="max-h-52 sm:max-h-fit sm:max-h w-auto ease-out duration-4000 transition-all hover:scale-103 sepia"  src={imgsrc} loading={llstyle} alt={excerpt} />
                     </div>
         
                     <div class="flex flex-col md:basis-1/2 justify-between">

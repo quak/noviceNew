@@ -13,7 +13,7 @@ if (num_of_slider_elements_deaths === undefined){
 	num_of_slider_elements_deaths = '3';
 }
 
-let deaths = await getPostsByCategoryId(1651,parseInt(num_of_slider_elements_deaths));//API
+let deaths = await getPostsByCategoryId(1651,parseInt(num_of_slider_elements_deaths));
 if(deaths === undefined){
 	deaths = new Array();
 }
@@ -41,7 +41,7 @@ if(deaths === undefined){
 				</a> 
 			</div>
 		</div>
-		<div class="basis-full md:basis-4/5 grid grid-cols-2 gap-12 flex-wrap">
+		<div class="basis-full md:basis-4/5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-12 flex-wrap">
 			
 			{deaths.map(function (article) {
 				

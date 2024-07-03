@@ -57,12 +57,13 @@ if(place === null || place===""){
     placeclass = "hidden";
 }
 
+
+
 let imgsrc="";
 if(!("thumbquater" in article) || article?.thumbfull===false){
     imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_third.jpg';
-            
 }else{
-    imgsrc = article?.thumbquater; 
+    imgsrc = article?.thumbquater;
 }
 
 ---
@@ -76,10 +77,10 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
             <a href={url} class={`col-span-1 lg:col-span-1 lg:row-span-1  overflow-hidden ${sliderclass}`} >
                 <article class={`h-full flex flex-col ${bgclass}`}>
                     <div class="overflow-hidden relative">
-                        <Image width="257" height="145" format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-video" src={imgsrc} loading={llstyle} alt={excerpt} />
+                        <Image width="257" height="145" format="WebP" class="ease-out w-full duration-4000 transition-all hover:scale-103 aspect-video" src={imgsrc} loading={llstyle} alt={excerpt} />
                         <div class="absolute left-0 bottom-0 block  ">
                             <div class="group">
-                                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                                <span class={`block uppercase px-2 bg-klopinj-blue  text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
                                 <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
                             </div>
                         </div>
@@ -117,11 +118,8 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
         )
       } else if( style === "opinion") {
         
-        if(article?.thumbqubic===false){
-            imgsrc = 'https://sfsn.si/wp-content/uploads/2023/10/hokej-14-256x128.png';
-        }else{
-            imgsrc = article?.thumbqubic;
-        }
+        
+        //Dunajski klubaši o »Hačkofobiji«
         return(
             <a href={url} class="col-span-1 row-start-2 swiper-slide" >
                 <article class="p-3 bg-sneg-white h-full rounded-md">
@@ -129,8 +127,6 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
                     <div class="flex flex-wrap justify-center -mt-20">
                         <div class="w-40 h-40 rounded-full overflow-hidden">
                             <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-square" src={imgsrc} loading={llstyle} alt={excerpt} />
-                            
-                            
                         </div>
                     </div>
         

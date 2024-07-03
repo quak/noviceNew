@@ -87,8 +87,8 @@ if(!("thumbfull" in article) || article?.thumbfull===false){
                 <div class="basis-full sm:basis-2/3">
                     <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-101"  src={imgsrc} loading={llstyle} alt={excerpt} />
                 </div>
-                <div class="px-6 basis-1/3 flex flex-wrap flex-col justify-between">
-                    <div class="flex flex-wrap gap-2 my-4 sm:my-0">
+                <div class="px-6 basis-1/3 flex flex-wrap flex-col justify-between relative">
+                    <div class="flex flex-wrap gap-2 my-4 sm:my-0 min-h-6 relative">
                         
                         <div class="group  ">
                                 <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>

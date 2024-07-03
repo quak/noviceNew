@@ -1,4 +1,5 @@
 ---
+import { normalizeTheLocale } from 'astro:i18n';
 import { getImageByIds } from '../../lib/api';
 const {block} = Astro.props;
 
@@ -22,7 +23,7 @@ if(typeof imageid !== "undefined"){
 
     if(Array.isArray(img) && img.length!=0){
         image = img[0].node;
-    
+        noskip=true;
         if(image.title != null){
             title = image.title;
         }
@@ -40,6 +41,7 @@ if(typeof imageid !== "undefined"){
         }
     }else{
         noskip=false;
+        console.log("noskup2")
     }
     
 }else{
@@ -53,7 +55,7 @@ if(typeof imageid !== "undefined"){
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
         {noskip && 
             <a href={sourceUrl} class="glightbox" data-title={title} data-description={caption} aria-label="Reklama za... center">
-                <img class="mx-auto" transition:name={sourceUrl} src={sourceUrl} alt={description}/>
+                <img class="mx-auto" src={sourceUrl} alt={description}/>
             </a>
         }
 	</div>

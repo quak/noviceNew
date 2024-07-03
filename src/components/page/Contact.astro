@@ -24,15 +24,25 @@ if (Astro.request.method === 'POST') {
 
     const message = name +" ; "+ email +" ; "+ email +" ; "+ usermsg  ;
 
-    // TODO: Do not forget to do validation and error handling over received data from your contact form.
+	const file = data.get('file-upload');
+
 
     // Sending email
     const msg = {
       to: 'office@avax.at', // Kam poslješ zdaj na office poj na naročnina@novice.at
       from: 'augustin.malle@gmail.com', // <--------------------Sem pride nekaj office@novice.at / poj ko verificiraš
       replyTo: {email:email, name:name},
-      subject: 'Naročilo - '+name,
-      text: message,
+      subject: 'Kontakt - '+name,
+      text: message,/*
+	  attachments: [
+			{
+				content: 'aGVoZWhl',
+				filename: file.name,
+				type: file.type,
+				disposition: 'attachment'
+			},
+			
+		],*/
     }
     await sendGrid.send(msg).then(() => {
       

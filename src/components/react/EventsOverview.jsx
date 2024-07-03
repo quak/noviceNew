@@ -33,7 +33,6 @@ export default function EventsOverview() {
 			datax = JSON.parse(data);
 			
 			featured = Object.values(datax.featured);
-			console.log(datax)
 			days = Object.values(datax.events);
 			
 		}
@@ -119,14 +118,22 @@ export default function EventsOverview() {
 				
 				>
 					{featured.map(function (event,l) {
-						let url = '/prireditev/'+event.post_name;
-						console.log("event");
-						console.log(event);
+
+						let imgsrc="";
+						if(!("thumburl" in event) || event?.thumburl===false){
+							imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+						}else{
+							imgsrc = event.infos.thumburl;
+						}
+
+						let url = '/prireditev/'+event.infos.post_name;
+						
+					
 						return(		
 							<SwiperSlide key={l} className="">
 						<a href={url}   className="flex flex-row gap-4 flex-wrap md:flex-nowrap">
 							<div className="basis-full md:basis-2/3">
-								<img src={event.infos.thumburl}/>
+								<img className="w-full" src={imgsrc}/>
 							</div>
 							<div className="basis-full md:basis-1/3">
 								<div className="flex flex-row gap-6">
@@ -181,6 +188,9 @@ export default function EventsOverview() {
 						</div>
 		{days.map(function (day,ll) {
 			actevents = day.events;
+
+
+			
 			return (
 				<>	<div key={ll}>
 						
@@ -191,11 +201,20 @@ export default function EventsOverview() {
 							<div className="basis-full md:basis-5/6 grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-12">
 								{actevents.map(function (event,lll) {
 									let url = '/prireditev/'+event.post_name;
+
+									let imgsrc="";
+									if(!("thumburl" in event) || !event?.thumburl){
+										imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+									}else{
+										imgsrc = event.infos.thumburl;
+									}
+
+
 									return (
 										<>
 										<a key={lll}  href={url} className="col-span-1 flex flex-col gap-4">
 											<div className="basis-full md:basis-1/2">
-											<img src={event.thumburl}/>
+												<img src={imgsrc}/>
 											</div>
 											<div className="basis-full md:basis-1/2">
 												<div className="flex flex-row gap-6">
@@ -224,7 +243,7 @@ export default function EventsOverview() {
 													<div className="basis-4/5">
 														<span className="mb-4 block">
 															<p className="font-bold text-2xl uppercase text-papez-purple">{event.city}</p>
-															<p className="text-xl font-light">{event.venue}</p>
+															<p className="text-xl font-light hidden ">{event.venue}</p>
 														</span>
 													</div>
 												</div>

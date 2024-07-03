@@ -119,14 +119,21 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
       } else if( style === "opinion") {
         
         
-        //Dunajski klubaši o »Hačkofobiji«
+        //imgquad
+        let imgsrc="";
+        if(!("thumbquad" in article) || article?.thumbfull===false){
+            imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_quad.jpg';
+        }else{
+            imgsrc = article?.thumbquad;
+        }
+
         return(
             <a href={url} class="col-span-1 row-start-2 swiper-slide" >
                 <article class="p-3 bg-sneg-white h-full rounded-md">
                     
                     <div class="flex flex-wrap justify-center -mt-20">
                         <div class="w-40 h-40 rounded-full overflow-hidden">
-                            <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-square" src={imgsrc} loading={llstyle} alt={excerpt} />
+                            <Image width="160" height="160" format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 aspect-square" src={imgsrc} loading={llstyle} alt={excerpt} />
                         </div>
                     </div>
         

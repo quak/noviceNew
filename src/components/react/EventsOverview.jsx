@@ -33,6 +33,7 @@ export default function EventsOverview() {
 			datax = JSON.parse(data);
 			
 			featured = Object.values(datax.featured);
+			console.log(datax)
 			days = Object.values(datax.events);
 			
 		}
@@ -51,7 +52,7 @@ export default function EventsOverview() {
 		<>
 
 
-<section className="bg-sele-ivory px-1 md:px-4 py-2 md:py-12">
+	<section className="bg-sele-ivory px-1 md:px-4 py-2 md:py-12">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 			<div className="flex flex-col w-full">
 				<div>
@@ -119,6 +120,8 @@ export default function EventsOverview() {
 				>
 					{featured.map(function (event,l) {
 						let url = '/prireditev/'+event.post_name;
+						console.log("event");
+						console.log(event);
 						return(		
 							<SwiperSlide key={l} className="">
 						<a href={url}   className="flex flex-row gap-4 flex-wrap md:flex-nowrap">

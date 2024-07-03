@@ -15,12 +15,11 @@ const {block} = Astro.props;
 	<Fragment set:html={block.dynamicContent} />
 </section>
 
-<script>
+<script is:inline>
 
 	document.addEventListener('astro:page-load', () => {
-    
     	// Find all buttons with the `alert` class on the page.
-			const buttons = document.querySelectorAll('.novice-insta-morebutton');
+		const buttons = document.querySelectorAll('.novice-insta-morebutton');
 		
 		// Handle clicks on each button.
 		buttons.forEach((button) => {
@@ -37,7 +36,7 @@ const {block} = Astro.props;
 			});
 		});
 
-  	}, { once: true });
+  	});
 
   </script>
 

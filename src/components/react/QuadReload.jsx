@@ -51,7 +51,7 @@ export default function QuadReload(args) {
 
 	const handleScroll = () => {
 
-		if (window.innerHeight + document.documentElement.scrollTop + document.getElementById("footer").offsetHeight > document.documentElement.offsetHeight || isLoading) {
+		if (window.innerHeight + document.documentElement.scrollTop  > document.documentElement.offsetHeight || isLoading) {
 		  return;
 		}
 		fetchDataLL();

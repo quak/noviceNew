@@ -49,6 +49,7 @@ if(place === null || place===""){
 let excerpt = ""
 if(article?.excerpt!=""){
     excerpt = (article?.excerpt).replace(/<[^>]*>?/gm, '');
+    excerpt = excerpt.replace("[&hellip;]", '...');
 }
 
 
@@ -86,7 +87,7 @@ if(!("thumbhalf" in article) || article?.thumbfull===false){
                         <h2 class="leading-novice text-2xl sm:text-3xl line-clamp-3 text-ellipsis font-bold"><Fragment set:html={article?.post_title}/></h2>
 
                         <div class="flex-1 mt-2">
-                            <div class=" text-sm sm:text-xl md:text-xl font-serif line-clamp-3 text-ellipsis">{excerpt}</div>
+                            <div class="  text-base md:text-xl font-serif line-clamp-3 text-ellipsis">{excerpt}</div>
                         </div>
 
                     </div>

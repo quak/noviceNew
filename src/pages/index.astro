@@ -19,8 +19,9 @@ import Lastnews from '../components/page/Lastnews.astro';
 
 import * as use from '../components/index.js';
 
-Astro.response.headers.set("Cache-Control", "public, max-age=180");
-Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=300, stale-while-revalidate=2678400');
+Astro.response.headers.set("Cache-Control", "public, max-age=60");
+Astro.response.headers.set('CDN-Cache-Control', 'public, s-maxage=60, stale-while-revalidate=2678400');
+Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=60, stale-while-revalidate=2678400');
 
 const page = await getPageBySlugAlt("home");
 

@@ -22,9 +22,9 @@ export default function EventsHome() {
 
 	const [_, setInit] = useState(false)
 	const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const sliderRef = useRef(null);
-	
+	const nextRef = useRef(null);
+	const sliderRef = useRef(null);
+		
 
 	const SwiperNav = () => {
 		const swiper = useSwiper();
@@ -101,13 +101,13 @@ export default function EventsHome() {
 					modules={[Pagination,Navigation]}
 					style={{ height: '100%'}}
 					ref={sliderRef}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
-					>
+					onInit={(swiper) => {
+						swiper.params.navigation.prevEl = prevRef.current;
+						swiper.params.navigation.nextEl = nextRef.current;
+						swiper.navigation.init();
+						swiper.navigation.update();
+          			}}
+				>
 					
 					<div>
 					
@@ -153,13 +153,26 @@ export default function EventsHome() {
 													let title = event.post_title;
 													let slug = event.post_name;
 													let place = event.venue;
-													let city = event.city;
+													let city = "";
+													let citysi = "";
+													let cityat = "";
+													console.log(event);
+													if(event?.acfcity!=false){
+														 citysi = event?.acfcity?.slovensko_ime;
+														 cityat = event?.acfcity?.nemsko_ime;
+													}
+													
 													let url = '/prireditev/'+slug;
+													
 													
 													return (
 														
 														<a key={kk} href={url} className=" block bg-white p-2">
-															<p className="inline-block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm ">{city}</p>
+															
+															<div class="group relative min-h-5">
+																<span class='block uppercase px-2 bg-klopinj-blue  text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 '>{citysi}</span>
+																<span class='block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100'>{cityat}</span>
+															</div>
 															<p className="font-serif line-clamp-2">{title}</p>
 														</a>
 														

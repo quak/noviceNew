@@ -26,6 +26,7 @@ const {block} = Astro.props;
 		buttons.forEach((button) => {
 			button.addEventListener('click', (event) => {
 			var targetElement = event.target || event.srcElement;
+			
 			var par =  targetElement.parentNode.parentNode;
 			var toogleElements = par.querySelectorAll('.novice-insta-visible');
 			
@@ -36,6 +37,25 @@ const {block} = Astro.props;
 
 			});
 		});
+
+
+		/** */
+		
+		const novicereels = document.querySelectorAll('.novicereels');
+	
+		novicereels.forEach((novicereel) => {
+			novicereel.addEventListener('click', (event) => {
+				
+				var targetElement = event.currentTarget;
+				let vid = targetElement.getAttribute("href");
+				vid = vid.substring(1);
+
+				
+				
+				
+			});
+		});
+		/** */
 
   	});
 

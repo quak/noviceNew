@@ -18,5 +18,9 @@ export default defineConfig({
   }),
   image: {
     remotePatterns: [{ protocol: "https" }],
+  },
+  // Keep prefetch, but only prefetch for links with `data-astro-prefetch`
+  prefetch: {
+    prefetchAll: false
   }
 });

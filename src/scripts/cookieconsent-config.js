@@ -29,17 +29,16 @@ CookieConsent.run({
         translations: {
             en: {
                 consentModal: {
-                    title: "Hello traveller, it's cookie time!",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
-                    acceptAllBtn: "Accept all",
-                    acceptNecessaryBtn: "Reject all",
-                    showPreferencesBtn: "Manage preferences",
-                    footer: "<a href=\"#link\">Privacy Policy</a>\n<a href=\"#link\">Terms and conditions</a>"
+                    title: "Zdravo!",
+                    description: "Spletna mesta Novic uporabljajo piškotke z namenom zagotavljanja spletne storitve in funkcionalnosti, ki jih brez piškotkov ne bi mogli nuditi. Ali soglašate z namestitvijo piškotkov na omenjenih straneh?",
+                    acceptAllBtn: "Potrjujem vse",
+                    acceptNecessaryBtn: "Sprejmem nujne",
+                    showPreferencesBtn: "Nastavitve"
                 },
                 preferencesModal: {
                     title: "Consent Preferences Center",
-                    acceptAllBtn: "Accept all",
-                    acceptNecessaryBtn: "Reject all",
+                    acceptAllBtn: "Potrjujem vse",
+                    acceptNecessaryBtn: "Sprejmem nujne",
                     savePreferencesBtn: "Save preferences",
                     closeIconLabel: "Close modal",
                     serviceCounterLabel: "Service|Services",

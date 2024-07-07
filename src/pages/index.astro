@@ -72,6 +72,15 @@ let imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_full.jpg';
 		loop: true,
 		autoplayVideos: true
 	});
+	lightbox.on('slide_changed', () => {
+		let allvideos = document.querySelectorAll("#glightbox-slider video");
+		allvideos.forEach((singlevid) => {
+			singlevid.pause();
+			singlevid.currentTime = 0;
+		});
+
+		(document.querySelectorAll("#glightbox-slider .current video"))[0].play();
+	});
   });
   
 </script>

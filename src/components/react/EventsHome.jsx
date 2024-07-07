@@ -82,13 +82,13 @@ export default function EventsHome() {
 				 
 				<div className="flex flex-row border-b-2 border-dashed border-jepa-grey border-dashed justify-between items-center mb-2 group">
 					<span className="cursor-pointer" ref={prevRef} disabled={realIndex == 0} onClick={() => { setIndex(sliderRef.current?.swiper.realIndex);setIsEnd(sliderRef.current?.swiper.isEnd);setPagenum(sliderRef.current?.swiper.realIndex);}}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left group-hover:text-papez-purple group-hover:h-5 group-hover:w-5" viewBox="0 0 16 16"> <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" ></path> </svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left group-hover:text-papez-purple group-hover:h-5 group-hover:w-5" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" ></path> </svg>
 					</span>
 					
 					<h2 className="col-span-2 font-light text-4xl text-klopinj-blue uppercase text-center leading-novice">Prireditve</h2>
 
 					<span className="cursor-pointer" ref={nextRef} disabled={isEnd} onClick={() => {setIndex(sliderRef.current?.swiper.realIndex);setPagenum(sliderRef.current?.swiper.realIndex);setIsEnd(sliderRef.current?.swiper.isEnd)}}> 
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right group-hover:text-papez-purple group-hover:h-5 group-hover:w-5" viewBox="0 0 16 16" > <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" ></path> </svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right group-hover:text-papez-purple group-hover:h-5 group-hover:w-5" viewBox="0 0 16 16" > <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" ></path> </svg>
 					</span>
 				</div>
 				{isLoading ? <img src="/tmpimages/loader.gif" alt="loading..." /> : null}
@@ -156,6 +156,7 @@ export default function EventsHome() {
 													let city = "";
 													let citysi = "";
 													let cityat = "";
+													console.log(event);
 													if(event?.acfcity!=false){
 														 citysi = event?.acfcity?.slovensko_ime;
 														 cityat = event?.acfcity?.nemsko_ime;
@@ -168,9 +169,9 @@ export default function EventsHome() {
 														
 														<a key={kk} href={url} className=" block bg-white p-2">
 															
-															<div className="group relative min-h-5">
-																<span className='block uppercase px-2 bg-klopinj-blue  text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 '>{citysi}</span>
-																<span className='block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100'>{cityat}</span>
+															<div class="group relative min-h-5">
+																<span class='block uppercase px-2 bg-klopinj-blue  text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 '>{citysi}</span>
+																<span class='block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100'>{cityat}</span>
 															</div>
 															<p className="font-serif line-clamp-2">{title}</p>
 														</a>

@@ -15,9 +15,11 @@ let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 let avtor = article.author;
+
 if(avtor == ""){
     avtor="novice";
 }
+avtor="novice";
 
 let place = ""
 let placeat = ""
@@ -97,7 +99,10 @@ if(!("thumbfull" in article) || article?.thumbfull===false){
                         
                     </div>
                     <h2 class="text-3xl md:text-5xl font-bold line-clamp-4 leading-novice"><Fragment set:html={article?.post_title}/></h2>
-                    
+                    <div class="flex gap-1 justify-between ">
+                        <span class="uppercase flex flex-row items-center tracking-widels"><img  src="/tmpimages/svgs/bookmark.svg" alt="Date icon"/>{datestring}</span>
+                        <span class="uppercase flex flex-row items-center tracking-widels"><img class="max-h-4 mr-1"src="/tmpimages/svgs/user.svg" alt="Avtor icon"/>{avtor}</span>
+                    </div>
                     <div class="text-lg md:text-2xl font-serif my-4 sm:my-0 line-clamp-3">{excerpt}</div>
                     
                 </div>

@@ -36,6 +36,24 @@ const {block} = Astro.props;
 			});
 		});
 
+		/** */
+		
+		const novicereels = document.querySelectorAll('.novicereels');
+	
+		novicereels.forEach((novicereel) => {
+			novicereel.addEventListener('click', (event) => {
+				
+				var targetElement = event.currentTarget;
+				let vid = targetElement.getAttribute("href");
+				vid = vid.substring(1);
+
+				
+				
+				
+			});
+		});
+		/** */
+
   	});
 
   </script>
@@ -55,8 +73,8 @@ const {block} = Astro.props;
 	  // Optional parameters
 	  direction: 'horizontal',
 	  loop: true,
-	  slidesPerView: 1,
-	  spaceBetween: 16,
+	  slidesPerView: 2,
+	  spaceBetween: 8,
 	
 	  // Navigation arrows
 	  navigation: {
@@ -66,7 +84,8 @@ const {block} = Astro.props;
 	
 	  breakpoints: {
 		480: {
-		  slidesPerView: 2,
+			slidesPerView: 2,
+			spaceBetween: 16,
 		},
 		768: {
 		  slidesPerView: 4,

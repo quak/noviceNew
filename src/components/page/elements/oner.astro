@@ -9,8 +9,8 @@ var llstyle = "lazy";
 if(shouldll==="false"){
     llstyle = "eager";
 }
+let url = '/'+article?.cat?.category_nicename+'/'+article.post_name;
 
-let url = '/'+article?.cat?.category_nicename+'/'+article?.post_name;
 let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 

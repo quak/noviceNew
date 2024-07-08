@@ -30,7 +30,7 @@ export default function EventsHome() {
 		const swiper = useSwiper();
 
 		return (
-			<div className="block -mt-8 absolute z-10 b-0 w-full ">
+			<div className="block lg:-mt-8 relative lg:absolute z-10 b-0 w-full ">
 				<div className="flex mt-auto w-full ">   
 						
 					
@@ -95,11 +95,11 @@ export default function EventsHome() {
 				<div className="flex-1">
 				<Swiper
 					spaceBetween={10}
-					className=" w-full gap-2"
+					className=" w-full gap-2 lg:h-full"
 					slidesPerView={1}
 					
 					modules={[Pagination,Navigation]}
-					style={{ height: '100%'}}
+					style={{ }}
 					ref={sliderRef}
 					onInit={(swiper) => {
 						swiper.params.navigation.prevEl = prevRef.current;
@@ -172,7 +172,7 @@ export default function EventsHome() {
 																<span className='block uppercase px-2 bg-klopinj-blue  text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 '>{citysi}</span>
 																<span className='block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100'>{cityat}</span>
 															</div>
-															<p className="font-serif line-clamp-2">{title}</p>
+															<p className="font-serif line-clamp-2 md:line-clamp-1 lg:line-clamp-2">{title}</p>
 														</a>
 														
 													)}

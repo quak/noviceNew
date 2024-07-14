@@ -1,9 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-const {id,title,excerpt,date,author,mediaItem,avtorslug,place,placesi,placeat} = Astro.props;
+const {id,title,excerpt,date,author,mediaItem,avtorslug,place,placesi,placeat,isCondolece} = Astro.props;
 
 const currentPath = "https://novice.at"+Astro.url.pathname;
 
+
+
+let placeclass = "";
+if(place === null || place===""){
+    placeclass = "hidden";
+}
 
 ---
 
@@ -13,7 +19,7 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
     <span class="block p-1 border-b border-black text-lg text-papez-purple text-center tracking-widedate uppercase"><Fragment set:html={date}/></span>
     
      
-    <a class="group relative h-4"  href={`/kraj/${place}`}>
+    <a class={`group relative h-4 ${placeclass}`}  href={`/kraj/${place}`}>
       <span class={`block uppercase w-full text-center px-2 bg-klopinj-blue text-white tracking-widels text-sm  absolute left-0 top-0 text-nowrap ease-out duration-700 transition-all opacity-100 group-hover:opacity-0 z-10 `}>{placesi}</span>
       <span class={`block uppercase w-full text-center px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 top-0 text-nowrap opacity-0 duration-700 transition-all group-hover:opacity-100 `}>{placeat}</span>
     </a>
@@ -44,7 +50,7 @@ const currentPath = "https://novice.at"+Astro.url.pathname;
 </div>
 <div class="mb-6">
   <div class=" overflow-hidden">
-    <Image width="1140" height="642" format="WebP" loading="eager" class="ease-out duration-4000 transition-all hover:scale-103 w-full h-auto" src={mediaItem?.node?.sourceUrl} alt={title}/>
+    <Image width="1140" height="642" format="WebP" loading="eager" class={`ease-out duration-4000 transition-all hover:scale-103 w-full h-auto ${isCondolece}`} src={mediaItem?.node?.sourceUrl} alt={title}/> 
     
   </div>
   <div class="border-b border-black flex flex-row justify-between py-2 items-center">

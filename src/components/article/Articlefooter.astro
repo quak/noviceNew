@@ -14,7 +14,8 @@ if (datacatid === undefined){
 */
 
 //let articles2 = await getPostByCategoryById(["6"],8);
-let articles = await getRelatedArticles(categoryname);
+
+let articles = await getRelatedArticles(category);
 
 if(articles === undefined){
 	articles = new Array();
@@ -66,7 +67,7 @@ if(articles === undefined){
                     <a href={url} class="swiper-slide">
                         <article class="bg-sneg-white h-full">
                         
-                            <Image inferSize format="WebP" class="ease-out duration-2000 transition-all hover:scale-101 w-full h-auto" src={article?.thumb} alt={article?.post_title}/>
+                            <Image width="257" height="145" format="WebP" class="ease-out duration-2000 transition-all hover:scale-101 w-full h-auto" src={article?.thumb} alt={article?.post_title}/>
                 
                             <div class="py-2 text-left">
                         

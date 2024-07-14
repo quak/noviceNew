@@ -118,6 +118,7 @@ export async function getArticleBySlug(slug) {
         post(id: "${slug}", idType: SLUG) {
           id
           title
+          date
           blocks {
             name
             attributesJSON
@@ -140,9 +141,6 @@ export async function getArticleBySlug(slug) {
               srcSet(size: IMG33)
               sourceUrl(size: IMG33)
             }
-          }
-          place {
-            place
           }
           author {
             node {

@@ -45,12 +45,16 @@ const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
 
+let d = new Date(arti?.date);
+let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
+
 
 
 let description = "";
 if(arti?.leadingForAllPosts?.leading!=null){
   description= arti.leadingForAllPosts.leading;
 }else{
+  console.log(arti);
   description= arti.excerpt;
 }
 //const post = await getArticleBySlugAPI(article);
@@ -67,6 +71,11 @@ if(category=="gallery"){
   isGallery = true;
 }
 
+let isCondolece = "";
+
+if(category=="osmrtnice"){
+  isCondolece = "sepia";
+}
 /********** */
 let cats = arti.categories.nodes;
 
@@ -150,11 +159,11 @@ if(articleapi.loc!=false ){
         <Breadcrumb category={arti.categories.nodes[0]}/>
 
         {
-          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc}/>)
+          !isGallery && (<Articleheader id={arti?.id} title={arti?.title} excerpt={leading} date={datestring} author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc} isCondolece={isCondolece}/>)
         }
         {
          
-          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date="23. Avg 2023" author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc}/>)
+          isGallery &&(<Articleheadergallery id={arti?.id} title={arti?.title} excerpt={leading} date={datestring} author={avtor} avtorslug={nicename} place={placeslug} placesi={placenamesi} placeat={placenameat} mediaItem={imgsrc} isCondolece={isCondolece}/>)
         }
         
         

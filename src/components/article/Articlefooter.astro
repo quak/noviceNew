@@ -62,12 +62,22 @@ if(articles === undefined){
             </div>
             <div class="swiper-wrapper">
                 {articles.map(function (article) {
+                  
+                  
+                  let sourceUrl="";
+                  if(article?.thumb == null || article?.thumb == false ){
+                      sourceUrl="https://sfsn.si/wp-content/uploads/2024/06/novicedummy.jpg";
+                  }else{
+                      sourceUrl=article?.thumb;
+                  }
+                  
+
                     let url = '/'+article?.cat?.name+'/'+article.post_name;
                     return (
                     <a href={url} class="swiper-slide">
                         <article class="bg-sneg-white h-full">
                         
-                            <Image width="257" height="145" format="WebP" class="ease-out duration-2000 transition-all hover:scale-101 w-full h-auto" src={article?.thumb} alt={article?.post_title}/>
+                            <Image width="257" height="145" format="WebP" class="ease-out duration-2000 transition-all hover:scale-101 w-full h-auto" src={sourceUrl} alt={article?.post_title}/>
                 
                             <div class="py-2 text-left">
                         

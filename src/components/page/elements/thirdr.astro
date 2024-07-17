@@ -171,10 +171,9 @@ if(!("thumbthird" in article) || article?.thumbfull===false){
                             <span class="text-black text-2xl">{article?.acf?.dateinfo}</span>
                         </span>
                         <span class="text-papez-purple text-3xl leading-novice block">{personname}</span>
-                        
-                        
-                        
-                        <h2 class="text-xl sm:text-2xl sm:text-2xl  mt-4 leading-novice line-clamp-5"><Fragment set:html={article?.post_title}/></h2>	
+            
+                        <h2 class="hidden text-xl sm:text-2xl sm:text-2xl  mt-4 leading-novice line-clamp-5"><Fragment set:html={article?.post_title}/></h2>	
+                        <p class="hidden sm:line-clamp-3 text-base md:text-xl font-serif text-ellipsis leading-snug">{excerpt}</p>
                     </div>
                 
                 </article>

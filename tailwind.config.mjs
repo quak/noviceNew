@@ -45,7 +45,8 @@ module.exports = {
 				'sneg-white': '#ffffff',
 				'sele-ivory': '#f2ece8',
 				'klopinj-blue': '#007a91',
-				'papez-purple': '#72103c',
+				//'papez-purple': '#72103c', 
+				'papez-purple': '#c51718',//197 / 23 / 24
 				'karavansko-grey': '#566d77',
 				'gmajnsko-brown': '#bc842b',
 				'partizan-red': '#f71e25',

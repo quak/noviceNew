@@ -4,20 +4,24 @@
 import '../../styles/global.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticlesForPlace from '../../components/react/ArticlesForPlace'; 
+import { getLocBySlug } from '../../lib/article';
 
 
 Astro.response.headers.set('Cache-Control', 's-maxage=10800')
 
 const { kraj } = Astro.params;
 
-const kraj_sl = "Celovec";
-const kraj_at = "Klagenfurt";
+const place = await getLocBySlug(kraj);
+
+const kraj_sl = place.postacf.slovensko_ime;
+const kraj_at = place.postacf.nemsko_ime;
+const placeid = place.ID;
 
 
 ---
 
 
-<BaseLayout pageTitle="Projektorisch">
+<BaseLayout pageTitle={place.slovensko_ime}>
   
     <section class="bg-kosuta-grey px-1 md:px-4 pt-12 overflow-hidden">
         <div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
@@ -40,7 +44,7 @@ const kraj_at = "Klagenfurt";
       <div class=" mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
         
        
-            <ArticlesForPlace place={kraj} client:load />
+            <ArticlesForPlace place={placeid} client:load />
         
       </div>
   </section>

@@ -6,9 +6,9 @@ import { Picture } from 'astro:assets';
 import bookmarkicon from "../../images/bookmark.svg";
 import usericon from "../../images/user.svg";
 
-export default function ArticlesForTag(place) {
+export default function ArticlesForTag(placeid) {
 	var params = {
-        place: place
+        place: placeid
     };
 	
  
@@ -20,7 +20,7 @@ export default function ArticlesForTag(place) {
 	  };
 
 	  //cache: 1000 * 60 * 5,
-	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/getarticleswithtag",requestOptions);
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/getarticleswithplace",requestOptions);
 	//const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/eventsforauthor",requestOptions);
 	
 	let datax = "";

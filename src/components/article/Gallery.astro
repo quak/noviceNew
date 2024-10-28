@@ -117,12 +117,13 @@ if(imageids){
             }else if(k!=0){
                 imgsizeclasses = "tile col-span-1";
             }
-            
-            return (
+
+            if(k==0){
+                return (
 
                 
                     <div class={imgsizeclasses}>
-                        <a href={sourceUrl} class="glightbox" data-gallery={lightboxclass} data-title={title} data-description={caption}>
+                        <a href={sourceUrl} class="glightbox" data-gallery={lightboxclass} data-description={caption}>
                             
                             <Image width="1140" height="642" format="WebP" loading="eager" class="" src={sourceUrl} alt={description}/>
                         </a>
@@ -130,6 +131,22 @@ if(imageids){
 
                 
             );
+            }else if(k!=0){
+                return (
+
+                
+                    <div class={imgsizeclasses}>
+                        <a href={sourceUrl} class="glightbox" data-gallery={lightboxclass} data-description={caption}>
+                            
+                            <Image width="173" height="642" format="WebP" loading="eager" class="" src={sourceUrl} alt={description}/>
+                        </a>
+                    </div>    
+
+                
+            );
+            }
+            
+            
         })}
     </div>
 </div>

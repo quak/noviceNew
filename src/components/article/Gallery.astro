@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import { getImagesByIds } from '../../lib/api';
+import { Picture } from 'astro:assets';
+import { getImagesByIdsApi } from '../../lib/api';
 const {block,index} = Astro.props;
 
 
@@ -26,7 +27,8 @@ let images = new Array();
 let imgs ="";
 let image = "";
 let title = "";
-let sourceUrl = "";
+let sourceUrlsmall = "";
+let sourceUrlbig = "";
 let caption = "";
 let description = "";
 let copyright = "Novice";
@@ -36,7 +38,9 @@ if(imageids){
     //["87376","87366"]
     
     //
-    imgs = await getImagesByIds('"'+imageids.join('","')+'"');
+    
+    imgs = await getImagesByIdsApi(imageids.join(','));
+    //imgs = await getImagesByIds('"'+imageids.join('","')+'"');
     
     images = Object.values(imgs);
     /*
@@ -81,11 +85,9 @@ if(imageids){
         <h2 class="text-center text-2xl pb-2 mt-2">{galtitle}</h2>
         <div class="grid grid-cols-6 gap-2">
 
-        {images.map(function (imagewrapper,k) {
+        {images.map(function (image,k) {
             
-            if(imagewrapper){
-                
-                image = imagewrapper.node;
+            if(image){
                 
 
                 if(image.title != null){
@@ -96,12 +98,19 @@ if(imageids){
                     copyright = image.copyright.copyright;
                 }
 */
-                if(image.sourceUrl != null){
-                    sourceUrl = image.sourceUrl;
+                if(image.small != null){
+                    sourceUrlsmall = image.small;
+                    sourceUrlbig = image.big;
+                    if(sourceUrlbig==""){
+                        sourceUrlbig=image.full;
+                    }
+                    if(sourceUrlsmall==""){
+                        sourceUrlsmall=image.full;
+                    }
                 }
 
                 if(image.description != null){
-                    description = image.description;
+                    description = image.desc;
                 }
 
 
@@ -110,7 +119,8 @@ if(imageids){
                 }
                 
             }
-            
+            console.log("TEST");
+            console.log(image.small);
             let imgsizeclasses = "tile col-span-6";
             if(k>6){
                 imgsizeclasses = "tile col-span-1 hidden";
@@ -123,9 +133,11 @@ if(imageids){
 
                 
                     <div class={imgsizeclasses}>
-                        <a href={sourceUrl} class="glightbox" data-gallery={lightboxclass} data-description={caption}>
+                        <a href={sourceUrlbig} class="glightbox" data-gallery={lightboxclass} data-description={caption}>
                             
-                            <Image width="1140" height="642" format="WebP" loading="eager" class="" src={sourceUrl} alt={description}/>
+                            
+                        
+                            <Picture width="1140" height="642"  format="WebP"  src={sourceUrlbig}  alt={description}/>
                         </a>
                     </div>    
 
@@ -136,9 +148,10 @@ if(imageids){
 
                 
                     <div class={imgsizeclasses}>
-                        <a href={sourceUrl} class="glightbox" data-gallery={lightboxclass} data-description={caption}>
-                            
-                            <Image width="173" height="642" format="WebP" loading="eager" class="" src={sourceUrl} alt={description}/>
+                        <a href={sourceUrlbig} class="glightbox" data-gallery={lightboxclass} data-description={caption} >
+                            <span class="max-h-[115px] flex justify-center block relative overflow-hidden">
+                                <Picture width="257" height="145"  format="WebP"  src={sourceUrlbig}  alt={description} class="max-h-auto"/>
+                            </span>
                         </a>
                     </div>    
 

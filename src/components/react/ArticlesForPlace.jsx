@@ -8,7 +8,7 @@ import usericon from "../../images/user.svg";
 
 export default function ArticlesForTag(placeid) {
 	var params = {
-        place: placeid
+        placeid: placeid
     };
 	
  

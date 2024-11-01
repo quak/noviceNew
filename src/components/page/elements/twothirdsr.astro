@@ -66,10 +66,11 @@ if(title.length<55){
             <div class="overflow-hidden relative ">
                 <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103"  src={imgsrc} loading={llstyle} alt={excerpt} />
             </div>
-            
-            <div class="absolute top-0 left-0 block ">
-                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 top-0 text-nowrap ease-out duration-300 transition-all opacity-100 hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
-                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute left-0 top-0 text-nowrap ${placeclass}`}>{placeat}</span>
+          
+
+            <div class="absolute top-0 left-0block group">
+                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute top-0 left-0 text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                <span class={`block uppercase px-2 bg-klopinj-blue text-white tracking-widels text-sm absolute top-0 left-0 text-nowrap ease-out duration-300 transition-all opacity-0 group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
             </div>
             <div class="absolute p-4 md:px-12 md:py-4 bottom-0">
 

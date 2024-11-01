@@ -15,7 +15,7 @@ const avtordata = await getAvtorBySlug(avtor);
 ---
 
 
-<BaseLayout pageTitle="Projektorisch">
+<BaseLayout pageTitle={avtordata.data.display_name}>
   
     
   <section class="px-1 md:px-4 md:pt-12 pb-24">

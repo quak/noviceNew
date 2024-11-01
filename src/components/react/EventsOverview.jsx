@@ -32,6 +32,7 @@ export default function EventsOverview() {
 		if(data!=undefined){
 			datax = JSON.parse(data);
 			
+			
 			featured = Object.values(datax.featured);
 			days = Object.values(datax.events);
 			
@@ -50,7 +51,7 @@ export default function EventsOverview() {
 	return (		
 		<>
 
-
+		<div>
 	<section className="bg-sele-ivory px-1 md:px-4 py-2 md:py-12">
 		<div className="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 			<div className="flex flex-col w-full">
@@ -201,12 +202,11 @@ export default function EventsOverview() {
 							<div className="basis-full md:basis-5/6 grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-12">
 								{actevents.map(function (event,lll) {
 									let url = '/prireditev/'+event.post_name;
-
 									let imgsrc="";
 									if(!("thumburl" in event) || !event?.thumburl){
 										imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 									}else{
-										imgsrc = event.infos.thumburl;
+										imgsrc = event.thumburl;
 									}
 
 
@@ -264,7 +264,7 @@ export default function EventsOverview() {
 		
 	</section>
 
-			
+	</div>
 
 
 		</>

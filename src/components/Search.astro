@@ -1,8 +1,8 @@
 ---
 
-
+import { Image } from 'astro:assets';
 import { getPostByCategoryBySlug, goSearch } from '../lib/api';
-
+import noviceLogo from "../images/Novice-LOGO-4C.svg";
 
 const {} = Astro.props;
 
@@ -15,7 +15,8 @@ const {} = Astro.props;
 
 		<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width grid grid-cols-3 items-center">
 			<a href="/" class="col-start-2 mx-auto">
-				<img class="h-12 max-h-20" src="/tmpimages/novice_logo.svg" alt="Logo">
+				
+				<Image  class="h-12 max-h-20" format="WebP" src={noviceLogo} alt="Novice logo" loading="eager"/>
 			</a>
 
 			<svg xmlns="http://www.w3.org/2000/svg" id="searchclosebutton" width="32" height="32" fill="currentColor" class="justify-self-end cursor-pointer bi bi-x-lg col-start-3" viewBox="0 0 16 16">

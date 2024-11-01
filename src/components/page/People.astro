@@ -44,11 +44,10 @@ if(potw === undefined){
 
 
 let congratulations = await getPostsByCategoryId(1442,parseInt(num_of_slider_elements_congrats));
-//console.log(congratulations)
+
 if(congratulations === undefined){
 	congratulations = new Array();
 }
-//console.log(congratulations)
 
 let deaths = await getPostsByCategoryId(1651,3);//API
 if(deaths === undefined){

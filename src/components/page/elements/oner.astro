@@ -3,6 +3,7 @@
 const {article, style, shouldll} = Astro.props;
 import { Image } from 'astro:assets';
 import { Picture } from 'astro:assets';
+import { array } from 'astro:schema';
 
 
 var llstyle = "lazy";
@@ -13,13 +14,13 @@ let url = '/'+article?.cat?.category_nicename+'/'+article.post_name;
 
 let d = new Date(article?.post_modified);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
-
+console.log(article);
 let avtor = article.author;
-
+console.log(avtor);
 if(avtor == ""){
     avtor="novice";
 }
-avtor="novice";
+
 
 let place = ""
 let placeat = ""

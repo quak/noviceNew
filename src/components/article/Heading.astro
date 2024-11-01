@@ -1,13 +1,22 @@
 ---
 
 
+import { callSafely } from 'astro:actions';
 import * as use from '../index.js';
 
 const {block} = Astro.props;
 
 const parsedJSON = JSON.parse(block.attributesJSON);
-const content = parsedJSON.content;
+const htmlorg = block.originalContent;
+
+
+
+   let content = htmlorg.replace(/<[^>]*>?/gm, '');
+
+
 const level = parsedJSON.level;
+console.log(level);
+console.log(block);
 
 const dc = parsedJSON.content;
 ---

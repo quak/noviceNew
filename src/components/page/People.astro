@@ -10,6 +10,7 @@ import { getPotw } from '../../lib/persons';
 
 import Quarter from './elements/quarterr.astro'
 import Third from './elements/thirdr.astro'
+import { array } from "astro:schema";
 
 const {block} = Astro.props;
 
@@ -43,10 +44,11 @@ if(potw === undefined){
 
 
 let congratulations = await getPostsByCategoryId(1442,parseInt(num_of_slider_elements_congrats));
+//console.log(congratulations)
 if(congratulations === undefined){
 	congratulations = new Array();
 }
-
+//console.log(congratulations)
 
 let deaths = await getPostsByCategoryId(1651,3);//API
 if(deaths === undefined){

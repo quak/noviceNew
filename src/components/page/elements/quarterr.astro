@@ -179,15 +179,20 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
 
 			<a href={url} class="col-span-1 row-start-2 swiper-slide  overflow-hidden" >
 				<article class="p-3 bg-sneg-white h-full flex flex-col justify-center border border-black">
-					<div class="flex flex-wrap gap-2 justify-center mb-4">
-						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">{article?.node?.place?.place}</span>
-					</div>
+					
+                    <div class=" block ">
+                        <div class="group relative block h-3.5 mb-1" >
+                            <span class={`block uppercase text-klopinj-blue tracking-widels text-sm absolute left-0 bottom-0 text-nowrap ease-out duration-300 transition-all opacity-100 group-hover:opacity-0 z-10 ${placeclass}`}>{place}</span>
+                            <span class={`block uppercase text-klopinj-blue tracking-widels text-sm absolute left-0 bottom-0 text-nowrap opacity-0 duration-300 transition-all group-hover:opacity-100 ${placeclass}`}>{placeat}</span>
+                        </div>
+                    </div>
+					
                     
-					<img class="ease-out duration-4000 transition-all hover:scale-103"   src={article?.node?.featuredImage?.node?.sourceUrl} srcset={article?.node?.featuredImage?.node?.srcSet}  loading={llstyle} alt={article?.node?.title}/>
+                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc} loading={llstyle} alt={excerpt} />
 		
 					<div class="py-2 flex flex-col justify-center">
 						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
-                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center leading-novice "><Fragment set:html={article.node.title}/></h2>
+                        <h2 class="mt-2 text-xl sm:text-2xl  line-clamp-2 text-center leading-novice "><Fragment set:html={article.post_title}/></h2>
 						<img class=" text-center h-8 mt-4" src="/tmpimages/svgs/zoom.svg" alt="Lupa z plusom - dekoracija" role="presentation"/>			
 					</div>
 				

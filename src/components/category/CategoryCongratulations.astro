@@ -2,7 +2,13 @@
 import { getPostByCategoryBySlug } from '../../lib/api';
 import { Debug } from 'astro:components';
 import { getPostByCategoryById } from '../../lib/api';
-import Quarter from '../page/elements/quarter.astro'
+
+//import Quarter from '../page/elements/quarter.astro'
+
+
+import { getPostsByCategoryId } from '../../lib/article';
+
+import Quarter from '../page/elements/quarterr.astro'
 
 const {block} = Astro.props;
 
@@ -13,10 +19,12 @@ if (num_of_slider_elements_congrats === undefined){
 	num_of_slider_elements_congrats = '8';
 }
 
-let congratulations = await getPostByCategoryById(["1442"],parseInt(num_of_slider_elements_congrats));
+let congratulations = await getPostsByCategoryId(1442,parseInt(num_of_slider_elements_congrats));
+//console.log(congratulations)
 if(congratulations === undefined){
 	congratulations = new Array();
 }
+console.log(congratulations);
 
 ---
 
@@ -44,7 +52,7 @@ if(congratulations === undefined){
 		<div class="swiper-wrapper">
 
 			{congratulations.map(function (article,k) {
-				
+
 					return (
 						<Quarter article={article} style="congratulations2" isslider={true} bg={true}/>
 					);

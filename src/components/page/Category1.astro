@@ -12,12 +12,15 @@ const {block} = Astro.props;
 const blckjsn = JSON.parse(block.attributesJSON);
 
 let datacatid = blckjsn?.data?.blockcategory;
+let title = blckjsn?.data?.title;
+
 
 if (datacatid === undefined){
 	datacatid = '["6"]';
-}
+} 
+	;
 
-let articles = await getPostsByCategoryId(6,9);
+let articles = await getPostsByCategoryId(datacatid[0],9);
 
 let articles1= new Array();
 let articles2= new Array();
@@ -35,7 +38,7 @@ if(articles === undefined){
 <section class="bg-sele-ivory px-1 md:px-4 py-8 md:py-24">
 	<div class="mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		
-		<h2 class="col-span-2 font-light text-5xl text-klopinj-blue mb-2 uppercase text-center">Kultura</h2>
+		<h2 class="col-span-2 font-light text-5xl text-klopinj-blue mb-2 uppercase text-center">{title}</h2>
 	</div>
 	<div class="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:grid-flow-row  gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		{articles1.map(function (article,k) {

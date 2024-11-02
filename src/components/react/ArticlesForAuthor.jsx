@@ -28,7 +28,7 @@ export default function ArticlesForAuthor(avtorslug) {
     } catch (e) {
 		datax =  ""
     }	
-	console.log(datax);
+	
 		
 	if(isLoading) return "";
 	if(error) return "err";

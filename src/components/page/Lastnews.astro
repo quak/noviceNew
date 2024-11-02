@@ -12,11 +12,13 @@ let articles = await getLastArticles();
 
 let articles1= new Array();
 let articles2= new Array();
+let articles3= new Array();
 if(articles === undefined){
 	articles = new Array();
 }else{
 	articles1 = articles.slice(0, 3);
 	articles2 = articles.slice(3, 6);	
+	articles3 = articles.slice(6, 9);	
 }
 
 
@@ -44,6 +46,20 @@ if(articles === undefined){
 	<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-flow-row  mt-4 gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		
 		{articles2.map(function (article,k) {
+					
+			
+			return (
+				<ThirdR article={article} style="normal" isslider="false" showdescription="false"/>
+			);
+			
+		
+		})}
+		
+		
+	</div>
+	<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-flow-row  mt-4 gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
+		
+		{articles3.map(function (article,k) {
 					
 			
 			return (

@@ -35,7 +35,7 @@ export default function EventsOverview() {
 			
 			featured = Object.values(datax.featured);
 			days = Object.values(datax.events);
-			
+			console.log(featured)
 		}
     } catch (e) {
 		datax =  JSON.parse(data);;
@@ -121,13 +121,14 @@ export default function EventsOverview() {
 					{featured.map(function (event,l) {
 
 						let imgsrc="";
-						if(!("thumburl" in event) || event?.thumburl===false){
+						if(("thumburl" in event) || event?.thumburl===false){
 							imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 						}else{
 							imgsrc = event.infos.thumburl;
 						}
 
 						let url = '/prireditev/'+event.infos.post_name;
+						let content = event.infos2;
 						
 					
 						return(		
@@ -164,6 +165,18 @@ export default function EventsOverview() {
 										<span className="mb-4 block">
 											<p className="font-bold text-2xl uppercase  text-black">{event.infos.city}</p>
 											<p className="text-xl  text-black">{event.infos.venue}</p>
+										</span>
+									</div>
+								</div>
+								<div className="flex flex-row gap-6">
+									<div className="basis-1/5 flex">
+										<div className="w-20 hidden">
+										</div>
+									</div>
+									<div className="basis-4/5">
+										<span className="mb-4 block"> 
+											<p className=" text-2xl ml-2 text-black">{content}</p>
+											
 										</span>
 									</div>
 								</div>
@@ -208,7 +221,8 @@ export default function EventsOverview() {
 									}else{
 										imgsrc = event.thumburl;
 									}
-
+									
+									
 
 									return (
 										<>
@@ -247,6 +261,7 @@ export default function EventsOverview() {
 														</span>
 													</div>
 												</div>
+												
 											</div>
 										</a>
 

@@ -10,7 +10,7 @@ const blckjsn = JSON.parse(block.attributesJSON);
 
 let num_of_slider_elements_deaths = blckjsn?.data?.num_of_slider_elements_deaths;
 if (num_of_slider_elements_deaths === undefined){
-	num_of_slider_elements_deaths = '3';
+	num_of_slider_elements_deaths = '6';
 }
 
 let deaths = await getPostsByCategoryId(1651,parseInt(num_of_slider_elements_deaths));

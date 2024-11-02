@@ -3,7 +3,7 @@ import { createAnimationScope } from 'astro:transitions';
 import { getImageForId } from '../../lib/image';
 import { Debug } from 'astro:components';
 
-const {block,articles,catname} = Astro.props;
+const {block,articles,catname,generelcat} = Astro.props;
 const blckjsn = JSON.parse(block.attributesJSON);
 
 
@@ -41,8 +41,13 @@ articles.forEach ((article, index) => {
 
 const lefttags = cattags.slice(0, 4);
 const righttags = cattags.slice(4, 8);
+var cattitle;
 
-
+if(!generelcat){
+	cattitle = blckjsn.data.chtitle;
+}else{
+	cattitle = catname;
+}
 
 ---
 
@@ -52,9 +57,9 @@ const righttags = cattags.slice(4, 8);
 		<div class="flex flex-col w-full">
 			<div class="flex items-center justify-center gap-2 sm:gap-8">
 				<img class="h-16 sm:h-32" src={imgurl}/>
-				<h1 class="text-center uppercase text-4xl text-klopinj-blue font-light md:text-6xl lg:text-8xl">{catname}</h1>
+				<h1 class="text-center uppercase text-4xl text-klopinj-blue font-light md:text-6xl lg:text-8xl">{cattitle}</h1>
 			</div>
-			<div class="text-center">
+			<div class="text-center hidden">
 				<p class="uppercase tracking-widedate text-lg md:text-2xl my-4">{blckjsn.data.subtitle}</p>
 			</div>
 			<div class=" flex justify-center gap-4 ">

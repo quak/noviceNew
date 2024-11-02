@@ -63,7 +63,7 @@ let imgsrc="";
 if(!("thumbquater" in article) || article?.thumbfull===false){
     imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_third.jpg';
 }else{
-    imgsrc = article?.thumbquater;
+    imgsrc = article?.thumbthird;
 }
 
 ---
@@ -162,7 +162,7 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
 						<span class="uppercase px-2 bg-klopinj-blue text-white text-lg  tracking-widels">{article?.node?.place?.place}</span>
 					</div>
 
-                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc} loading={llstyle} alt={excerpt} />
+                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 w-full" src={imgsrc} loading={llstyle} alt={excerpt} />
 		
 					<div class="py-2 flex flex-col justify-center">
 						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>
@@ -188,7 +188,7 @@ if(!("thumbquater" in article) || article?.thumbfull===false){
                     </div>
 					
                     
-                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc} loading={llstyle} alt={excerpt} />
+                    <Image inferSize format="WebP" class="ease-out duration-4000 transition-all hover:scale-103 w-full" src={imgsrc} loading={llstyle} alt={excerpt} />
 		
 					<div class="py-2 flex flex-col justify-center">
 						<span class=" text-2xl font-bold inline-block mt-2 mb-1 text-center text-papez-purple">{personname}</span>

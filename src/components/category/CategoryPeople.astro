@@ -24,7 +24,7 @@ const blckjsn = JSON.parse(block.attributesJSON);
 /* Filter following articles for this block*/
 const blockarticles = articles.slice(counter-1, counter);
 
-let potw = await getPotw();//Person of the week
+//let potw = await getPotw();//Person of the week
 
 
 ---
@@ -34,9 +34,9 @@ let potw = await getPotw();//Person of the week
 	<div class="grid grid-cols-6 grid-flow-row md:grid-flow-col gap-4 mx-auto lg:max-w-screen-lg max-w-7xl 2xl:max-w-nov-width">
 		
 
-		{potw.map(function (article,k) {
+		{blockarticles.map(function (article,k) {
 			
-			let url = '/osebe/'+article.post.post_name;
+			let url = '/osebe/'+article.post_name;
 			
 			let personname =" ";
 				if(article?.acf?.name!=null){
@@ -59,7 +59,7 @@ let potw = await getPotw();//Person of the week
 			
 						<article class="relative">
 							<div class="overflow-hidden">
-								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc}  loading="lazy" alt={article?.post?.post_title}/>
+								<Picture width="733" height="413" class="ease-out duration-4000 transition-all hover:scale-103" src={imgsrc}  loading="lazy" alt={article?.post_title}/>
 								
 							</div>
 							<div class="absolute p-4 bottom-0 z-20 ">
@@ -68,7 +68,7 @@ let potw = await getPotw();//Person of the week
 								<span class="z-20 relative">
 									<span class="bg-papez-purple text-gmajnsko-brown uppercase px-4 text-lg mb-2 inline-block">obraz tedna</span><span class="bg-sele-ivory uppercase px-4  text-lg mb-2 inline-block">{personname}</span>
 								
-									<h2 class="text-sele-ivory text-2xl sm:text-4xl leading-novice z-20 relative"><Fragment set:html={article.post.post_title}/></h2>
+									<h2 class="text-sele-ivory text-2xl sm:text-4xl leading-novice z-20 relative"><Fragment set:html={article.post_title}/></h2>
 								
 								</span>
 								<div class="hidden sm:block z-10" style="position: absolute; top:0;left:0; width:100%;height:100%;background:linear-gradient(to top, rgba(0,0,0,0.5), transparent);"></div>

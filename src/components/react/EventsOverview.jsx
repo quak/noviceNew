@@ -35,7 +35,7 @@ export default function EventsOverview() {
 			
 			featured = Object.values(datax.featured);
 			days = Object.values(datax.events);
-			console.log(featured)
+			
 		}
     } catch (e) {
 		datax =  JSON.parse(data);;

@@ -33,9 +33,13 @@ Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=300, st
 
 
 const { catname } = Astro.params;
+console.log("asdasd");
+console.log(catname);
 
-const page = await getPageBySlugAlt(catname);
-
+var page = await getPageBySlugAlt(catname);
+if(page==null){
+	page = await getPageBySlugAlt("kultura");
+}
 const blocks = page?.blocks;//page.blocks;
 
 
@@ -63,7 +67,7 @@ let imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_full.jpg';
 				case 'acf/header': {
 					
 					return (
-						<Categoryheader block={block} articles={articles}/>
+						<Categoryheader block={block} articles={articles} catname={catname}/>
 					);
 				}
 

@@ -99,12 +99,12 @@ export default function QuadReload(args) {
 
 											<div className="flex flex-col sm:flex-row justify-end sm:justify-between flex-1 gap-1 sm:gap-4 mt-2 hidden">
 												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
-													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" class=""/>
+													<img src="/tmpimages/svgs/bookmark.svg" loading={llstyle} alt="Date icon" className=""/>
 													{article.actdate}
 												</span>
 
 												<span className="uppercase flex flex-row items-center text-klopinj-blue tracking-widels text-xs sm:text-md">
-													<img class=" max-h-4 mr-2" src="/tmpimages/svgs/user.svg" alt="Avtor icon" loading={llstyle}/>
+													<img className=" max-h-4 mr-2" src="/tmpimages/svgs/user.svg" alt="Avtor icon" loading={llstyle}/>
 													{article.author}
 												</span>
 											</div>

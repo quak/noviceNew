@@ -25,7 +25,7 @@ import Contact from '../components/page/Contact.astro';
 import Orderform from '../components/page/Orderform.astro';
 import { Debug } from 'astro:components';
 
-import { getPostsByCategorySlugApi } from '../lib/article';
+import { getShortlink } from '../lib/article';
 
 
 Astro.response.headers.set("Cache-Control", "public, max-age=180");
@@ -33,7 +33,15 @@ Astro.response.headers.set('Vercel-CDN-Cache-Control', 'public, s-maxage=300, st
 
 
 const { speciallink } = Astro.params;
-return Astro.redirect("/kategorije/kultura", 301);
+
+const shortlink = await getShortlink(speciallink);
+
+if(shortlink!=false){
+    return Astro.redirect(shortlink.url, 301);
+}else{
+    return Astro.redirect("/", 301);
+}
+
 
 
 ---

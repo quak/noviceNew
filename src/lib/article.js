@@ -2,6 +2,32 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+export async function getShortlink(short) {
+        
+  var params = {
+      short: short
+  };
+
+  const response = await fetch("https://sfsn.si/wp-json/nre/v1/getshortlink/",
+  {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      'Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+      'CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+    },
+    body: JSON.stringify(params)
+  });
+
+
+  const result = await response.json();
+  
+  
+  return result;
+}
+
 export async function getLocBySlug(slug) {
         
   var params = {

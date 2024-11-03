@@ -24,8 +24,8 @@ export async function getShortlink(short) {
 
   const result = await response.json();
   
-  
-  return article;
+   
+  return result;
 }
 
 export async function getLocBySlug(slug) {

@@ -8,7 +8,7 @@ export async function getShortlink(short) {
       short: short
   };
 
-  const response = await fetch("https://sfsn.si/wp-json/nre/v1/getshortlink/",
+  const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getshortlink/",
   {
     method: 'POST',
     headers: {
@@ -34,7 +34,7 @@ export async function getLocBySlug(slug) {
       slug: slug
   };
 
-  const response = await fetch("https://sfsn.si/wp-json/nre/v1/getlocbyslug/",
+  const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getlocbyslug/",
   {
     method: 'POST',
     headers: {
@@ -60,7 +60,7 @@ export async function getArticleBySlugAPI(slug) {
         articleslug: slug
     };
 
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getarticlebyslug/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getarticlebyslug/",
     {
       method: 'POST',
       headers: {
@@ -89,7 +89,7 @@ export async function getArticleBySlugAPI(slug) {
     var params = {
     };
                                   
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getlastarticles2/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getlastarticles2/",
     {
       method: 'GET',
       headers: {
@@ -113,7 +113,7 @@ export async function getArticleBySlugAPI(slug) {
       category:category
     };
                    
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getrelatedarticles/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getrelatedarticles/",
     {
       method: 'POST',
       headers: {
@@ -139,7 +139,7 @@ export async function getArticleBySlugAPI(slug) {
     var params = {
     };
 
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getstrips/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getstrips/",
     {
       method: 'GET',
       headers: {
@@ -166,7 +166,7 @@ export async function getArticleBySlugAPI(slug) {
       count: count
     };
                    
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getpostsbycategoryid/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getpostsbycategoryid/",
     {
       method: 'POST',
       headers: {
@@ -192,7 +192,7 @@ export async function getArticleBySlugAPI(slug) {
       catid: catid,
     };
                    
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getcatslugbyid/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getcatslugbyid/",
     {
       method: 'POST',
       headers: {
@@ -220,7 +220,7 @@ export async function getArticleBySlugAPI(slug) {
       count: count
     };
                    
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getpostsbycategoryslugapi/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getpostsbycategoryslugapi/",
     {
       method: 'POST',
       headers: {

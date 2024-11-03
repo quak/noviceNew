@@ -819,7 +819,7 @@ export async function goSearch(searchterm) {
         ids: ids
     };
   
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getimagesbyidsapi/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getimagesbyidsapi/",
     {
       method: 'POST',
       headers: {

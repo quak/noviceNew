@@ -9,7 +9,7 @@ export async function getNameForPostId(slug) {
         tag: slug
     };
 
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getnameforpostid/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getnameforpostid/",
     {
       method: 'POST',
       headers: {

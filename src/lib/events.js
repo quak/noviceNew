@@ -12,7 +12,7 @@ export async function getEventBySlug(slug) {
         slug: slug
     };
 
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/events/geteventbyslug/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/events/geteventbyslug/",
     {
       method: 'POST',
       headers: {
@@ -38,7 +38,7 @@ export async function getEventBySlug(slug) {
         slug: searchparam
     };
 
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/events/overview/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/events/overview/",
     {
       method: 'POST',
       headers: {

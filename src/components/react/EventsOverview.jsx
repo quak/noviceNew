@@ -20,7 +20,7 @@ export default function EventsOverview() {
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(params)
 	  };
-	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/overview/",requestOptions);
+	const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/events/overview/",requestOptions);
 
 	let datax = "";
 	let featured = "";

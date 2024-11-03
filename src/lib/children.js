@@ -5,7 +5,7 @@ dotenv.config();
 
 export async function getChildren() {
                                    
-    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getotroci/",
+    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getotroci/",
     {
       method: 'GET',
       headers: {

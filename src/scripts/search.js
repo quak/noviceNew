@@ -187,7 +187,7 @@ async function getData(searchterm) {
 }
 
 async function getDataG(searchterm){
-    const response = await fetch("https://sfsn.si/graphql",
+    const response = await fetch("https://splet.novice.at/graphql",
             {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},

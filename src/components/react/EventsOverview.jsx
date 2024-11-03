@@ -122,7 +122,7 @@ export default function EventsOverview() {
 
 						let imgsrc="";
 						if(("thumburl" in event) || event?.thumburl===false){
-							imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+							imgsrc = 'https://splet.novice.at/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 						}else{
 							imgsrc = event.infos.thumburl;
 						}
@@ -217,7 +217,7 @@ export default function EventsOverview() {
 									let url = '/prireditev/'+event.post_name;
 									let imgsrc="";
 									if(!("thumburl" in event) || !event?.thumburl){
-										imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+										imgsrc = 'https://splet.novice.at/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 									}else{
 										imgsrc = event.thumburl;
 									}

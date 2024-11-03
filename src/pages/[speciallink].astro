@@ -37,7 +37,10 @@ const { speciallink } = Astro.params;
 const shortlink = await getShortlink(speciallink);
 
 if(shortlink!=false){
-    return Astro.redirect(shortlink.url, 301);
+    console.log(shortlink);
+    var url = (shortlink.url).replace("https://www.novice.at","")
+    console.log(url);
+    return Astro.redirect(url, 301);
 }else{
     return Astro.redirect("/", 301);
 }

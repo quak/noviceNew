@@ -21,14 +21,14 @@ const address = event.county+","+event.city+","+event.address;
 const gcallink = "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+event.post_title+"&details="+event.excerpt+"&dates="+event.gcaltime+"&location="+address;
 const icallink = "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+event.post_title+"&details="+event.excerpt+"&dates="+event.gcaltime+"&location="+address;
 
-let implodedorganizernamess = event.implodedorganizernamess.join(", ");
+let implodedorganizernamess = event?.implodedorganizernamess?.join(", ");
 let ion = false;
 let wlp = false;
-if(event.implodedorganizernamess.length !== 0){
+if(event?.implodedorganizernamess?.length !== 0){
 	ion = true;
 }
 
-if(event.weblinkparsed.host === ""){
+if(event?.weblinkparsed?.host === ""){
 	wlp = true;
 }
 
@@ -116,7 +116,7 @@ if(!event.featuredimage){
 						<span class="uppercase text-lg tracking-widedate text-klopinj-blue font-light">Prireditelj</span>
 						<p class="flex items-center gap-4">
 							<img class="hidden sm:block" src="/tmpimages/svgs/link.svg">
-							<a href="/" class="text-xl sm:text-3xl px-8 py-2 bg-white rounded-2xl tracking-widerls">{ event.implodedorganizernamess.join(", ")}</a>
+							<a href="/" class="text-xl sm:text-3xl px-8 py-2 bg-white rounded-2xl tracking-widerls">{ event?.implodedorganizernamess?.join(", ")}</a>
 						</p>
 					</div>
 				}

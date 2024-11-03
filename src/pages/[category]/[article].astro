@@ -44,13 +44,16 @@ export async function getStaticPaths() {
 const { category,article } = Astro.params;
 
 const arti = await getArticleBySlug(article);
-
+if(arti==null){
+  return Astro.redirect("/", 404);
+}
 let d = new Date(arti?.date);
 let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear();
 
 
 
 let description = "";
+console.log(arti);
 if(arti?.leadingForAllPosts?.leading!=null){
   description= arti.leadingForAllPosts.leading;
 }else{

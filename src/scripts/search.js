@@ -98,6 +98,7 @@ async function getData(searchterm) {
 
 
         {dataevent.map(function (article,k) {
+            console.log(article);
             loca = ""; 
             if(article?.city){
                 loca = article.city;

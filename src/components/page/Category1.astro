@@ -4,12 +4,13 @@
 import Half from './elements/halfr.astro'
 import Quarter from './elements/quarterr.astro'
 
-import { getPostsByCategoryId } from '../../lib/article';
+import { getPostsByCategoryId,getCatSlugById } from '../../lib/article';
 
 
 const {block} = Astro.props;
 
 const blckjsn = JSON.parse(block.attributesJSON);
+
 
 let datacatid = blckjsn?.data?.blockcategory;
 let title = blckjsn?.data?.title;
@@ -18,9 +19,10 @@ let title = blckjsn?.data?.title;
 if (datacatid === undefined){
 	datacatid = '["6"]';
 } 
-	;
+	
 
 let articles = await getPostsByCategoryId(datacatid[0],9);
+let catslug = await getCatSlugById(datacatid[0]);
 
 let articles1= new Array();
 let articles2= new Array();
@@ -72,11 +74,11 @@ if(articles === undefined){
 		
 		
 	</div>
-	<div>
+	<div class="mx-auto max-w-md ">
 		<span class="mr-2 sm:ml-2" data-astro-source-file="/Users/augustinmalle/Desktop/noviceNew/src/components/Header.astro"> 
-			<a href="#" class="flex items-center px-4 border-2 border-papez-purple"  > 
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#72103c" class="bi bi-search mr-2" viewBox="0 0 16 16"></path> </svg> 
-				<span class="text-papez-purple uppercase  text-base md:text-xl cursor-pointer tracking-widels" >
+			<a href={`/kategorije/${catslug}`} class=" w-24 mx-auto flex items-center justify-center bg-klopinj-blue h-7 sm:h-8 block text-sele-ivory uppercase py-1 px-1 sm:px-4 text-sm tracking-widels leading-nbutton"  > 
+				
+				<span class="text-white uppercase  text-base  cursor-pointer tracking-widels" >
 					Več
 				</span> 
 			</a> 

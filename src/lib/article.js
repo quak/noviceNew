@@ -14,9 +14,9 @@ export async function getShortlink(short) {
     headers: {
       "Content-Type": "application/json",
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+      'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+      'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
     },
     body: JSON.stringify(params)
   });
@@ -25,7 +25,7 @@ export async function getShortlink(short) {
   const result = await response.json();
   
   
-  return result;
+  return article;
 }
 
 export async function getLocBySlug(slug) {
@@ -40,9 +40,9 @@ export async function getLocBySlug(slug) {
     headers: {
       "Content-Type": "application/json",
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
-      'Vercel-CDN-Cache-Control': 'public, s-maxage=10800,stale-while-revalidate=59',
+        'Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=300,stale-while-revalidate=2678400',
     },
     body: JSON.stringify(params)
   });

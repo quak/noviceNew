@@ -9,7 +9,7 @@ export async function getArticlesWithTag(slug) {
         tag: slug
     };
 
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getarticleswithtag/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getarticleswithtag/",
     {
       method: 'POST',
       headers: {

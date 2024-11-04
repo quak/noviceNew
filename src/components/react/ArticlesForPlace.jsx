@@ -20,8 +20,8 @@ export default function ArticlesForTag(placeid) {
 	  };
 
 	  //cache: 1000 * 60 * 5,
-	const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/getarticleswithplace",requestOptions);
-	//const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/eventsforauthor",requestOptions);
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/getarticleswithplace",requestOptions);
+	//const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/eventsforauthor",requestOptions);
 	
 	let datax = "";
 	let featured = "";

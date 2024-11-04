@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 export async function getAllSlugsOfCategories(){
       
-  const response = await fetch("https://splet.novice.at/graphql",
+  const response = await fetch("https://sfsn.si/graphql",
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -27,7 +27,7 @@ export async function getAllSlugsOfCategories(){
 
 export async function getAllSlugsOfPages(){
       
-  const response = await fetch("https://splet.novice.at/graphql",
+  const response = await fetch("https://sfsn.si/graphql",
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -63,7 +63,7 @@ export async function getAllSlugsOfPages(){
 
 export async function getAllSlugsOfPosts(){
       
-  const response = await fetch("https://splet.novice.at/graphql",
+  const response = await fetch("https://sfsn.si/graphql",
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -104,7 +104,7 @@ export async function getAllSlugsOfPosts(){
 
 export async function getArticleBySlug(slug) {  
    
-  const response = await fetch("https://splet.novice.at/graphql",
+  const response = await fetch("https://sfsn.si/graphql",
   {
     method: 'POST',
     headers: {
@@ -168,7 +168,7 @@ export async function getArticleBySlug(slug) {
 
 export async function goSearch(searchterm) {
    
-  const response = await fetch("https://splet.novice.at/graphql",
+  const response = await fetch("https://sfsn.si/graphql",
   {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -218,7 +218,7 @@ export async function goSearch(searchterm) {
 
   export async function getAllPagesWithSlugsAlt(){
     
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -244,7 +244,7 @@ export async function goSearch(searchterm) {
 
   export async function getPageBySlugAlt(slug) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {
@@ -277,7 +277,7 @@ export async function goSearch(searchterm) {
 
   export async function getMenu(slug) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -317,7 +317,7 @@ export async function goSearch(searchterm) {
 
   export async function getAllCategories(){
     
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -341,7 +341,7 @@ export async function goSearch(searchterm) {
 
   export async function getCategoryBySlug(slug) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json',
@@ -367,7 +367,7 @@ export async function goSearch(searchterm) {
    
     //posts(where: {categoryName: "kultura"}) {
     //post(id: "${slug}", idType: SLUG) {
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json',
@@ -437,7 +437,7 @@ export async function goSearch(searchterm) {
 
   export async function getPostByCategoryBySlugWithOffset(slug,count,offset) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json',
@@ -510,7 +510,7 @@ export async function goSearch(searchterm) {
    
     //posts(where: {categoryName: "kultura"}) {
     //post(id: "${slug}", idType: SLUG) {
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -575,7 +575,7 @@ export async function goSearch(searchterm) {
 
   export async function getDeaths(slug,count) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {
@@ -639,7 +639,7 @@ export async function goSearch(searchterm) {
 
   export async function getOpinionPosts(slug,count) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {
@@ -700,7 +700,7 @@ export async function goSearch(searchterm) {
 
   export async function getImageByIds(ids) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {
@@ -737,7 +737,7 @@ export async function goSearch(searchterm) {
 //
   export async function getImagesByIds(ids) {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -777,7 +777,7 @@ export async function goSearch(searchterm) {
 
   export async function getMenus() {
    
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
     {
       method: 'POST',
       headers: {
@@ -819,7 +819,7 @@ export async function goSearch(searchterm) {
         ids: ids
     };
   
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getimagesbyidsapi/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getimagesbyidsapi/",
     {
       method: 'POST',
       headers: {

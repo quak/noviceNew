@@ -20,7 +20,7 @@ export default function EventsOverview() {
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(params)
 	  };
-	const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/events/overview/",requestOptions);
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/overview/",requestOptions);
 
 	let datax = "";
 	let featured = "";
@@ -122,7 +122,7 @@ export default function EventsOverview() {
 
 						let imgsrc="";
 						if(("thumburl" in event) || event?.thumburl===false){
-							imgsrc = 'https://splet.novice.at/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+							imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 						}else{
 							imgsrc = event.infos.thumburl;
 						}
@@ -217,7 +217,7 @@ export default function EventsOverview() {
 									let url = '/prireditev/'+event.post_name;
 									let imgsrc="";
 									if(!("thumburl" in event) || !event?.thumburl){
-										imgsrc = 'https://splet.novice.at/wp-content/themes/novice/dummies/nd_twothirds.jpg';
+										imgsrc = 'https://sfsn.si/wp-content/themes/novice/dummies/nd_twothirds.jpg';
 									}else{
 										imgsrc = event.thumburl;
 									}

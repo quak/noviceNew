@@ -82,7 +82,7 @@ async function getData(searchterm) {
 
     try {
 
-        //let response = await fetch("https://splet.novice.at/wp-json/wp/v2/search/?search="+searchterm);
+        //let response = await fetch("https://sfsn.si/wp-json/wp/v2/search/?search="+searchterm);
         //let data = await response.json();
 
         const dataevent = await fetchEventsForSearch(searchterm);
@@ -187,7 +187,7 @@ async function getData(searchterm) {
 }
 
 async function getDataG(searchterm){
-    const response = await fetch("https://splet.novice.at/graphql",
+    const response = await fetch("https://sfsn.si/graphql",
             {
                 method: 'POST',
                 headers: {'Content-Type':'application/json'},
@@ -248,7 +248,7 @@ async function fetchEventsForSearch(searchterm) {
     var data;
          
     try {
-        const response = await fetch("https://splet.novice.at/wp-json/nre/v1/eventssearch/",requestOptions);
+        const response = await fetch("https://sfsn.si/wp-json/nre/v1/eventssearch/",requestOptions);
         data = await response.json();
         
         
@@ -274,7 +274,7 @@ async function fetchPostsForSearch(searchterm) {
     var data;
          
     try {
-        const response = await fetch("https://splet.novice.at/wp-json/nre/v1/postssearch/",requestOptions);
+        const response = await fetch("https://sfsn.si/wp-json/nre/v1/postssearch/",requestOptions);
         data = await response.json();
         
         

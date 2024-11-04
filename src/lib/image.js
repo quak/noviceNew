@@ -12,7 +12,7 @@ export async function getImageForId(id) {
         id: id
     };
 
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getImageForId/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getImageForId/",
     {
       method: 'POST',
       headers: {

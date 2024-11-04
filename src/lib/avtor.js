@@ -9,7 +9,7 @@ export async function getAvtorBySlug(slug) {
         avtorslug: slug
     };
 
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getavtor/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getavtor/",
     {
       method: 'POST',
       headers: {
@@ -33,7 +33,7 @@ export async function getAvtors() {
     var params = {
     };
 
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getavtors/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getavtors/",
     {
       method: 'POST',
       headers: {
@@ -57,7 +57,7 @@ export async function getAvtors() {
     var params = {
     };
 
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getavtorsff/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getavtorsff/",
     {
       method: 'POST',
       headers: {

@@ -12,7 +12,7 @@ export default function ArticlesForAuthor(avtorslug) {
 	  };
 
 	  //cache: 1000 * 60 * 5,
-	const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/getpostsforauthor",requestOptions);
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/getpostsforauthor",requestOptions);
 	
 	let datax = "";
 	let featured = "";

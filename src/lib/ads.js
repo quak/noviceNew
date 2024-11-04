@@ -8,7 +8,7 @@ export async function getAds() {
     var params = {
     };
                                   
-    const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getads/",
+    const response = await fetch("https://sfsn.si/wp-json/nre/v1/getads/",
     {
       method: 'GET',
       headers: {

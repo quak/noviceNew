@@ -6,7 +6,7 @@ dotenv.config();
 
 export async function getPotw() {
                                    
-  const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getpotw/",
+  const response = await fetch("https://sfsn.si/wp-json/nre/v1/getpotw/",
   {
     method: 'POST',
     headers: {

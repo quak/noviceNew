@@ -10,10 +10,12 @@ export default function EventsHome() {
 
 	const requestOptions = {
 		method: 'POST',
-		headers: {"Content-Type": "application/json"},
+		headers: {
+			'Content-Type':'application/json'
+		},
 		body: JSON.stringify("")
 	  };
-	const { isLoading, data, error } = useFetch("https://splet.novice.at/wp-json/nre/v1/events/lastev/",requestOptions);
+	const { isLoading, data, error } = useFetch("https://sfsn.si/wp-json/nre/v1/events/lastev/",requestOptions);
 
 	const [pagenum, setPagenum] = useState(0);
 	const [realIndex, setIndex] = useState(0);

@@ -32,8 +32,8 @@ export default function QuadReload(args) {
 		  };    
 		  
 		  	try {
-				//const response = await fetch("https://splet.novice.at/wp-json/wp/v2/posts?categories=6&per_page=4&offset=1&status=publish&page=1",requestOptions);
-				const response = await fetch("https://splet.novice.at/wp-json/nre/v1/getcategoryll/",requestOptions);
+				//const response = await fetch("https://sfsn.si/wp-json/wp/v2/posts?categories=6&per_page=4&offset=1&status=publish&page=1",requestOptions);
+				const response = await fetch("https://sfsn.si/wp-json/nre/v1/getcategoryll/",requestOptions);
 				
 				const data = await response.json();
 				

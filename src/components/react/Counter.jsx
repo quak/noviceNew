@@ -16,7 +16,7 @@ export default function Counter({ children, count: initialCount,articleslug }) {
         
         const dataFetch = async () => {
         
-            const response = await fetch("https://splet.novice.at/graphql",
+            const response = await fetch("https://sfsn.si/graphql",
             {
                 method: 'POST',
                 headers: {

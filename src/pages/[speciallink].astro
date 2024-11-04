@@ -1,29 +1,9 @@
 ---
-import { getPostByCategoryBySlug,getPageBySlugAlt } from '../lib/api';
 
-import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import * as use from '../components/index.js';
-import Switch from '../components/Switch.astro';
-import QuadReload from '../components/react/QuadReload'; 
 
 
 
-import Categoryheader from '../components/category/Categoryheader.astro';
-import CategoryTeaser from '../components/category/CategoryTeaser.astro';
-import CategoryDouble from '../components/category/CategoryDouble.astro';
-import CategoryQuad from '../components/category/CategoryQuad.astro';
-import CategoryTripple from '../components/category/CategoryTripple.astro';
-import CategoryTeam from '../components/category/CategoryTeam.astro';
-import CategoryPeopleTeaser from '../components/category/CategoryPeopleTeaser.astro';
-import CategoryPeopleOpinion from '../components/category/CategoryPeopleOpinion.astro';
-import CategoryCongratulations from '../components/category/CategoryCongratulations.astro';
-import CategoryCondolations from '../components/category/CategoryCondolations.astro';
-import CategoryChildren from '../components/category/CategoryChildren.astro';
-import CategoryInsta from '../components/category/CategoryInsta.astro';
-import Contact from '../components/page/Contact.astro';
-import Orderform from '../components/page/Orderform.astro';
-import { Debug } from 'astro:components';
 
 import { getShortlink } from '../lib/article';
 
@@ -36,8 +16,9 @@ const { speciallink } = Astro.params;
 
 const shortlink = await getShortlink(speciallink);
 
-//const shortlink = false;
-if(shortlink!=false){
+
+if(Array.isArray(shortlink) && !shortlink.length){
+
     var url = (shortlink.url).replace("https://www.novice.at","")
     
     return Astro.redirect(url, 301);
